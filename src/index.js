@@ -5,13 +5,20 @@ import App from './App';
 import store from './app/store';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from "react-router-dom";
+// import { Auth0Provider } from "@auth0/auth0-react";
 // import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
     <Provider store={store}>
-      <App />
+    {/* <Auth0Provider
+    domain="wildfireapp.us.auth0.com"
+    clientId="yxNUB9lAEzvwZnbG9Suf21c3iNpB8MOK"
+    redirectUri={window.location.origin}
+  > */}
+    <App />
+  {/* </Auth0Provider> */}
     </Provider>
     </BrowserRouter>
   </React.StrictMode>,

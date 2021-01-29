@@ -7,33 +7,48 @@ import {
   Route,
   // Link as RouterLink
 } from "react-router-dom";
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import './App.css';
-import Navigation from './components/navigation';
-import Dashboard from './pages/dashboard';
-import Maps from './pages/maps';
-import Updates from './pages/updates';
-import Incidents from './pages/incidents';
+import Navigation from './pages/navigation';
+// import Dashboard from './pages/dashboard';
+// import Maps from './pages/maps';
+// import Updates from './pages/updates';
+// import Incidents from './pages/incidents';
+import routes from './app/routes';
+// import { Auth0Provider } from "@auth0/auth0-react";
+
+const theme = createMuiTheme({
+  palette: {
+     primary: {
+        light: '#F8F8F8',
+        main: '#69717B',
+        dark: '#353A3F'
+     },
+     secondary: {
+       light: '#FFFFFF',
+       main: '#81F0C6',
+       dark: '#058F95'
+     },
+  },
+  typography: { 
+     useNextVariants: true
+  }
+});
+
 
 function App() {
   return (
     <>
+    <MuiThemeProvider theme = { theme }>
     <Router>
       <Navigation/>
       <Switch>
-          <Route path="/dashboard">
-            <Dashboard/>
-          </Route>
-          <Route path="/updates">
-            <Updates />
-          </Route>
-          <Route path="/incidents">
-            <Incidents />
-          </Route>
-          <Route path="/maps">
-            <Maps/>
-          </Route>
+          {
+            routes.map(route => <Route key={route.path} exact path={route.path}>{route.component}</Route>)
+          }
       </Switch>
     </Router>
+    </MuiThemeProvider>
     </>
     // <div className="App">
     //   <header className="App-header">

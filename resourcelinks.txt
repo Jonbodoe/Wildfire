@@ -1,0 +1,3 @@
+Loopback w/ Auth0:
+https://github.com/raymondfeng/loopback4-example-auth0
+
