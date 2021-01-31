@@ -1,40 +1,41 @@
 import React from 'react';
-// import logo from './logo.svg';
-// import { Counter } from './features/counter/Counter';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  // Link as RouterLink
 } from "react-router-dom";
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import './App.css';
-import Navigation from './pages/navigation';
-// import Dashboard from './pages/dashboard';
-// import Maps from './pages/maps';
-// import Updates from './pages/updates';
-// import Incidents from './pages/incidents';
+import Navigation from './components/Navigation';
 import routes from './app/routes';
-// import { Auth0Provider } from "@auth0/auth0-react";
 
 const theme = createMuiTheme({
   palette: {
      primary: {
-        light: '#F8F8F8',
-        main: '#69717B',
-        dark: '#353A3F'
+        lighter: '#9AA5AC',
+        light: '#69717B',
+        main: '#40464B',
+        dark: '#313336'
      },
      secondary: {
-       light: '#FFFFFF',
+       lighter: '#FFFFFF',
+       light: '#F4F4F4',
        main: '#81F0C6',
        dark: '#058F95'
      },
   },
   typography: { 
+     fontFamily: [
+      'Work Sans',
+      'Arial',
+      'sans-serif',
+     ].join(','),
      useNextVariants: true
+  },
+  drawerWidth: {
+    width: '120px'
   }
 });
-
 
 function App() {
   return (

@@ -9,22 +9,39 @@ import MapDetails from '../pages/sub-pages/map-details';
 import Summary from '../pages/sub-pages/summary';
 import UpdateDetails from '../pages/sub-pages/update-details';
 import Weather from '../pages/sub-pages/weather';
-// import Weather from '../pages/sub-pages/weather';
 import Updates from '../pages/updates';
+import HomeIcon from '@material-ui/icons/Home';
+import AnnouncementIcon from '@material-ui/icons/Announcement';
+import AssignmentIcon from '@material-ui/icons/Assignment';
+import MapIcon from '@material-ui/icons/Map';
+import AreaCharts from '../pages/areacharts';
+import AssessmentIcon from '@material-ui/icons/Assessment';
 
 const routes = [
     {
         path: '/',
         label: 'Login',
         uid: 'LOGIN',
+        component: <Login fontSize='large'/>,
+        menu: 'SECONDARY',
         private_url: false,
-        component: <Login/>,
+        subPages: false
+    },
+    {
+        path:'/profile',
+        label: 'Profile',
+        uid: 'PROFILE',
+        private_url: true,
+        component: <Profile fontSize='large'/>,
+        menu: 'SECONDARY',
         subPages: false
     },
     {
         path: '/dashboard',
         label: 'Dashboard',
         uid: 'DASHBOARD',
+        icon: <HomeIcon fontSize='large'/>,
+        menu: 'PRIMARY',
         component: <Dashboard/>,
         private_url: true,
         subPages: [
@@ -48,6 +65,8 @@ const routes = [
         path: '/updates',
         label: 'Updates',
         uid: 'UPDATES',
+        icon: <AnnouncementIcon fontSize='large'/>,
+        menu: 'PRIMARY',
         private_url: true,
         component: <Updates/>,
         subPages: [
@@ -64,6 +83,8 @@ const routes = [
         path: '/maps',
         label: 'Maps',
         uid: 'MAPS',
+        icon: <MapIcon fontSize='large'/>,
+        menu: 'PRIMARY',
         private_url: true,
         component: <Maps/>,
         subPages: [
@@ -80,6 +101,8 @@ const routes = [
         path: '/incidents',
         label: 'Incidents',
         uid: 'INCIDENTS',
+        icon: <AssignmentIcon fontSize='large'/>,
+        menu: 'PRIMARY',
         private_url: true,
         component: <Incidents/>,
         subPages: [
@@ -93,11 +116,13 @@ const routes = [
         ]
     },
     {
-        path:'/profile',
-        label: 'Profile',
-        uid: 'PROFILE',
+        path: '/area-chart',
+        label: 'Area Charts',
+        uid: 'AREA_CHARTS',
+        icon: <AssessmentIcon fontSize='large'/>,
+        menu: 'PRIMARY',
         private_url: true,
-        component: <Profile/>,
+        component: <AreaCharts/>,
         subPages: false
     }
 ]
