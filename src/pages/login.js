@@ -1,13 +1,13 @@
 import React from 'react';
-import Layout from '../components/Layout';
+import MainContainer from '../components/MainContainer';
 // import LoginButton from '../components/loginButton';s
 // import ReactDOM from 'react-dom';
 
 const Login = () => {
     return <>
-        <Layout>
+        <MainContainer>
         <h1>Login</h1>
-        </Layout>
+        </MainContainer>
         {/* <LoginButton/> */}
     </>
 }

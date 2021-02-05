@@ -19,7 +19,6 @@ const useStyles = makeStyles((theme) => ({
     drawerItem: {
         padding: theme.spacing(2.5,1),
         margin: theme.spacing(1, 0),
-        // display: 'flex'
         display: 'list-item',
         textAlign: 'center',
         transition: '0.3 all'
@@ -36,7 +35,6 @@ const useStyles = makeStyles((theme) => ({
     brandLogo: {
         color: theme.palette.secondary.lighter,
         padding: theme.spacing(1, 2),
-        // paddingBottom: theme.spacing(1.5),
         fontWeight: 600,
     },
     dividerLight: {
@@ -44,7 +42,6 @@ const useStyles = makeStyles((theme) => ({
     },
     navList: {
         justifyContent: 'center', 
-        // padding: theme.spacing(1.5)
     },
     navIconInactive: {
         color: theme.palette.primary.lighter,
@@ -60,7 +57,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const DrawerNav = (props) => {
-    console.log(props)
     const classes = useStyles();
     const drawerItems = routes.filter((route) => route.menu === 'PRIMARY');
     return <Drawer
@@ -78,7 +74,7 @@ const DrawerNav = (props) => {
         <List className={classes.navList}>
         {
             drawerItems.map(data => {
-                return <Link key={data.uid} button component={RouterLink} to={data.path}>
+                return <Link key={data.uid} button="true" component={RouterLink} to={data.path}>
                     <ListItem 
                         className={`${classes.drawerItem} ${props.location.pathname === data.path? classes.drawerItemActive : classes.drawerItemInactive}`} 
                         key={data.label}>

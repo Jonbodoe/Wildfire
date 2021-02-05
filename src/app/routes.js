@@ -1,21 +1,21 @@
 import React from 'react';
-import Dashboard from '../pages/dashboard';
-import Incidents from '../pages/incidents';
-import Login from '../pages/login';
-import Maps from '../pages/maps';
-import Profile from '../pages/profile';
-import IncidentDetails from '../pages/sub-pages/incident-details';
-import MapDetails from '../pages/sub-pages/map-details';
-import Summary from '../pages/sub-pages/summary';
-import UpdateDetails from '../pages/sub-pages/update-details';
-import Weather from '../pages/sub-pages/weather';
-import Updates from '../pages/updates';
+import Dashboard from '../pages/Dashboard';
+import Incidents from '../pages/Incidents';
+import Login from '../pages/Login';
+import Maps from '../pages/Maps';
+import Profile from '../pages/Profile';
+import IncidentDetails from '../pages/sub-pages/IncidentDetails';
+import MapDetails from '../pages/sub-pages/MapDetails';
+import Summary from '../pages/sub-pages/Summary';
+import UpdateDetails from '../pages/sub-pages/UpdateDetails';
+import Weather from '../pages/sub-pages/Weather';
+import Updates from '../pages/Updates';
 import HomeIcon from '@material-ui/icons/Home';
 import AnnouncementIcon from '@material-ui/icons/Announcement';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import MapIcon from '@material-ui/icons/Map';
-import AreaCharts from '../pages/areacharts';
-import AssessmentIcon from '@material-ui/icons/Assessment';
+// import AreaCharts from '../pages/Areacharts';
+// import AssessmentIcon from '@material-ui/icons/Assessment';
 
 const routes = [
     {
@@ -115,16 +115,6 @@ const routes = [
             }
         ]
     },
-    {
-        path: '/area-chart',
-        label: 'Area Charts',
-        uid: 'AREA_CHARTS',
-        icon: <AssessmentIcon fontSize='large'/>,
-        menu: 'PRIMARY',
-        private_url: true,
-        component: <AreaCharts/>,
-        subPages: false
-    }
 ]
 
 export default routes

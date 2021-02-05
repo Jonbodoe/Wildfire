@@ -1,7 +1,11 @@
 import React from 'react';
+import MainContainer from '../components/MainContainer';
+import PageTitle from '../components/PageTitle';
 
 const Updates = () => {
-    return <h1>Updates</h1>
+    return <MainContainer>
+        <PageTitle title={'Updates'}/>
+    </MainContainer>
 }
 
 export default Updates

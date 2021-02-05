@@ -14,8 +14,8 @@ const theme = createMuiTheme({
      primary: {
         lighter: '#9AA5AC',
         light: '#69717B',
-        main: '#40464B',
-        dark: '#313336'
+        main: '#34393d',
+        dark: '#2c2e30'
      },
      secondary: {
        lighter: '#FFFFFF',
@@ -32,24 +32,21 @@ const theme = createMuiTheme({
      ].join(','),
      useNextVariants: true
   },
-  drawerWidth: {
-    width: '120px'
-  }
 });
 
 function App() {
   return (
     <>
-    <MuiThemeProvider theme = { theme }>
-    <Router>
-      <Navigation/>
-      <Switch>
-          {
-            routes.map(route => <Route key={route.path} exact path={route.path}>{route.component}</Route>)
-          }
-      </Switch>
-    </Router>
-    </MuiThemeProvider>
+      <MuiThemeProvider theme = { theme }>
+      <Router>
+        <Navigation/>
+        <Switch>
+            {
+              routes.map(route => <Route key={route.path} exact path={route.path}>{route.component}</Route>)
+            }
+        </Switch>
+      </Router>
+      </MuiThemeProvider>
     </>
     // <div className="App">
     //   <header className="App-header">

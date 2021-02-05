@@ -1,10 +1,11 @@
 import React from 'react';
-import Layout from '../components/Layout';
+import MainContainer from '../components/MainContainer';
+import PageTitle from '../components/PageTitle';
 
 const Dashboard = () => {
-    return <Layout>
-        <h1>Dashboard</h1>
-    </Layout>
+    return <MainContainer>
+        <PageTitle title={`Dashboard`}/>
+    </MainContainer>
 }
 
 export default Dashboard
