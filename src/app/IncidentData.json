@@ -83,10 +83,10 @@
         }
     },
     {
-        "uid": "0229",
+        "uid": "703",
         "geographics": {
-            "municipal": "San Clemente",
-            "area-code": "949",
+            "municipal": "Los Angeles",
+            "area-code": "213",
             "geolocation-radius": {
                 "lat": "-117.653",
                 "long": "33.439"
@@ -166,15 +166,98 @@
         }
     },
     {
-        "uid": "0229",
+        "uid": "5033",
         "geographics": {
-            "municipal": "San Clemente",
-            "area-code": "949",
+            "municipal": "San Bernardino",
+            "area-code": "909",
             "geolocation-radius": {
                 "lat": "-117.653",
                 "long": "33.439"
             },
-            "region": "Orange County",
+            "region": "San Bernardino County",
+            "state": "California",
+            "time-stamp": "13:02",
+            "time-zone": "PST",
+            "date": "August 5th, 2021"
+        },
+        "incident": {
+            "priority": "Medium",
+            "assigned": {
+                "userId": "2"
+            },
+            "volume-traffic": "5030",
+            "api-keywords": [
+                "#wildfire",
+                "#NPSfire",
+                "#IRfire"
+            ],
+            "wildfire-type": "wildfire",
+            "property": [
+                "National Park Service",
+                "Private Property"
+            ],
+            "zip-codes": [
+                "92662",
+                "92664"
+            ],
+            "cases": {
+                "uid": "0229-1",
+                "incident-id": "0229",
+                "incident-parent": "San Clemente",
+                "geographics": {
+                    "zip-code": "92662",
+                    "intial-time": "11:42",
+                    "geo-location": {
+                        "lat": "-117.679",
+                        "long": "33.445"
+                    }    
+                },
+                "incident-case": {
+                    "volume-traffic": "405",
+                    "authorities-present": "05%",
+                    "images": [
+                        {
+                            "img-src": "fireExample1.jpg",
+                            "timestamp": "11:42",
+                            "caption": "Wishing everyone is staying safe and sound, the wildfires on the side of the highway is getting worse",
+                            "source": {
+                                "brand": "Twitter",
+                                "source-link": "twitter.com"
+                            }
+                        },
+                        {
+                            "img-src": "fireExample2.jpg",
+                            "timestamp": "11:43",
+                            "caption": "Do your part and report any fires occuring in your area! visit nps.gov/wildfire-reporting",
+                            "source": {
+                                "brand": "Twitter",
+                                "source-link": "twitter.com"
+                            }
+                        },
+                        {
+                            "img-src": "fireExample3.jpg",
+                            "timestamp": "11:43",
+                            "caption": "Please evacuate if you are near the vinicity of the wildfire trajectory!",
+                            "source": {
+                                "brand": "Intuitive Robotics",
+                                "source-link": "N/A"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "uid": "9411",
+        "geographics": {
+            "municipal": "Simi Valley",
+            "area-code": "805",
+            "geolocation-radius": {
+                "lat": "-117.653",
+                "long": "33.439"
+            },
+            "region": "Ventura",
             "state": "California",
             "time-stamp": "13:02",
             "time-zone": "PST",
