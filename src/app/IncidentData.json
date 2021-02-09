@@ -1,6 +1,5 @@
 [
     {
-        "uid": "0229",
         "geographics": {
             "municipal": "San Clemente",
             "area-code": "949",
@@ -83,7 +82,6 @@
         }
     },
     {
-        "uid": "703",
         "geographics": {
             "municipal": "Los Angeles",
             "area-code": "213",
@@ -166,7 +164,6 @@
         }
     },
     {
-        "uid": "5033",
         "geographics": {
             "municipal": "San Bernardino",
             "area-code": "909",
@@ -249,7 +246,6 @@
         }
     },
     {
-        "uid": "9411",
         "geographics": {
             "municipal": "Simi Valley",
             "area-code": "805",

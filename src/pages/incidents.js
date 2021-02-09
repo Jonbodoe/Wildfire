@@ -4,20 +4,7 @@ import React, { useEffect, useState } from 'react';
 import MainContainer from '../components/MainContainer';
 import PageTitle from '../components/PageTitle';
 import { IncidentList } from '../features/IncidentList';
-// import { DataGrid } from '@material-ui/data-grid';
 
-
-// const useStyles = makeStyles((theme) => ({
-//     items: {
-//         margin: theme.spacing(1,0),
-//         width: '100%',
-//         height: theme.spacing(5),
-//         boxShadow: '0px 0px 10px #dbdbdb',
-//         backgroundColor: theme.palette.secondary.lighter,
-//         display: 'flex',
-//         alignItems: 'center'
-//     },
-// }));
 function getIncidents () {
     return fetch(`${process.env.PORT || 'http://localhost:8080'}/incidents/get-incidents-db`)
     // Should use Axios versus fetch API? 
@@ -28,37 +15,42 @@ function getIncidents () {
         return response.json();
     }).then(function(response) {
         return response;
-    }).catch(function(error) {
-        throw Error(error);
-    });
+    })
 }
 
 const Incidents = () => {
     const [incidentList, setIncidentList] = useState();
+    const [errorMessage, setErrorMessage] = useState({
+        message: false
+    });
     // const [mountStatus, setMountStatus] = useState(false);
 
     useEffect(() => {
-        let mounted = true;
-        getIncidents()
-          .then(items => {
-            if(mounted) {
-              setIncidentList(items)
+        return fetch(`${process.env.PORT || 'http://localhost:8080'}/incidents/get-incidents-db`)
+        // Should use Axios versus fetch API? 
+        .then(function(response) {
+            if (!response.ok) {
+                // console.log(response.statusText, "first")
+                setErrorMessage({message:response.statusText});
             }
-          })
-        return () => mounted = false;
+            return response.json();
+        }).then(function(response) {
+            return response;
+        }).then(items => {
+            setIncidentList(items)
+          }).catch(function(error) {
+            // console.log(error, "second")
+            setErrorMessage({message:error})
+        });
     }, [])
-    // console.log(incidentList, 'state')
+    // console.log(incidentList, errorMessage);
 
-    // const classes = useStyles();
     return <MainContainer>
         <Grid item md={12}> 
             <PageTitle title={"Incidents"} />
         </Grid>
         <Grid item md={6}>
-            <IncidentList state = {incidentList}/>
-            {/* <Grid item className={classes.items}>
-                <Typography>Hello</Typography>
-            </Grid> */}
+            <IncidentList state = {incidentList} error={errorMessage}/>
         </Grid>
         <Grid item md={6}>
         </Grid>
