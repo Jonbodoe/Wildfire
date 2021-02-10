@@ -5,19 +5,6 @@ import MainContainer from '../components/MainContainer';
 import PageTitle from '../components/PageTitle';
 import { IncidentList } from '../features/IncidentList';
 
-function getIncidents () {
-    return fetch(`${process.env.PORT || 'http://localhost:8080'}/incidents/get-incidents-db`)
-    // Should use Axios versus fetch API? 
-    .then(function(response) {
-        if (!response.ok) {
-            throw Error(response.statusText);
-        }
-        return response.json();
-    }).then(function(response) {
-        return response;
-    })
-}
-
 const Incidents = () => {
     const [incidentList, setIncidentList] = useState();
     const [errorMessage, setErrorMessage] = useState({
