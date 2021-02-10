@@ -62,6 +62,24 @@ const routes = [
         ]
     },
     {
+        path: '/incidents',
+        label: 'Incidents',
+        uid: 'INCIDENTS',
+        icon: <AssignmentIcon fontSize='large'/>,
+        menu: 'PRIMARY',
+        private_url: true,
+        component: <Incidents/>,
+        subPages: [
+            {
+                path: '/incident-details',
+                label: 'Incident Details',
+                uid: 'INCIDENT_DETAILS',
+                private_url: true,
+                component: <IncidentDetails/>,
+            }
+        ]
+    },
+    {
         path: '/updates',
         label: 'Updates',
         uid: 'UPDATES',
@@ -94,24 +112,6 @@ const routes = [
                 uid: 'MAP_DETAILS',
                 private_url: true,
                 component: <MapDetails/>,
-            }
-        ]
-    },
-    {
-        path: '/incidents',
-        label: 'Incidents',
-        uid: 'INCIDENTS',
-        icon: <AssignmentIcon fontSize='large'/>,
-        menu: 'PRIMARY',
-        private_url: true,
-        component: <Incidents/>,
-        subPages: [
-            {
-                path: '/incident-details',
-                label: 'Incident Details',
-                uid: 'INCIDENT_DETAILS',
-                private_url: true,
-                component: <IncidentDetails/>,
             }
         ]
     },

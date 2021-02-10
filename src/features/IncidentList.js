@@ -17,8 +17,6 @@ const useStyles = makeStyles((theme) => ({
     },
     itemContent: {
         flexGrow: 1,
-        //         min-width: 70px;
-        // max-width: 70px;
     },
     itemText: {
 
@@ -50,10 +48,6 @@ const IncidentItem = (props) => {
 }
 
 const SwitchCase = (props) => {
-    // console.log(props.state)
-    console.log(props.error.message)
-    // console.log(typeof props.error, props.error.message.message)
-
     if (props.state && !props.error.message) {
         return props.state.map(item => <IncidentItem key={item._id} state={item} />);
     } else if (!props.state && props.error.message) {
@@ -67,11 +61,7 @@ const SwitchCase = (props) => {
 export const IncidentList = (props) => {
     const incidentList = props.state;
     const errorMessage = props.error;
-    // console.log(incidentList, errorMessage)
     return <>
         <SwitchCase state={incidentList} error={errorMessage} />
-        {
-            // !props.state && props.error.message ? <div>yes</div> : <div>no</div>
-        }
     </>
 }
