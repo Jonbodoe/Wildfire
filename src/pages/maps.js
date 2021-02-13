@@ -1,19 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import { Grid } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 import MainContainer from '../components/MainContainer';
 import PageTitle from '../components/PageTitle';
 import MapView from '../components/MapView';
 
+const useStyles = makeStyles((theme) => ({
+    container: {
+        backgroundColor: theme.palette.secondary.light,
+        margin: theme.spacing(1,2),
+    }
+}));
 
 const Maps = () => {
     const [api, setApi] = useState();
     const [errorMessage, setErrorMessage] = useState({
         message: false
     });
+    const classes = useStyles();
 
     useEffect(() => {
         return fetch(`${process.env.PORT || 'http://localhost:8080'}/api/mapbox`)
-        // Should use Axios versus fetch API? 
         .then(function(response) {
             if (!response.ok) {
                 // console.log(response.statusText, "first")
@@ -23,10 +30,11 @@ const Maps = () => {
         }).then(function(response) {
             return response;
         }).then(items => {
+            console.log('it worked!')
             setApi(items);
           }).catch(function(error) {
-            // console.log(error, "second")
-            setErrorMessage({message:error})
+            console.log('it didntttttt work!')
+            setErrorMessage({message:error});
         });
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -34,7 +42,7 @@ const Maps = () => {
     return <>
         <MainContainer>
         <PageTitle title={'Maps'}/>
-        <Grid item md={6}>
+        <Grid item md={6} className={classes.container}>
             <MapView state={api} error={errorMessage}/>
         </Grid>
         <Grid item md={6}>

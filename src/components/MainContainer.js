@@ -2,13 +2,14 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
 
-const drawerWidth = 120;
+const drawerWidth = 100;
 
 const useStyles = makeStyles((theme) => ({
     root: {
         width: `calc(100% - ${drawerWidth}px)`,
         marginLeft: drawerWidth,
-        padding: theme.spacing(0, 4.5),
+        padding: theme.spacing(0, 6),
+        backgroundColor: theme.palette.secondary.light
     },
 }));
 

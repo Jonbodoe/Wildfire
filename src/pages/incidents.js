@@ -3,18 +3,20 @@ import { Grid } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
 import MainContainer from '../components/MainContainer';
 import PageTitle from '../components/PageTitle';
-import { IncidentList } from '../features/IncidentList';
+import { EventList } from '../components/EventList';
+import IncidentView from '../components/IncidentView';
 
 const Incidents = () => {
     const [incidentList, setIncidentList] = useState();
     const [errorMessage, setErrorMessage] = useState({
         message: false
     });
+    // const classes = useStyles();
     // const [mountStatus, setMountStatus] = useState(false);
 
     useEffect(() => {
         return fetch(`${process.env.PORT || 'http://localhost:8080'}/incidents/get-incidents-db`)
-        // Should use Axios versus fetch API? 
+        // downloaded a fetch polyfill 
         .then(function(response) {
             if (!response.ok) {
                 // console.log(response.statusText, "first")
@@ -37,9 +39,10 @@ const Incidents = () => {
             <PageTitle title={"Incidents"} />
         </Grid>
         <Grid item md={6}>
-            <IncidentList state = {incidentList} error={errorMessage}/>
+            <EventList state = {incidentList} error={errorMessage}/>
         </Grid>
         <Grid item md={6}>
+            <IncidentView />
         </Grid>
     </MainContainer>
 }

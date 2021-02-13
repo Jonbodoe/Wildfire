@@ -9,12 +9,9 @@ import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import DrawerNav from './DrawerNav';
 import ProfileNav from './ProfileNav';
 
-const drawerWidth = 120;
+const drawerWidth = 100;
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-        flexGrow: 1,
-    },
     margin: {
         margin: theme.spacing(0, 1.5)
     },
@@ -29,10 +26,10 @@ const useStyles = makeStyles((theme) => ({
     appbar: {
         display: 'flex',
         alignContent: 'flex-end',
-
-        backgroundColor: theme.palette.secondary.light,
+        backgroundColor: theme.palette.secondary.lighter,
         color: theme.palette.primary.dark,
-        boxShadow: '0px 0px 15px #dbdbdb'
+        boxShadow: '0px 0px 15px #dbdbdb',
+        padding: theme.spacing(0,5)
     },
     drawer: {
         width: drawerWidth,
@@ -46,6 +43,7 @@ const useStyles = makeStyles((theme) => ({
     },
     summaryButton: {
         fontWeight: 600,
+        borderRadius: '0px',
         color: theme.palette.primary.main,
         backgroundColor: theme.palette.secondary.main,
     },
@@ -78,12 +76,12 @@ const GetDateTime = () => {
 export default function Navigation() {
     const classes = useStyles();
     return (
-        <div className={classes.root}>
+        <div>
             <CssBaseline />
             <AppBar position="static" className={classes.appbar}>
                 <Toolbar className={classes.toolbar}>
                         <div className={classes.summaryContainer}>
-                        <Button className={`${classes.summaryButton} ${classes.margin}`} variant="contained" disableElevation>
+                        <Button className={classes.summaryButton} variant="contained" disableElevation>
                             Summary<NavigateNextIcon />
                         </Button>
                         </div>

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+// import { Grid, Typography } from '@material-ui/core';
 const mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
 
 const useStyles = makeStyles((theme) => ({
@@ -10,13 +11,13 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-
 const MapView = (props) => {
-    const mapContainerRef = useRef(null);
     const classes = useStyles();
+    const mapContainerRef = useRef(null);
     useEffect(() => {
         if (props.state) {
             mapboxgl.accessToken = props.state.token;
+            console.log(props.state.token)
             const map = new mapboxgl.Map({
                 container: mapContainerRef.current,
                 // See style options here: https://docs.mapbox.com/api/maps/#styles
@@ -41,12 +42,19 @@ const MapView = (props) => {
             return () => map.remove();
         }
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
-
-    return <>
-        {
-            props.state ? <div className={classes.mapContainer} ref={mapContainerRef} /> : ''
-        }
-    </>
+    return <div className={classes.mapContainer} ref={mapContainerRef} />
 }
+
+// const Results = (props) => {
+//     const classes = useStyles();
+//     if (props.state && !props.error.message) {
+//         return <div className={classes.mapContainer} ref={props.references}/>;
+//     } else if (!props.state && props.error.message) {
+//         return <Typography>{props.error.message.message}</Typography>;
+//     } else {
+//         return <Typography>Loading...</Typography>;
+
+//     }
+// }
 
 export default MapView;

@@ -5,7 +5,7 @@ import { Divider, Drawer, List, ListItem, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import routes from '../app/routes';
 
-const drawerWidth = 120;
+const drawerWidth = 100;
 const useStyles = makeStyles((theme) => ({
     drawer: {
         width: drawerWidth,
@@ -17,11 +17,10 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: theme.palette.primary.dark
     },
     drawerItem: {
-        padding: theme.spacing(2.5,1),
+        padding: theme.spacing(2,1),
         margin: theme.spacing(1, 0),
         display: 'list-item',
         textAlign: 'center',
-        transition: '0.3 all'
     },
     drawerItemInactive: {
         color: theme.palette.secondary.lighter,
@@ -76,6 +75,7 @@ const DrawerNav = (props) => {
             drawerItems.map(data => {
                 return <Link key={data.uid} button="true" component={RouterLink} to={data.path}>
                     <ListItem 
+                        button
                         className={`${classes.drawerItem} ${props.location.pathname === data.path? classes.drawerItemActive : classes.drawerItemInactive}`} 
                         key={data.label}>
                     <Typography className={`${props.location.pathname === data.path? classes.navIconActive : classes.navIconInactive}`}>{data.icon}</Typography>

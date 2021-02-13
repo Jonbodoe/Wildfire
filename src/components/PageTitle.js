@@ -5,9 +5,11 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
     title: {
         color: theme.palette.primary.main,
-        fontSize: '1.6rem',
+        fontSize: '1.4rem',
         fontWeight: '600',
-        padding: theme.spacing(2,0),
+        padding: theme.spacing(0,2),
+        paddingTop: theme.spacing(2),
+        margin: theme.spacing(0.5,0)
     }
 }));
 
