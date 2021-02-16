@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Grid } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import MainContainer from '../components/MainContainer';
-import PageTitle from '../components/PageTitle';
+// import PageTitle from '../components/PageTitle';
 import MapView from '../components/MapView';
 
 const useStyles = makeStyles((theme) => ({
@@ -36,14 +36,16 @@ const Maps = () => {
             console.log('it didntttttt work!')
             setErrorMessage({message:error});
         });
+        
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
-
+    console.log(api, 'api')
 
     return <>
         <MainContainer>
-        <PageTitle title={'Maps'}/>
         <Grid item md={6} className={classes.container}>
-            <MapView state={api} error={errorMessage}/>
+            {
+                api? <MapView state={api} error={errorMessage}/> : <Typography>loading...</Typography>
+            }
         </Grid>
         <Grid item md={6}>
         </Grid>

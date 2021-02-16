@@ -6,7 +6,6 @@ import MainContainer from '../components/MainContainer';
 const Login = () => {
     return <>
         <MainContainer>
-        <h1>Login</h1>
         </MainContainer>
         {/* <LoginButton/> */}
     </>

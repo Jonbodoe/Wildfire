@@ -4,7 +4,6 @@ import MainContainer from '../components/MainContainer';
 
 const Profile = () => {
     return <MainContainer>
-        <h1>Profile</h1>
     </MainContainer>
 }
 

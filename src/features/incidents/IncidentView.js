@@ -1,28 +1,11 @@
 import React from 'react';
-// import { makeStyles } from '@material-ui/core/styles';
-// import { Grid, Typography } from '@material-ui/core';
-import DetailsContainer from './DetailsContainer';
-import DetailsBlock from './DetailsBlock';
-import DetailsTitle from './DetailsTitle';
-import DetailsContent from './DetailsContent';
-import DetailsHeader from './DetailsHeader';
+import DetailsContainer from './../../components/DetailsContainer';
+import DetailsBlock from './../../components/DetailsBlock';
+import DetailsTitle from './../../components/DetailsTitle';
+import DetailsContent from './../../components/DetailsContent';
+import DetailsHeader from './../../components/DetailsHeader';
 
-// const useStyles = makeStyles((theme) => ({
-//     container: {
-//         margin: theme.spacing(1,2),
-//         padding: theme.spacing(2,3),
-//         backgroundColor: theme.palette.secondary.lighter,
-//         boxShadow: '0px 0px 10px #dbdbdb',
-//     },
-//     ItemContainer: {
-//         backgroundColor: theme.palette.secondary.light,
-//         padding: theme.spacing(2),
-//         margin: theme.spacing(1,0)
-//     }
-// }));
-
-const IncidentView = (props) => {
-    // const classes = useStyles();
+const IncidentView = () => {
     return <>
         <DetailsContainer>
             <DetailsHeader header={`Header Lorem Ipsum`}/>
@@ -33,6 +16,7 @@ const IncidentView = (props) => {
                 <DetailsContent type='Initial Date' content={'Lorem ipsum dolor sit amet'}/>
                 <DetailsContent type='Zipcodes Affected' content={'Lorem ipsum dolor sit amet'}/>
             </DetailsBlock>
+            {/* refactoring the details block section to call the detailsTitle / detailsContent inside */}
             <DetailsBlock>
                 <DetailsTitle title={`Incident Cases`}/>
                 <DetailsContent type={`Title`} content={'Lorem ipsum dolor sit amet'}/>

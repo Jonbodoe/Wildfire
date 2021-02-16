@@ -8,7 +8,8 @@ const useStyles = makeStyles((theme) => ({
     root: {
         width: `calc(100% - ${drawerWidth}px)`,
         marginLeft: drawerWidth,
-        padding: theme.spacing(0, 6),
+        marginTop: theme.spacing(5),
+        padding: theme.spacing(6),
         backgroundColor: theme.palette.secondary.light
     },
 }));

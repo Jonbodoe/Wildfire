@@ -38,14 +38,14 @@ function App() {
   return (
     <>
       <MuiThemeProvider theme = { theme }>
-      <Router>
-        <Navigation/>
-        <Switch>
-            {
-              routes.map(route => <Route key={route.path} exact path={route.path}>{route.component}</Route>)
-            }
-        </Switch>
-      </Router>
+        <Router>
+          <Navigation/>
+          <Switch>
+              {
+                routes.map(route => <Route key={route.path} exact path={route.path}>{route.component}</Route>)
+              }
+          </Switch>
+        </Router>
       </MuiThemeProvider>
     </>
     // <div className="App">

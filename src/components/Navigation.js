@@ -8,6 +8,9 @@ import { Button, Divider } from '@material-ui/core';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import DrawerNav from './DrawerNav';
 import ProfileNav from './ProfileNav';
+import { withRouter } from 'react-router-dom';
+import routes from '../app/routes';
+import PageTitle from './PageTitle';
 
 const drawerWidth = 100;
 
@@ -16,6 +19,8 @@ const useStyles = makeStyles((theme) => ({
         margin: theme.spacing(0, 1.5)
     },
     toolbar: {
+        display: 'flex',
+        justifyContent: 'space-between',
         alignItems: "center",
         width: `calc(100% - ${drawerWidth}px)`,
         marginLeft: drawerWidth,
@@ -29,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: theme.palette.secondary.lighter,
         color: theme.palette.primary.dark,
         boxShadow: '0px 0px 15px #dbdbdb',
-        padding: theme.spacing(0,5)
+        padding: theme.spacing(0, 5)
     },
     drawer: {
         width: drawerWidth,
@@ -46,9 +51,11 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: '0px',
         color: theme.palette.primary.main,
         backgroundColor: theme.palette.secondary.main,
+        margin: theme.spacing(0,3)
     },
-    summaryContainer: {
-        flexGrow: 1
+    container: {
+        display: 'flex',
+        alignItems: "center",
     },
     dividerLight: {
         backgroundColor: theme.palette.primary.light
@@ -73,25 +80,39 @@ const GetDateTime = () => {
 }
 
 
-export default function Navigation() {
+function Navigation(props) {
+    // console.log(props)
+    const locationInfo = props
     const classes = useStyles();
     return (
         <div>
             <CssBaseline />
-            <AppBar position="static" className={classes.appbar}>
+            <AppBar position="fixed" className={classes.appbar}>
                 <Toolbar className={classes.toolbar}>
-                        <div className={classes.summaryContainer}>
+                    <div className={classes.container}>
+                        <LocationTitle location={locationInfo} />
+                        <div>
                         <Button className={classes.summaryButton} variant="contained" disableElevation>
                             Summary<NavigateNextIcon />
                         </Button>
                         </div>
+                    </div>
+                    <div className={classes.container}>
                         <Divider orientation="vertical" flexItem />
                         <GetDateTime />
                         <Divider orientation="vertical" flexItem />
-                        <ProfileNav/>
+                        <ProfileNav />
+                    </div>
                 </Toolbar>
             </AppBar>
             <DrawerNav />
         </div>
     );
 }
+
+const LocationTitle = (props) => {
+    const title = Object.assign({}, ...routes.filter(route => route.path === props.location.location.pathname))
+    return <PageTitle title={title.label} />
+}
+
+export default withRouter(Navigation)

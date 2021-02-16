@@ -6,10 +6,13 @@ const useStyles = makeStyles((theme) => ({
     title: {
         color: theme.palette.primary.main,
         fontSize: '1.4rem',
+        height: '100%',
         fontWeight: '600',
-        padding: theme.spacing(0,2),
-        paddingTop: theme.spacing(2),
-        margin: theme.spacing(0.5,0)
+        display: 'flex',
+        alignItems: 'center'
+        // padding: theme.spacing(0,2),
+        // paddingTop: theme.spacing(2),
+        // margin: theme.spacing(0.5,0)
     }
 }));
 

@@ -2,15 +2,15 @@
     {
         "geographics": {
             "municipal": "San Clemente",
-            "area-code": "949",
-            "geolocation-radius": {
+            "area_code": "949",
+            "geolocation_radius": {
                 "lat": "-117.653",
                 "long": "33.439"
             },
             "region": "Orange County",
             "state": "California",
-            "time-stamp": "13:02",
-            "time-zone": "PST",
+            "time_stamp": "13:02",
+            "time_zone": "PST",
             "date": "August 5th, 2021"
         },
         "incident": {
@@ -18,62 +18,61 @@
             "assigned": {
                 "userId": "5"
             },
-            "volume-traffic": "5030",
-            "api-keywords": [
+            "status": "Open",
+            "volume_traffic": "5030",
+            "api_keywords": [
                 "#wildfire",
                 "#NPSfire",
                 "#IRfire"
             ],
-            "wildfire-type": "wildfire",
+            "wildfire_type": "wildfire",
             "property": [
                 "National Park Service",
                 "Private Property"
             ],
-            "zip-codes": [
+            "zip_codes": [
                 "92662",
                 "92664"
             ],
+            "additional_notes": "",
             "cases": {
-                "uid": "0229-1",
-                "incident-id": "0229",
-                "incident-parent": "San Clemente",
                 "geographics": {
-                    "zip-code": "92662",
-                    "intial-time": "11:42",
-                    "geo-location": {
+                    "zip_code": "92662",
+                    "intial_time": "11:42",
+                    "geo_location": {
                         "lat": "-117.679",
                         "long": "33.445"
                     }    
                 },
-                "incident-case": {
-                    "volume-traffic": "405",
-                    "authorities-present": "05%",
+                "incident_case": {
+                    "volume_traffic": "405",
+                    "authorities_present": "05%",
                     "images": [
                         {
-                            "img-src": "fireExample1.jpg",
+                            "img_src": "fireExample1.jpg",
                             "timestamp": "11:42",
                             "caption": "Wishing everyone is staying safe and sound, the wildfires on the side of the highway is getting worse",
                             "source": {
                                 "brand": "Twitter",
-                                "source-link": "twitter.com"
+                                "source_link": "twitter.com"
                             }
                         },
                         {
-                            "img-src": "fireExample2.jpg",
+                            "img_src": "fireExample2.jpg",
                             "timestamp": "11:43",
-                            "caption": "Do your part and report any fires occuring in your area! visit nps.gov/wildfire-reporting",
+                            "caption": "Do your part and report any fires occuring in your area! visit nps.gov/wildfire_reporting",
                             "source": {
                                 "brand": "Twitter",
-                                "source-link": "twitter.com"
+                                "source_link": "twitter.com"
                             }
                         },
                         {
-                            "img-src": "fireExample3.jpg",
+                            "img_src": "fireExample3.jpg",
                             "timestamp": "11:43",
                             "caption": "Please evacuate if you are near the vinicity of the wildfire trajectory!",
                             "source": {
                                 "brand": "Intuitive Robotics",
-                                "source-link": "N/A"
+                                "source_link": "N/A"
                             }
                         }
                     ]
@@ -84,15 +83,15 @@
     {
         "geographics": {
             "municipal": "Los Angeles",
-            "area-code": "213",
-            "geolocation-radius": {
-                "lat": "-117.653",
-                "long": "33.439"
+            "area_code": "213",
+            "geolocation_radius": {
+                "lat": "-118.691",
+                "long": "34.020"
             },
             "region": "Orange County",
             "state": "California",
-            "time-stamp": "13:02",
-            "time-zone": "PST",
+            "time_stamp": "13:02",
+            "time_zone": "PST",
             "date": "August 5th, 2021"
         },
         "incident": {
@@ -100,62 +99,61 @@
             "assigned": {
                 "userId": "3"
             },
-            "volume-traffic": "5030",
-            "api-keywords": [
+            "status": "Open",
+            "volume_traffic": "5030",
+            "api_keywords": [
                 "#wildfire",
                 "#NPSfire",
                 "#IRfire"
             ],
-            "wildfire-type": "wildfire",
+            "wildfire_type": "wildfire",
             "property": [
                 "National Park Service",
                 "Private Property"
             ],
-            "zip-codes": [
-                "92662",
-                "92664"
+            "zip_codes": [
+                "91011",
+                "91040"
             ],
+            "additional_notes": "",
             "cases": {
-                "uid": "0229-1",
-                "incident-id": "0229",
-                "incident-parent": "San Clemente",
                 "geographics": {
-                    "zip-code": "92662",
-                    "intial-time": "11:42",
-                    "geo-location": {
-                        "lat": "-117.679",
-                        "long": "33.445"
+                    "zip_code": "91011",
+                    "intial_time": "11:42",
+                    "geo_location": {
+                        "lat": "-118.691",
+                        "long": "34.020"
                     }    
                 },
-                "incident-case": {
-                    "volume-traffic": "405",
-                    "authorities-present": "05%",
+                "incident_case": {
+                    "volume_traffic": "405",
+                    "authorities_present": "05%",
                     "images": [
                         {
-                            "img-src": "fireExample1.jpg",
+                            "img_src": "fireExample1.jpg",
                             "timestamp": "11:42",
                             "caption": "Wishing everyone is staying safe and sound, the wildfires on the side of the highway is getting worse",
                             "source": {
                                 "brand": "Twitter",
-                                "source-link": "twitter.com"
+                                "source_link": "twitter.com"
                             }
                         },
                         {
-                            "img-src": "fireExample2.jpg",
+                            "img_src": "fireExample2.jpg",
                             "timestamp": "11:43",
-                            "caption": "Do your part and report any fires occuring in your area! visit nps.gov/wildfire-reporting",
+                            "caption": "Do your part and report any fires occuring in your area! visit nps.gov/wildfire_reporting",
                             "source": {
                                 "brand": "Twitter",
-                                "source-link": "twitter.com"
+                                "source_link": "twitter.com"
                             }
                         },
                         {
-                            "img-src": "fireExample3.jpg",
+                            "img_src": "fireExample3.jpg",
                             "timestamp": "11:43",
                             "caption": "Please evacuate if you are near the vinicity of the wildfire trajectory!",
                             "source": {
                                 "brand": "Intuitive Robotics",
-                                "source-link": "N/A"
+                                "source_link": "N/A"
                             }
                         }
                     ]
@@ -166,15 +164,15 @@
     {
         "geographics": {
             "municipal": "San Bernardino",
-            "area-code": "909",
-            "geolocation-radius": {
+            "area_code": "909",
+            "geolocation_radius": {
                 "lat": "-117.653",
                 "long": "33.439"
             },
             "region": "San Bernardino County",
             "state": "California",
-            "time-stamp": "13:02",
-            "time-zone": "PST",
+            "time_stamp": "13:02",
+            "time_zone": "PST",
             "date": "August 5th, 2021"
         },
         "incident": {
@@ -182,62 +180,61 @@
             "assigned": {
                 "userId": "2"
             },
-            "volume-traffic": "5030",
-            "api-keywords": [
+            "status": "Must Resolve",
+            "volume_traffic": "5030",
+            "api_keywords": [
                 "#wildfire",
                 "#NPSfire",
                 "#IRfire"
             ],
-            "wildfire-type": "wildfire",
+            "wildfire_type": "wildfire",
             "property": [
                 "National Park Service",
                 "Private Property"
             ],
-            "zip-codes": [
+            "zip_codes": [
                 "92662",
                 "92664"
             ],
+            "additional_notes": "",
             "cases": {
-                "uid": "0229-1",
-                "incident-id": "0229",
-                "incident-parent": "San Clemente",
                 "geographics": {
-                    "zip-code": "92662",
-                    "intial-time": "11:42",
-                    "geo-location": {
+                    "zip_code": "92662",
+                    "intial_time": "11:42",
+                    "geo_location": {
                         "lat": "-117.679",
                         "long": "33.445"
                     }    
                 },
-                "incident-case": {
-                    "volume-traffic": "405",
-                    "authorities-present": "05%",
+                "incident_case": {
+                    "volume_traffic": "405",
+                    "authorities_present": "05%",
                     "images": [
                         {
-                            "img-src": "fireExample1.jpg",
+                            "img_src": "fireExample1.jpg",
                             "timestamp": "11:42",
                             "caption": "Wishing everyone is staying safe and sound, the wildfires on the side of the highway is getting worse",
                             "source": {
                                 "brand": "Twitter",
-                                "source-link": "twitter.com"
+                                "source_link": "twitter.com"
                             }
                         },
                         {
-                            "img-src": "fireExample2.jpg",
+                            "img_src": "fireExample2.jpg",
                             "timestamp": "11:43",
-                            "caption": "Do your part and report any fires occuring in your area! visit nps.gov/wildfire-reporting",
+                            "caption": "Do your part and report any fires occuring in your area! visit nps.gov/wildfire_reporting",
                             "source": {
                                 "brand": "Twitter",
-                                "source-link": "twitter.com"
+                                "source_link": "twitter.com"
                             }
                         },
                         {
-                            "img-src": "fireExample3.jpg",
+                            "img_src": "fireExample3.jpg",
                             "timestamp": "11:43",
                             "caption": "Please evacuate if you are near the vinicity of the wildfire trajectory!",
                             "source": {
                                 "brand": "Intuitive Robotics",
-                                "source-link": "N/A"
+                                "source_link": "N/A"
                             }
                         }
                     ]
@@ -248,15 +245,15 @@
     {
         "geographics": {
             "municipal": "Simi Valley",
-            "area-code": "805",
-            "geolocation-radius": {
+            "area_code": "805",
+            "geolocation_radius": {
                 "lat": "-117.653",
                 "long": "33.439"
             },
             "region": "Ventura",
             "state": "California",
-            "time-stamp": "13:02",
-            "time-zone": "PST",
+            "time_stamp": "13:02",
+            "time_zone": "PST",
             "date": "August 5th, 2021"
         },
         "incident": {
@@ -264,62 +261,300 @@
             "assigned": {
                 "userId": "2"
             },
-            "volume-traffic": "5030",
-            "api-keywords": [
+            "status": "Open",
+            "volume_traffic": "5030",
+            "api_keywords": [
                 "#wildfire",
                 "#NPSfire",
                 "#IRfire"
             ],
-            "wildfire-type": "wildfire",
+            "wildfire_type": "wildfire",
             "property": [
                 "National Park Service",
                 "Private Property"
             ],
-            "zip-codes": [
-                "92662",
-                "92664"
+            "zip_codes": [
+                "92662"
             ],
+            "additional_notes": "",
             "cases": {
-                "uid": "0229-1",
-                "incident-id": "0229",
-                "incident-parent": "San Clemente",
                 "geographics": {
-                    "zip-code": "92662",
-                    "intial-time": "11:42",
-                    "geo-location": {
+                    "zip_code": "92662",
+                    "intial_time": "11:42",
+                    "geo_location": {
                         "lat": "-117.679",
                         "long": "33.445"
                     }    
                 },
-                "incident-case": {
-                    "volume-traffic": "405",
-                    "authorities-present": "05%",
+                "incident_case": {
+                    "volume_traffic": "405",
+                    "authorities_present": "05%",
                     "images": [
                         {
-                            "img-src": "fireExample1.jpg",
+                            "img_src": "fireExample1.jpg",
                             "timestamp": "11:42",
                             "caption": "Wishing everyone is staying safe and sound, the wildfires on the side of the highway is getting worse",
                             "source": {
                                 "brand": "Twitter",
-                                "source-link": "twitter.com"
+                                "source_link": "twitter.com"
                             }
                         },
                         {
-                            "img-src": "fireExample2.jpg",
+                            "img_src": "fireExample2.jpg",
                             "timestamp": "11:43",
-                            "caption": "Do your part and report any fires occuring in your area! visit nps.gov/wildfire-reporting",
+                            "caption": "Do your part and report any fires occuring in your area! visit nps.gov/wildfire_reporting",
                             "source": {
                                 "brand": "Twitter",
-                                "source-link": "twitter.com"
+                                "source_link": "twitter.com"
                             }
                         },
                         {
-                            "img-src": "fireExample3.jpg",
+                            "img_src": "fireExample3.jpg",
                             "timestamp": "11:43",
                             "caption": "Please evacuate if you are near the vinicity of the wildfire trajectory!",
                             "source": {
                                 "brand": "Intuitive Robotics",
-                                "source-link": "N/A"
+                                "source_link": "N/A"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "geographics": {
+            "municipal": "Santa Barbara",
+            "area_code": "805",
+            "geolocation_radius": {
+                "lat": "-117.653",
+                "long": "33.439"
+            },
+            "region": "Santa Barbara County",
+            "state": "California",
+            "time_stamp": "13:11",
+            "time_zone": "PST",
+            "date": "August 5th, 2021"
+        },
+        "incident": {
+            "priority": "High",
+            "assigned": {
+                "userId": "2"
+            },
+            "status": "Reviewing",
+            "volume_traffic": "5030",
+            "api_keywords": [
+                "#wildfire",
+                "#NPSfire",
+                "#IRfire"
+            ],
+            "wildfire_type": "wildfire",
+            "property": [
+                "National Park Service",
+                "Private Property"
+            ],
+            "zip_codes": [
+                "92662"
+            ],
+            "additional_notes": "",
+            "cases": {
+                "geographics": {
+                    "zip_code": "92662",
+                    "intial_time": "11:42",
+                    "geo_location": {
+                        "lat": "-117.679",
+                        "long": "33.445"
+                    }    
+                },
+                "incident_case": {
+                    "volume_traffic": "794",
+                    "authorities_present": "05%",
+                    "images": [
+                        {
+                            "img_src": "fireExample1.jpg",
+                            "timestamp": "11:42",
+                            "caption": "Wishing everyone is staying safe and sound, the wildfires on the side of the highway is getting worse",
+                            "source": {
+                                "brand": "Twitter",
+                                "source_link": "twitter.com"
+                            }
+                        },
+                        {
+                            "img_src": "fireExample2.jpg",
+                            "timestamp": "11:43",
+                            "caption": "Do your part and report any fires occuring in your area! visit nps.gov/wildfire_reporting",
+                            "source": {
+                                "brand": "Twitter",
+                                "source_link": "twitter.com"
+                            }
+                        },
+                        {
+                            "img_src": "fireExample3.jpg",
+                            "timestamp": "11:43",
+                            "caption": "Please evacuate if you are near the vinicity of the wildfire trajectory!",
+                            "source": {
+                                "brand": "Intuitive Robotics",
+                                "source_link": "N/A"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    {
+        "geographics": {
+            "municipal": "Victorville",
+            "area_code": "760",
+            "geolocation_radius": {
+                "lat": "-117.501",
+                "long": "34.540"
+            },
+            "region": "San Bernardino County",
+            "state": "California",
+            "time_stamp": "13:06",
+            "time_zone": "PST",
+            "date": "August 5th, 2021"
+        },
+        "incident": {
+            "priority": "High",
+            "assigned": {
+                "userId": "2"
+            },
+            "status": "Resolved",
+            "volume_traffic": "203",
+            "api_keywords": [
+                "#wildfire",
+                "#NPSfire",
+                "#IRfire"
+            ],
+            "wildfire_type": "wildfire",
+            "property": [
+                "National Park Service",
+                "Private Property"
+            ],
+            "zip_codes": [
+                "92307"
+            ],
+            "additional_notes": "",
+            "cases": {
+                "geographics": {
+                    "zip_code": "92307",
+                    "intial_time": "11:58",
+                    "geo_location": {
+                        "lat": "-117.501",
+                        "long": "34.540"
+                    }
+                },
+                "incident_case": {
+                    "volume_traffic": "405",
+                    "authorities_present": "34%",
+                    "images": [
+                        {
+                            "img_src": "fireExample1.jpg",
+                            "timestamp": "11:42",
+                            "caption": "Wishing everyone is staying safe and sound, the wildfires on the side of the highway is getting worse",
+                            "source": {
+                                "brand": "Twitter",
+                                "source_link": "twitter.com"
+                            }
+                        },
+                        {
+                            "img_src": "fireExample2.jpg",
+                            "timestamp": "11:43",
+                            "caption": "Do your part and report any fires occuring in your area! visit nps.gov/wildfire_reporting",
+                            "source": {
+                                "brand": "Twitter",
+                                "source_link": "twitter.com"
+                            }
+                        },
+                        {
+                            "img_src": "fireExample3.jpg",
+                            "timestamp": "11:43",
+                            "caption": "Please evacuate if you are near the vinicity of the wildfire trajectory!",
+                            "source": {
+                                "brand": "Intuitive Robotics",
+                                "source_link": "N/A"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    },    {
+        "geographics": {
+            "municipal": "San Clemente",
+            "area_code": "949",
+            "geolocation_radius": {
+                "lat": "-117.653",
+                "long": "33.439"
+            },
+            "region": "Orange County",
+            "state": "California",
+            "time_stamp": "13:02",
+            "time_zone": "PST",
+            "date": "August 5th, 2021"
+        },
+        "incident": {
+            "priority": "High",
+            "assigned": {
+                "userId": "5"
+            },
+            "status": "Open",
+            "volume_traffic": "5030",
+            "api_keywords": [
+                "#wildfire",
+                "#NPSfire",
+                "#IRfire"
+            ],
+            "wildfire_type": "wildfire",
+            "property": [
+                "National Park Service",
+                "Private Property"
+            ],
+            "zip_codes": [
+                "92662",
+                "92664"
+            ],
+            "additional_notes": "",
+            "cases": {
+                "geographics": {
+                    "zip_code": "92662",
+                    "intial_time": "11:42",
+                    "geo_location": {
+                        "lat": "-117.679",
+                        "long": "33.445"
+                    }    
+                },
+                "incident_case": {
+                    "volume_traffic": "405",
+                    "authorities_present": "05%",
+                    "images": [
+                        {
+                            "img_src": "fireExample1.jpg",
+                            "timestamp": "11:42",
+                            "caption": "Wishing everyone is staying safe and sound, the wildfires on the side of the highway is getting worse",
+                            "source": {
+                                "brand": "Twitter",
+                                "source_link": "twitter.com"
+                            }
+                        },
+                        {
+                            "img_src": "fireExample2.jpg",
+                            "timestamp": "11:43",
+                            "caption": "Do your part and report any fires occuring in your area! visit nps.gov/wildfire_reporting",
+                            "source": {
+                                "brand": "Twitter",
+                                "source_link": "twitter.com"
+                            }
+                        },
+                        {
+                            "img_src": "fireExample3.jpg",
+                            "timestamp": "11:43",
+                            "caption": "Please evacuate if you are near the vinicity of the wildfire trajectory!",
+                            "source": {
+                                "brand": "Intuitive Robotics",
+                                "source_link": "N/A"
                             }
                         }
                     ]

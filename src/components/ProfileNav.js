@@ -16,7 +16,7 @@ const ProfileNav = () => {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
 
-    const profileImg = require('../images/profile.jpg');
+    const profileImg = require('../images/profilePic.jpg');
 
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);

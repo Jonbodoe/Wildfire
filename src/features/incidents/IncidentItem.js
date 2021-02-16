@@ -1,16 +1,16 @@
 import React from 'react';
 import { Button, Grid, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+// import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
 const useStyles = makeStyles((theme) => ({
     items: {
-        padding: theme.spacing(4, 3),
+        padding: theme.spacing(0, 1.5),
         width: '100%',
         // boxShadow: '0px 0px 10px #dbdbdb',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'space-between',
+        justifyContent: 'space-around',
     },
     itemContent: {
         textAlign: 'left',
@@ -33,24 +33,33 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const EventItem = (props) => {
+const IncidentItem = (props) => {
     const classes = useStyles();
     return <Button key={props.state._id} className={classes.button}>
     <Grid item className={classes.items}>
         <Grid className={classes.itemContent}>
-            <Typography className={classes.itemText} variant="body2">{props.state.geographics.municipal}</Typography>
+
+            <Typography variant="body2">{props.state.geographics.municipal}</Typography>
+            {/*
+             for skeleton loading
+                1. wrap a component around typography to add the loading functionality
+                2. look into material docs to render props (to determine if it is visable)
+            */}
         </Grid>
         <Grid className={classes.itemContent}>
-            <Typography className={classes.itemText} variant="body2">{props.state.geographics.state}</Typography>
+            <Typography variant="body2">{props.state.geographics.state}</Typography>
         </Grid>
         <Grid className={classes.itemContent}>
-            <Typography className={classes.itemText} variant="body2">{props.state.incident.priority}</Typography>
+            <Typography variant="body2">{props.state.incident.priority}</Typography>
         </Grid>
-        <Grid className={classes.icon}>
+        <Grid className={classes.itemContent}>
+            <Typography variant="body2">{props.state.incident.status}</Typography>
+        </Grid>
+        {/* <Grid className={classes.icon}>
             <ChevronRightIcon />
-        </Grid>
+        </Grid> */}
     </Grid>
 </Button>
 }
 
-export default EventItem;
+export default IncidentItem;
