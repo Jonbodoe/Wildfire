@@ -4,7 +4,8 @@ import React, { useEffect, useState } from 'react';
 import MainContainer from '../components/MainContainer';
 // import PageTitle from '../components/PageTitle';
 import { IncidentList } from '../features/incidents/IncidentList';
-import IncidentView from '../features/incidents/IncidentView';
+// import IncidentView from '../features/incidents/IncidentDetails';
+import IncidentDetails from '../features/incidents/IncidentDetails';
 
 const Incidents = () => {
     const [incidents, setIncidents] = useState();
@@ -36,10 +37,10 @@ const Incidents = () => {
 
     return <MainContainer>
         <Grid item md={6}>
-            <IncidentList state = {incidents} error={errorMessage}/>
+            <IncidentList state={incidents} error={errorMessage}/>
         </Grid>
         <Grid item md={6}>
-            <IncidentView />
+            <IncidentDetails />
         </Grid>
     </MainContainer>
 }

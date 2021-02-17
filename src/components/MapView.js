@@ -7,7 +7,8 @@ const useStyles = makeStyles((theme) => ({
     mapContainer: {
         width: '100%',
         height: theme.spacing(70),
-        backgroundColor: theme.palette.secondary.light
+        backgroundColor: theme.palette.secondary.light,
+        margin: theme.spacing(2,2),
     }
 }));
 

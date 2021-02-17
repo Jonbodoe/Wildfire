@@ -4,11 +4,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import MainContainer from '../components/MainContainer';
 // import PageTitle from '../components/PageTitle';
 import MapView from '../components/MapView';
+import MapDetails from '../features/maps/MapDetails';
+// import MapDetails from './sub-pages/MapDetails';
 
 const useStyles = makeStyles((theme) => ({
     container: {
         backgroundColor: theme.palette.secondary.light,
-        margin: theme.spacing(1,2),
     }
 }));
 
@@ -42,12 +43,13 @@ const Maps = () => {
 
     return <>
         <MainContainer>
-        <Grid item md={6} className={classes.container}>
+        <Grid item md={7} className={classes.container}>
             {
                 api? <MapView state={api} error={errorMessage}/> : <Typography>loading...</Typography>
             }
         </Grid>
-        <Grid item md={6}>
+        <Grid item md={5}>
+            <MapDetails/>
         </Grid>
         </MainContainer>
     </>

@@ -1,14 +1,14 @@
 import React from 'react';
-import DetailsContainer from './../../components/DetailsContainer';
-import DetailsBlock from './../../components/DetailsBlock';
-import DetailsTitle from './../../components/DetailsTitle';
-import DetailsContent from './../../components/DetailsContent';
-import DetailsHeader from './../../components/DetailsHeader';
+import DetailsContainer from '../../components/DetailsContainer';
+import DetailsBlock from '../../components/DetailsBlock';
+import DetailsTitle from '../../components/DetailsTitle';
+import DetailsContent from '../../components/DetailsContent';
+import DetailsHeader from '../../components/DetailsHeader';
 
-const IncidentView = () => {
+const IncidentDetails = () => {
     return <>
         <DetailsContainer>
-            <DetailsHeader header={`Header Lorem Ipsum`}/>
+            <DetailsHeader header={`Incident: Header Lorem Ipsum`}/>
             <DetailsBlock>
                 <DetailsTitle title={`Incident Information`}/>
                 <DetailsContent type='Incident' content={'Lorem ipsum dolor sit amet'}/>
@@ -38,4 +38,4 @@ const IncidentView = () => {
     </>
 }
 
-export default IncidentView;
+export default IncidentDetails;

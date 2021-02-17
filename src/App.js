@@ -8,6 +8,7 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import './App.css';
 import Navigation from './components/Navigation';
 import routes from './app/routes';
+import NotFound from './pages/NotFound';
 
 const theme = createMuiTheme({
   palette: {
@@ -44,6 +45,9 @@ function App() {
               {
                 routes.map(route => <Route key={route.path} exact path={route.path}>{route.component}</Route>)
               }
+              <Route path="*">
+                <NotFound/>
+            </Route>
           </Switch>
         </Router>
       </MuiThemeProvider>

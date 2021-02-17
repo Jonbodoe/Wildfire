@@ -4,7 +4,7 @@ import { Grid } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     container: {
-        margin: theme.spacing(1,2),
+        margin: theme.spacing(2,2),
         padding: theme.spacing(2,3),
         backgroundColor: theme.palette.secondary.lighter,
         boxShadow: '0px 0px 10px #dbdbdb',
