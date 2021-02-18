@@ -4,15 +4,22 @@ import DetailsBlock from '../../components/DetailsBlock';
 import DetailsTitle from '../../components/DetailsTitle';
 import DetailsContent from '../../components/DetailsContent';
 import DetailsHeader from '../../components/DetailsHeader';
+import { useSelector } from 'react-redux';
+import {
+    selected,
+} from './../../app/reducers/incidentSlice'
+
+
 
 const IncidentDetails = () => {
+    const selectedId = useSelector(selected)
     return <>
         <DetailsContainer>
             <DetailsHeader header={`Incident: Header Lorem Ipsum`}/>
             <DetailsBlock>
                 <DetailsTitle title={`Incident Information`}/>
                 <DetailsContent type='Incident' content={'Lorem ipsum dolor sit amet'}/>
-                <DetailsContent type='ID' content={'Lorem ipsum dolor sit amet'}/>
+                <DetailsContent type='ID' content={selectedId}/>
                 <DetailsContent type='Initial Date' content={'Lorem ipsum dolor sit amet'}/>
                 <DetailsContent type='Zipcodes Affected' content={'Lorem ipsum dolor sit amet'}/>
             </DetailsBlock>

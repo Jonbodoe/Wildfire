@@ -6,6 +6,7 @@ import IncidentListLabels from './IncidentListLabels';
 
 const Results = (props) => {
     if (props.state && !props.error.message) {
+        console.log('hello')
         return props.state.map(item => <IncidentItem key={item._id} state={item} />);
     } else if (!props.state && props.error.message) {
         return <Typography>{props.error.message.message}</Typography>;

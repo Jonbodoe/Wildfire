@@ -17,7 +17,7 @@ router.route('/get-incidents-db')
                 // res.json(err) make sure property has message + error;
             }
             // check if string type not object 
-            var db = client.db('testing')
+            var db = client.db('testing');
             db.collection('test').find().toArray(function (err, result) {
                 if (err) throw err
                 res.json(result);

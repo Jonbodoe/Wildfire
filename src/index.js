@@ -10,17 +10,11 @@ import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
     <Provider store={store}>
-    {/* <Auth0Provider
-    domain="wildfireapp.us.auth0.com"
-    clientId="yxNUB9lAEzvwZnbG9Suf21c3iNpB8MOK"
-    redirectUri={window.location.origin}
-  > */}
-    <App />
-  {/* </Auth0Provider> */}
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </Provider>
-    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
