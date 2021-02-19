@@ -22,14 +22,10 @@ export const IncidentList = (props) => {
         header="Open Incidents"
     >
         <IncidentListLabels 
-            labelOne="Location" 
-            labelTwo="State" 
-            labelThree="Volume" 
-            labelFour="Status"
+            labels={['Location', 'State', 'Volume', 'Status']}
+            
         />
         {/* 
-            Make more scalable 
-            Possibly make an array
             output based on the key of the json data/ mongodb
             Object.keys({dataReduxStore})
             loDash function find object keys

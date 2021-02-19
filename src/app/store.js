@@ -7,7 +7,8 @@ export default configureStore({
     incidents: incidentReducer,
   }
 });
-
+// Possible Reducers:
+// Login, Geolocation
 
 // {
 //   incidents: {

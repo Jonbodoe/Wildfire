@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
     },
     active: {
         backgroundColor: theme.palette.secondary.main,
-        margin: theme.spacing(1),
+        margin: theme.spacing(1,1.5),
         '&$hover': {
             backgroundColor: theme.palette.secondary.main,
         },

@@ -39,31 +39,18 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const EventListLabels = (props) => {
+const IncidentListLabels = (props) => {
     const classes = useStyles();
     return <>
-        {/* <Grid className={classes.headerRow}>
-            <Typography variant="body1" className={classes.header}>{props.header}</Typography>
-            <Grid className={classes.icon}>
-                <KeyboardArrowUp />
-            </Grid>
-        </Grid> */}
         <Grid item className={classes.itemRow}>
-            <Grid className={classes.itemContent}>
-                <Typography variant="body2">{props.labelOne}</Typography>
-            </Grid>
-            <Grid className={classes.itemContent}>
-                <Typography variant="body2">{props.labelTwo}</Typography>
-            </Grid>
-            <Grid className={classes.itemContent}>
-                <Typography variant="body2">{props.labelThree}</Typography>
-            </Grid>
-            <Grid className={classes.itemContent}>
-                <Typography variant="body2">{props.labelFour}</Typography>
-            </Grid>
+            {
+                props.labels.map(label => <Grid className={classes.itemContent}>
+                    <Typography variant="body2">{label}</Typography>
+                </Grid>)
+            }
         </Grid>
         {props.children}
     </>
 }
 
-export default EventListLabels;
+export default IncidentListLabels;
