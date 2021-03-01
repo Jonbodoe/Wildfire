@@ -11,8 +11,23 @@ const useStyles = makeStyles((theme) => ({
 }));  
 
 const DetailsBlock = (props) => {
+    // console.log(props.content);
+    // const content = props.content;
+    // const type = props.type;
+    // const title = props.title;
+
+    // const dataFormatCheck = (propsParam) => {
+    //     return propsParam && Array.isArray(propsParam)?  true : false
+    // }
+
+    // console.log(dataFormatCheck(content))
+
+    // console.log(props)
     const classes = useStyles();
     return <Grid item className={classes.ItemContainer}>
+        {/* {
+            dataFormatCheck(content)? content.map()
+        } */}
         {props.children}
     </Grid>
 }

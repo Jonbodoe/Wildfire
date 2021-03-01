@@ -1,46 +1,26 @@
+import React, { useEffect } from 'react';
 import { Grid } from '@material-ui/core';
-// import { makeStyles } from '@material-ui/core/styles';
-import React, { useEffect, useState } from 'react';
 import MainContainer from '../components/MainContainer';
 // import PageTitle from '../components/PageTitle';
-import { IncidentList } from '../features/incidents/IncidentList';
+import IncidentList from '../features/incidents/IncidentList';
+import { useSelector, useDispatch } from 'react-redux';
 // import IncidentView from '../features/incidents/IncidentDetails';
 import IncidentDetails from '../features/incidents/IncidentDetails';
+import {
+    listIncidents, fetchIncidents, errorLog, refreshState
+} from './../app/reducers/incidents/incidentSlice'
+// import Results from '../components/Results';
 
 const Incidents = () => {
-    const [incidents, setIncidents] = useState();
-    const [errorMessage, setErrorMessage] = useState({
-        message: false
-    });
-    // const classes = useStyles();
-    // const [mountStatus, setMountStatus] = useState(false);
-
-    useEffect(() => {
-        return fetch(`${process.env.PORT || 'http://localhost:8080'}/incidents/get-incidents-db`)
-        // downloaded a fetch polyfill 
-        .then(function(response) {
-            if (!response.ok) {
-                // console.log(response.statusText, "first")
-                setErrorMessage({message:response.statusText});
-            }
-            return response.json();
-        }).then(function(response) {
-            return response;
-        }).then(items => {
-            setIncidents(items)
-          }).catch(function(error) {
-            // console.log(error, "second")
-            setErrorMessage({message:error})
-        });
-    }, [])
-    // console.log(incidentList, errorMessage);
-
+    const incidentsList = useSelector(listIncidents);
+    const errorMessage = useSelector(errorLog);
+    // const errorMessage = useSelector(errorLog);
     return <MainContainer>
         <Grid item md={6}>
-            <IncidentList state={incidents} error={errorMessage}/>
+            <IncidentList state={incidentsList} error={errorMessage}/>
         </Grid>
         <Grid item md={6}>
-            <IncidentDetails />
+            <IncidentDetails state={incidentsList} error={errorMessage}/>
         </Grid>
     </MainContainer>
 }

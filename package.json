@@ -15,6 +15,8 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-openid-connect": "^2.2.1",
+    "lodash.isempty": "^4.4.0",
+    "lodash.pick": "^4.4.0",
     "mapbox-gl": "^2.0.1",
     "needle": "^2.6.0",
     "node-fetch": "^2.6.1",
@@ -30,6 +32,7 @@
   "scripts": {
     "dev": "concurrently \"react-scripts start\" \"node server/App.js\"",
     "start": "react-scripts start",
+    "start-server": "nodemon server/App.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

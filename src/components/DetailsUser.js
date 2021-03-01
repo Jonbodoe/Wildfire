@@ -34,9 +34,10 @@ const useStyles = makeStyles((theme) => ({
 const DetailsUser = (props) => {
     const classes = useStyles();
     const profileImg = require('../images/profilePic.jpg');
+    // console.log(profileImg);
     return <Grid item className={classes.userContainer}>
         <Grid className={classes.profileContainer}>
-            <Avatar className={classes.profileImg} src={profileImg} />
+            <Avatar className={classes.profileImg} src={profileImg.default} />
         </Grid>
         <Grid className={classes.textContainer}>
             <Typography className={classes.position} variant="body2">

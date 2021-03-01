@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme) => ({
 }));  
 
 const DetailsHeader = (props) => {
+    // console.log(props.loading, 'from head')
     const classes = useStyles();
     return <Typography className={classes.header}>
         {props.header}

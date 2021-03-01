@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Typography } from '@material-ui/core';
+// import _ from "lodash";
 
 const useStyles = makeStyles((theme) => ({
     itemRow: {
@@ -17,34 +18,15 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
         flexBasis: 0,
     },
-    // itemLocation: {
-    //     textAlign: 'left',
-    //     flexGrow: 2,
-    //     flexBasis: 0,
-    // },
-    icon: {
-        display: 'flex',
-        textAlign: 'right',
-        alignItems: 'center',
-    },
-    header: {
-        paddingBottom: theme.spacing(1.5),
-        fontWeight: '600'
-    },
-    headerRow: {
-        width: '100%',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-    }
 }));
-
+// ['Location', 'State', 'Volume', 'Status']
 const IncidentListLabels = (props) => {
+    // Not too sure how to use the _pick. if half the data is in two different objects, not in the same root level
     const classes = useStyles();
     return <>
         <Grid item className={classes.itemRow}>
             {
-                props.labels.map(label => <Grid className={classes.itemContent}>
+                props.keyLabels.map(label => <Grid key={label} className={classes.itemContent}>
                     <Typography variant="body2">{label}</Typography>
                 </Grid>)
             }

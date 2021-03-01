@@ -2,19 +2,20 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import store from './app/store';
-import { Provider } from 'react-redux';
+// import { Provider } from 'react-redux';
 import { BrowserRouter } from "react-router-dom";
+import { Provider } from 'react-redux';
+import store from './app/store';
 // import { Auth0Provider } from "@auth0/auth0-react";
 // import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
       <BrowserRouter>
+      <Provider store={store}>
         <App />
+        </Provider>
       </BrowserRouter>
-    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

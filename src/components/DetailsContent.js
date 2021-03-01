@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const DetailsContent = (props) => {
+    // console.log(props.loading)
     const classes = useStyles();
     return <>
         <Grid className={classes.container} item>

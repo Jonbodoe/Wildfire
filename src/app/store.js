@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import incidentReducer from './../app/reducers/incidentSlice'
+import incidentReducer from './reducers/incidents/incidentSlice'
 // import counterReducer from '../features/counter/counterSlice';
 
 export default configureStore({
