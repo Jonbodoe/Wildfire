@@ -26,7 +26,9 @@ const DetailsContent = (props) => {
     const classes = useStyles();
     return <>
         <Grid className={classes.container} item>
+            {props.type ? 
             <Typography variant="body2" className={classes.type}>{props.type}: </Typography>
+            : null }
             <Typography variant="body2" className={classes.content}>{props.content}</Typography>
         </Grid>
     </>
