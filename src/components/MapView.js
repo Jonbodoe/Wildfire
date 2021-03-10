@@ -6,9 +6,9 @@ const mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
 const useStyles = makeStyles((theme) => ({
     mapContainer: {
         width: '100%',
-        height: theme.spacing(70),
+        height: theme.spacing(50),
         backgroundColor: theme.palette.secondary.light,
-        margin: theme.spacing(2,2),
+        // margin: theme.spacing(0),
     }
 }));
 
@@ -26,7 +26,6 @@ const MapView = (props) => {
                 center: [-75.1689107, 39.9545261],
                 zoom: 12.5,
             });
-
             // add navigation control (the +/- zoom buttons)
             map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
             // the locate user

@@ -6,6 +6,7 @@ const app = express();
 //  router = express.Router()
 const incidents = require('./routes/incidents.js');
 const apis = require('./routes/apis')
+const logins = require('./routes/logins')
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "http://localhost:3000");
@@ -24,6 +25,8 @@ app.use(express.static(path.join(__dirname, 'build')));
 app.get('/', function (req, res) {
   res.send('helllooooooo world');
 });
+
+app.use('/login', logins);
 
 app.use('/incidents', incidents);
 

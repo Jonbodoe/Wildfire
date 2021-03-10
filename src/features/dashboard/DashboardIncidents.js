@@ -5,7 +5,7 @@ import DetailsCaption from '../../components/DetailsCaption';
 import DetailsContainer from '../../components/DetailsContainer';
 import DetailsHeader from '../../components/DetailsHeader';
 
-const DashboardIncidents = () => {
+const DashboardIncidents = (props) => {
     return <>
         <DetailsContainer>
             <DetailsHeader header={`Incidents`}/>

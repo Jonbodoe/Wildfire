@@ -4,26 +4,29 @@ import { Grid } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     container: {
-        borderTop: '4px solid',
-        margin: theme.spacing(2,2),
+        margin: theme.spacing(2.5,1.5),
         padding: theme.spacing(2,3),
         backgroundColor: theme.palette.secondary.lighter,
         boxShadow: '0px 0px 10px #dbdbdb',
     },
     openLabel: {
+        borderTop: '4px solid',
         borderColor: theme.palette.warning.light
     },
     reviewingLabel: {
+        borderTop: '4px solid',
         borderColor: theme.palette.info.light
     },
     mustResolveLabel: {
+        borderTop: '4px solid',
         borderColor: theme.palette.error.light
     },
     resolvedLabel: {
+        borderTop: '4px solid',
         borderColor: theme.palette.success.light
     },
     standardLabel: {
-        borderColor: theme.palette.secondary.main
+        borderColor: theme.palette.secondary.light
     }
 }));  
 
