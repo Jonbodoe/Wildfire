@@ -62,6 +62,55 @@ export const errorLog = state => state.incidents.meta.errorLog;
 export const refreshState = state => state.incidents.meta.refresh;
 // For getting the value of the current state throughout the app;
 
+
+// Formatter Function for preparing selectedIncident Data for DetailsBlock
+// This moves the responsibility out of the component, and into the reducer.
+// Transformation and formatting of data makes more sense in reducer middleware than the React component. (eg: Smart vs Dumb components)
+export const getDetailBlocks = (state) => {
+    const selectedId = selectIncident(state); // Reusing selectors above
+    const incidentList = listIncidents(state); // Reusing selectors above
+    const selectedIncident = incidentList.find((incident) => !incident._id.indexOf(selectedId));
+
+    if (!selectedIncident) { return {}; }
+
+    const { geographics, incident } = selectedIncident;
+
+    // Set up the data representation of our detail blocks.
+    // This keeps the data formatting responsibility separate from presentational components.
+    // We can break this down further if we wanted to with each "block" having its own formatter function outputting the correct object structure, then adding it to the array.
+    const blocks =  [
+        {
+            title: 'Incident Information',
+            rows:  [
+                { type: 'Incident', content: geographics.municipal },
+                { type: 'State', content: geographics.state }, 
+                { type: 'Region', content: geographics.region }, 
+                { type: 'ID', content: selectedIncident._id.substr(selectedId.length - 5) }, 
+                { type: 'Initial Time', content: `${geographics.time_stamp} ${geographics.time_zone} `}, 
+                { type: 'Zipcodes Affected', content: incident.zip_codes.map(zip => `${zip}, `) }
+            ] 
+        },
+        {
+            title: 'Areas Affected',
+            rows:  [
+                { type: 'Volume Traffic', content: incident.volume_traffic },
+                { type: 'Property', content: incident.property.map(property => `${property}, `) },
+                { type: 'Wildfire Type', content: incident.wildfire_type },
+            ] 
+        },
+        {
+            title: 'Additional Notes',
+            rows:  [
+                { content: 'Lorem ipsum dolor sit amet' },
+            ] 
+        }
+    ];
+
+    return blocks || [];
+};
+
+
+
 export default incidentSlice.reducer;
 
 // const setSelected = (id) => {
