@@ -2,13 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import DetailsContainer from '../../components/DetailsContainer';
 import DetailsBlock from '../../components/DetailsBlock';
-import DetailsTitle from '../../components/DetailsTitle';
-import DetailsContent from '../../components/DetailsContent';
 import DetailsHeader from '../../components/DetailsHeader';
 import { useSelector } from 'react-redux';
 import _ from "lodash";
 import {
-    selectIncident,
+    selectIncident, getDetailBlocks
 } from '../../app/reducers/incidents/incidentSlice'
 import { LinearProgress } from '@material-ui/core';
 // import DetailsLoader from '../../components/DetailsLoader';
@@ -41,20 +39,31 @@ const BorderLinearProgress = withStyles((theme) => ({
 }))(LinearProgress);
 
 const IncidentDetails = (props) => {
+    const { incidents } = props;
     const classes = useStyles();
-    const [loading, setloading] = useState(false);
+    const isLoaded = !_.isEmpty(incidents);
+    const [loading, setloading] = useState(isLoaded);
 
     const selectedId = useSelector(selectIncident);
-    const selectedIncident = props.state.find((incident) => !incident._id.indexOf(selectedId));
+    const detailBlocks = useSelector(getDetailBlocks);
+    const selectedIncident = incidents.find((incident) => !incident._id.indexOf(selectedId));
 
-    useEffect(() => {
-        setloading(_.isEmpty(props.state) ? true : false);
-    }, [props.state]);
+    // There's no point rendering the rest of this component until a selectedIncident is defined. Shaves time off each re-render.
+    if(!selectedIncident) { return null; }
 
+    // deconstruct these properties for a little cleaner code
+    const { geographics, incident } = selectedIncident;
 
-    return <DetailsContainer query={!loading && !_.isEmpty(props.state) ? selectedIncident.incident.status : ''}>
+    // useEffect(() => {
+
+    //     console.log('incidents', incidents);
+
+    // //  setloading(_.isEmpty(props.state) ? true : false);
+    // }, [incidents]);
+
+    return <DetailsContainer query={!loading && !isLoaded ? incident.status : ''}>
         {
-            !loading && !_.isEmpty(props.state) ?
+            !loading ?
                 <>
                     {/* <DetailsLoader loading={loading}> */}
                     {/* 
@@ -64,45 +73,43 @@ const IncidentDetails = (props) => {
 
                         How would you go about creating the lazy-loading component? 
                     */}
-                    <DetailsHeader header={`Incident: ${selectedIncident.geographics.municipal}`} />
+                    <DetailsHeader header={`Incident: ${geographics.municipal}`} />
                     {/* </DetailsLoader> */}
-                    <DetailsBlock title={'test'} type={'test'} content={"helo"}>
-                        <DetailsTitle title={`Incident Information`} />
-                        <DetailsContent type='Incident' content={selectedIncident.geographics.municipal} loading={loading} />
-                        <DetailsContent type='State' content={selectedIncident.geographics.state} />
-                        <DetailsContent type='Region' content={selectedIncident.geographics.region} />
-                        <DetailsContent type='ID' content={selectedIncident._id.substr(selectedId.length - 5)} />
-                        <DetailsContent type='Initial Time' content={`${selectedIncident.geographics.time_stamp} ${selectedIncident.geographics.time_zone} `} />
-                        <DetailsContent type='Zipcodes Affected' content={selectedIncident.incident.zip_codes.map(zip => `${zip}, `)} />
+
+                    {/**
+                     * I think the DetailsBlock component can do more
+                     * heavy-lifting to help clean up this component more --
+                     * right now it's just rendering `children`, and 
+                     * not providing much value beyond a generic React component. But it has a very common pattern of displaying data.
+                     * We're also doing a lot of data formatting and transformation here, in the presentational component -- that's a job for redux middleware functions.
+                     * See 'getDetailBlocks' in incidentSlice.js
+                     *  
+                     */}
+                    {detailBlocks.map(block => <DetailsBlock title={block.title} detailRows={block.rows} />
+                    )}
                         {/*
                              Would was going to pass the information in two arrays like <DetailsBlock type={[...]} content={[...]}/> however, 
                              i'm not too sure how to go about mapping out two different arrays at the same time. 
                              got any ideas? 
 
                              Would use the _.pick lodash method but the string of type's is slightly different from the schema's object keys
+
+                             ---
+
+                             Yep! Sometimes it's easier to format data in a cleaner way before we pass it to a React component -- there's no rule that says you have to use JSON exactly the way it comes from an API call! :) In fact, it's pretty common to adjust data from a fetch response in a way that is easier to work with -- this practice is called data transformation. It's typically done to make data as close to "final" formats, look friendlier, like formatting timestamps, or flatten deeply nested JSON.
+
+                             The most appropriate place to do that in a React/Redux application is closer to the reducer, usually done in redux middleware.
+
+                             I added an example function of this in incidentSlice.js: getDetailBlocks
+                                             
                         */}
-                    </DetailsBlock>
-                    <DetailsBlock>
-                        <DetailsTitle title={`Incident Cases`} />
+                    <DetailsBlock title={`Incident Cases`} >
                         <DetailsTable 
-                            data={selectedIncident.incident.cases} 
+                            data={incident.cases} 
                             allowedKeys={["zip_code", "initial_time", "volume_traffic"]}
                             tableHeader={["Zip Code", "Initial Time", "Volume Traffic"]}
                             // Needa figure this out for the cell rows display to make it more reuseable 
                         />
-                    </DetailsBlock>
-                    <DetailsBlock>
-                        <DetailsTitle title={`Areas Affected`} />
-                        <DetailsContent type="Volume Traffic" content={selectedIncident.incident.volume_traffic} />
-                        <DetailsContent type="Property" content={selectedIncident.incident.property.map(property => `${property}, `)} />
-                        <DetailsContent type="Wildfire Type" content={selectedIncident.incident.wildfire_type} />
-                    </DetailsBlock>
-                    <DetailsBlock>
-                        <DetailsTitle title={`Additional Notes`} />
-                        <DetailsContent type={`Title`} content={'Lorem ipsum dolor sit amet'} />
-                    </DetailsBlock>
-                    <DetailsBlock>
-                        <DetailsTitle title={`Incident Progress`} />
                     </DetailsBlock>
                 </>
                 :
