@@ -28,8 +28,14 @@ const DetailsTable = (props) => {
     const header = props.tableHeader
 
     const rows = props.data.map((data)=> _.pick(data, props.allowedKeys));
+
+    const renderColumns = row => {
+        const columnAccessors = Object.keys(row);
+        // This uses the object keys to iterate through the columns per row.
+        return columnAccessors.map(column => <TableCell align="center" className={classes.cellRow}>{row[column]}</TableCell>)
+    };
     // const rowsKeys = rows.map((data)=> Object.keys(data));
-    rows.map(row => console.log(row));
+    const tableRows = rows.map((row, i) => <TableRow key={i}>{renderColumns(row)}</TableRow>);
 
     return (
         <TableContainer>
@@ -45,18 +51,7 @@ const DetailsTable = (props) => {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-
-                    {/* {rows.map((row, i) => (   
-                        <TableRow key={i}>
-                            <TableCell component="th" scope="row" className={classes.cellRow}>
-                               
-                            </TableCell>
-                            <TableCell align="right" className={classes.cellRow}>{row.calories}</TableCell>
-                            <TableCell align="right" className={classes.cellRow}>{row.fat}</TableCell>
-                            <TableCell align="right" className={classes.cellRow}>{row.carbs}</TableCell>
-                            <TableCell align="right" className={classes.cellRow}>{row.protein}</TableCell>
-                        </TableRow>
-                    ))} */}
+                    {tableRows}
                 </TableBody>
             </Table>
         </TableContainer>
