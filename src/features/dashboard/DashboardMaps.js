@@ -7,8 +7,9 @@ import DetailsContainer from '../../components/DetailsContainer';
 import DetailsHeader from '../../components/DetailsHeader';
 import MapDisplay from '../../components/MapDisplay';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import { Link as RouterLink, withRouter } from 'react-router-dom';
+import { Link as RouterLink} from 'react-router-dom';
 import Link from '@material-ui/core/Link';
+import MapKey from '../maps/MapKey';
 
 const width = 250;
 
@@ -44,6 +45,7 @@ const DashboardMaps = (props) => {
                     </Grid>
                     <DetailsCaption caption={`View real time cases and incidents occuring based on the location`} />
                     <Divider />
+                    <MapKey/>
                 </Grid>
             </Grid>
             {/* <DetailsBlock> */}

@@ -10,7 +10,7 @@ import _ from "lodash";
 
 const useStyles = makeStyles((theme) => ({
     table: {
-        minWidth: 500,
+        minWidth: 450,
         padding: theme.spacing(1),
         backgroundColor: theme.palette.secondary.lighter
     },
@@ -31,8 +31,9 @@ const DetailsTable = (props) => {
 
     const renderColumns = row => {
         const columnAccessors = Object.keys(row);
+        console.log(row,columnAccessors, 'column render')
         // This uses the object keys to iterate through the columns per row.
-        return columnAccessors.map(column => <TableCell align="center" className={classes.cellRow}>{row[column]}</TableCell>)
+        return columnAccessors.map((column, i) => <TableCell key={i} align="left" className={classes.cellRow}>{row[column]}</TableCell>)
     };
     // const rowsKeys = rows.map((data)=> Object.keys(data));
     const tableRows = rows.map((row, i) => <TableRow key={i}>{renderColumns(row)}</TableRow>);

@@ -24,6 +24,7 @@ const IncidentList = (props) => {
                 </IncidentListCategories>
             })
         }
+        
     </>
 }
 

@@ -8,7 +8,8 @@ import { Button, Divider } from '@material-ui/core';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import DrawerNav from './DrawerNav';
 import ProfileNav from './ProfileNav';
-import { withRouter } from 'react-router-dom';
+import { Link as RouterLink, withRouter } from 'react-router-dom';
+import Link from '@material-ui/core/Link';
 import routes from '../app/routes';
 import PageTitle from './PageTitle';
 
@@ -51,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: '0px',
         color: theme.palette.primary.main,
         backgroundColor: theme.palette.secondary.main,
-        margin: theme.spacing(0,3)
+        margin: theme.spacing(0, 3)
     },
     container: {
         display: 'flex',
@@ -92,9 +93,20 @@ function Navigation(props) {
                     <div className={classes.container}>
                         <LocationTitle location={locationInfo} />
                         <div>
-                        <Button className={classes.summaryButton} variant="contained" disableElevation>
-                            Summary<NavigateNextIcon />
-                        </Button>
+                            <Link 
+                                component={RouterLink}
+                                to={`/summary`}>
+                                <Button
+                                    className={classes.summaryButton}
+                                    variant="contained"
+                                    disableElevation
+                                    // component={RouterLink}
+                                    // to={`/summary`}
+                                >
+
+                                    Summary<NavigateNextIcon />
+                                </Button>
+                            </Link>
                         </div>
                     </div>
                     <div className={classes.container}>

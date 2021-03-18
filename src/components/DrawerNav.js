@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link as RouterLink, withRouter } from 'react-router-dom';
+import { NavLink as RouterLink, withRouter } from 'react-router-dom';
 import Link from '@material-ui/core/Link';
 import { Divider, Drawer, List, ListItem, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
@@ -17,19 +17,17 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: theme.palette.primary.dark
     },
     drawerItem: {
-        padding: theme.spacing(2,1),
+        padding: theme.spacing(2, 1),
         margin: theme.spacing(1, 0),
         display: 'list-item',
         textAlign: 'center',
-    },
-    drawerItemInactive: {
-        color: theme.palette.secondary.lighter,
-        backgroundColor: theme.palette.primary.main
+        color: theme.palette.secondary.light,
+        backgroundColor: theme.palette.primary.main,
     },
     drawerItemActive: {
-        borderLeft: `5px solid ${theme.palette.secondary.main}`, 
-        color: theme.palette.secondary.lighter,
-        backgroundColor: theme.palette.primary.dark
+        borderLeft: `5px solid ${theme.palette.secondary.main}`,
+        backgroundColor: theme.palette.primary.darker,
+        display: 'list-item',
     },
     brandLogo: {
         color: theme.palette.secondary.lighter,
@@ -40,12 +38,7 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: theme.palette.primary.light
     },
     navList: {
-        justifyContent: 'center', 
-    },
-    navIconInactive: {
-        color: theme.palette.primary.lighter,
-    },
-    navIconActive: {
+        justifyContent: 'center',
         color: theme.palette.secondary.light,
     },
     textCenter: {
@@ -55,37 +48,47 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-const DrawerNav = (props) => {
+const DrawerNav = () => {
     const classes = useStyles();
     const drawerItems = routes.filter((route) => route.menu === 'PRIMARY');
-    return <Drawer
-        className={classes.drawer}
-        variant="permanent"
-        classes={{
-            paper: classes.drawerPaper,
-        }}
-        anchor="left"
-    >
-        <Typography className={classes.brandLogo}>
-            Intuitive <br />Robotics
-    </Typography>
-        <Divider className={classes.dividerLight} />
-        <List className={classes.navList}>
-        {
-            drawerItems.map(data => {
-                return <Link key={data.uid} button="true" component={RouterLink} to={data.path}>
-                    <ListItem 
-                        button
-                        className={`${classes.drawerItem} ${props.location.pathname === data.path? classes.drawerItemActive : classes.drawerItemInactive}`} 
-                        key={data.label}>
-                    <Typography className={`${props.location.pathname === data.path? classes.navIconActive : classes.navIconInactive}`}>{data.icon}</Typography>
-                        {data.label}
-                    </ListItem>
-                </Link>
-            })
-        }
-        </List>
-    </Drawer>
+    // Filtering for links that are in the primary navigation
+    return (
+        <Drawer
+            className={classes.drawer}
+            variant="permanent"
+            classes={{
+                paper: classes.drawerPaper,
+            }}
+            anchor="left"
+        >
+            <Typography className={classes.brandLogo}>
+                Intuitive <br />Robotics
+        </Typography>
+            <Divider className={classes.dividerLight} />
+            <List className={classes.navList}>
+                {
+                    drawerItems.map(data => <Link
+                        component={RouterLink}
+                        // Passing the react router link component into material UI's Link component
+                        exact={false}
+                        activeClassName={classes.drawerItemActive}
+                        to={data.path}
+                        key={data.label}
+                    >
+                    <ListItem
+                        disableRipple
+                        button={true}
+                        className={`${classes.drawerItem}`}
+                    >
+                            <Typography>{data.icon}</Typography>
+                            {data.label}
+                        </ListItem>
+                    </Link>
+                    )
+                }
+            </List>
+        </Drawer>
+    )
 }
 
 export default withRouter(DrawerNav)

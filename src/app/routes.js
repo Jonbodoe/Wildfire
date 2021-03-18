@@ -4,11 +4,11 @@ import Incidents from '../pages/incidents';
 import Login from '../pages/login';
 import Maps from '../pages/maps';
 import Profile from '../pages/profile';
-import IncidentDetails from '../pages/sub-pages/IncidentDetails';
-import MapDetails from '../pages/sub-pages/MapDetails';
-import Summary from '../pages/sub-pages/summary';
-import UpdateDetails from '../pages/sub-pages/UpdateDetails';
-import Weather from '../pages/sub-pages/weather';
+import IncidentDetails from '../pages/sub-pages/incidentDetails';
+import MapDetails from '../pages/sub-pages/mapDetails';
+import Summary from '../pages/summary';
+import UpdateDetails from '../pages/sub-pages/updateDetails';
+// import Weather from '../pages/sub-pages/weather';
 import Updates from '../pages/updates';
 import HomeIcon from '@material-ui/icons/Home';
 import AnnouncementIcon from '@material-ui/icons/Announcement';
@@ -28,11 +28,29 @@ const routes = [
         subPages: false
     },
     {
+        path: '/',
+        label: 'Logout',
+        uid: 'LOGIN',
+        component: <Login fontSize='large'/>,
+        menu: 'SECONDARY',
+        private_url: false,
+        subPages: false
+    },
+    {
         path:'/profile',
         label: 'Profile',
         uid: 'PROFILE',
         private_url: true,
         component: <Profile fontSize='large'/>,
+        menu: 'SECONDARY',
+        subPages: false
+    },
+    {
+        path:'/summary',
+        label: 'Summary',
+        uid: 'SUMMARY',
+        private_url: true,
+        component: <Summary/>,
         menu: 'SECONDARY',
         subPages: false
     },
@@ -44,22 +62,6 @@ const routes = [
         menu: 'PRIMARY',
         component: <Dashboard/>,
         private_url: true,
-        subPages: [
-            {
-                path: '/summary',
-                label: 'Summary',
-                uid: 'SUMMARY',
-                private_url: true,
-                component: <Summary/>,
-            },
-            {
-                path: '/weather',
-                label: 'Weather',
-                uid: 'WEATHER',
-                private_url: true,
-                component: <Weather/>
-            }
-        ]
     },
     {
         path: '/incidents',

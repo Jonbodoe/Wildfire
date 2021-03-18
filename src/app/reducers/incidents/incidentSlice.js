@@ -25,7 +25,7 @@ export const incidentSlice = createSlice({
             }
         },
         data: {
-            selectedIncidentId: '603c75eef0c670878ff38a76',
+            selectedIncidentId: '',
             incidentList: []
         }
     },
@@ -52,9 +52,7 @@ export const incidentSlice = createSlice({
     },
 });
 
-
-
-export const { select, get } = incidentSlice.actions;
+export const { select } = incidentSlice.actions;
 
 export const selectIncident = state => state.incidents.data.selectedIncidentId;
 export const listIncidents = state => state.incidents.data.incidentList;
@@ -62,10 +60,13 @@ export const errorLog = state => state.incidents.meta.errorLog;
 export const refreshState = state => state.incidents.meta.refresh;
 // For getting the value of the current state throughout the app;
 
-
 // Formatter Function for preparing selectedIncident Data for DetailsBlock
 // This moves the responsibility out of the component, and into the reducer.
-// Transformation and formatting of data makes more sense in reducer middleware than the React component. (eg: Smart vs Dumb components)
+// Transformation and formatting of data makes more sense in reducer middleware than the React component. (seg: Smart vs Dumb components)
+
+// export const selectedIncident = incidents.find((incident) => !incident._id.indexOf(selectedId));
+export const getSelectedIncident = (state) => state.incidents.data.incidentList.find((incident) => !incident._id.indexOf(selectIncident));
+
 export const getDetailBlocks = (state) => {
     const selectedId = selectIncident(state); // Reusing selectors above
     const incidentList = listIncidents(state); // Reusing selectors above

@@ -45,7 +45,12 @@ const Maps = () => {
         <MainContainer>
         <Grid item md={7} className={classes.container}>
             {
-                api? <MapView state={api} error={errorMessage}/> : <Typography>loading...</Typography>
+                api? <MapView 
+                    // state={api} 
+                    // uncomment for api to work
+                    error={errorMessage}/>
+                : 
+                <Typography>loading...</Typography>
             }
         </Grid>
         <Grid item md={5}>

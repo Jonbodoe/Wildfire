@@ -49,7 +49,11 @@ const MapDisplay = () => {
         <Grid item className={classes.container}> 
         {/* <div className={classes.container}> */}
             {
-                api? <MapView state={api} error={errorMessage}/> : <Typography>loading...</Typography>
+                api? <MapView 
+                    // state={api} 
+                    // uncomment to use API 
+                    error={errorMessage}
+                /> : <Typography>loading...</Typography>
             }
         </Grid>
         {/* </div> */}

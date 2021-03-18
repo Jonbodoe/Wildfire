@@ -6,6 +6,9 @@ import {
     selectIncident,
     select
 } from '../../app/reducers/incidents/incidentSlice'
+import { Link as RouterLink, useRouteMatch} from 'react-router-dom';
+import Link from '@material-ui/core/Link';
+// import DetailsTitle from '../../components/DetailsTitle';
 
 const useStyles = makeStyles((theme) => ({
     items: {
@@ -64,6 +67,8 @@ const useStyles = makeStyles((theme) => ({
 
 const IncidentItem = (props) => {
     const classes = useStyles();
+    let { path, url } = useRouteMatch();
+
     const labelColorSwitch = (props) => {
         switch (props.query) {
             case "Open": return classes.openLabel;
@@ -79,11 +84,14 @@ const IncidentItem = (props) => {
     };
     const dispatch = useDispatch()
     const selectedId = useSelector(selectIncident)
-    return <Button
-
+    // console.log(_.isEmpty(selectedId));
+    
+    return <>
+    <Link component={RouterLink} to={`${url}/${props.state._id}`}>
+    <Button
         key={props.state._id}
-        data-id={props.state._id}
         disableRipple
+        data-id={props.state._id}
         className={`${classes.button} ${props.state._id === selectedId ? classes.active : classes.inactive} ${labelColorSwitch(props)}`}
         onClick={(e) => setSelectedId(e.currentTarget.dataset.id)}
     >
@@ -102,6 +110,8 @@ const IncidentItem = (props) => {
             </Grid>
         </Grid>
     </Button>
+    </Link>
+</>
 }
 
 export default IncidentItem;

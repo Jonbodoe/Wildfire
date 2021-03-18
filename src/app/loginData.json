@@ -1,0 +1,21 @@
+[
+    {
+        "credientials": {
+            "user": "janedoe",
+            "password": "root"
+        },
+        "information":{
+            "fullname": "Jane Doe",
+            "position": "Logistics Section Chief",
+            "organization": "National Park Service",
+            "email": "janedoe@intuitiverobotics.com",
+            "phone": "767-284-8200"
+        },
+        "incidents_reviewing": {
+            "listIds": [
+                "603c75eef0c670878ff38a86",
+                "603c75eef0c670878ff38a80"
+            ]
+        }
+    }
+]

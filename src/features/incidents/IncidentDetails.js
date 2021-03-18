@@ -40,26 +40,23 @@ const BorderLinearProgress = withStyles((theme) => ({
 
 const IncidentDetails = (props) => {
     const { incidents } = props;
+    // console.log(incidents)
     const classes = useStyles();
     const isLoaded = !_.isEmpty(incidents);
     const [loading, setloading] = useState(isLoaded);
-
     const selectedId = useSelector(selectIncident);
     const detailBlocks = useSelector(getDetailBlocks);
     const selectedIncident = incidents.find((incident) => !incident._id.indexOf(selectedId));
+
+    useEffect(() => {
+        setloading(!isLoaded ? true : false);
+    }, [incidents]);
 
     // There's no point rendering the rest of this component until a selectedIncident is defined. Shaves time off each re-render.
     if(!selectedIncident) { return null; }
 
     // deconstruct these properties for a little cleaner code
     const { geographics, incident } = selectedIncident;
-
-    // useEffect(() => {
-
-    //     console.log('incidents', incidents);
-
-    // //  setloading(_.isEmpty(props.state) ? true : false);
-    // }, [incidents]);
 
     return <DetailsContainer query={!loading && !isLoaded ? incident.status : ''}>
         {
@@ -85,7 +82,7 @@ const IncidentDetails = (props) => {
                      * See 'getDetailBlocks' in incidentSlice.js
                      *  
                      */}
-                    {detailBlocks.map(block => <DetailsBlock title={block.title} detailRows={block.rows} />
+                    {detailBlocks.map((block, i) => <DetailsBlock key={i} title={block.title} detailRows={block.rows} />
                     )}
                         {/*
                              Would was going to pass the information in two arrays like <DetailsBlock type={[...]} content={[...]}/> however, 
@@ -96,7 +93,9 @@ const IncidentDetails = (props) => {
 
                              ---
 
-                             Yep! Sometimes it's easier to format data in a cleaner way before we pass it to a React component -- there's no rule that says you have to use JSON exactly the way it comes from an API call! :) In fact, it's pretty common to adjust data from a fetch response in a way that is easier to work with -- this practice is called data transformation. It's typically done to make data as close to "final" formats, look friendlier, like formatting timestamps, or flatten deeply nested JSON.
+                             Yep! Sometimes it's easier to format data in a cleaner way before we pass it to a React component -- there's no rule that says you have to use JSON exactly the way it comes from an API call! :) 
+                             In fact, it's pretty common to adjust data from a fetch response in a way that is easier to work with -- this practice is called data transformation. It's typically done to make data as close 
+                             to "final" formats, look friendlier, like formatting timestamps, or flatten deeply nested JSON.
 
                              The most appropriate place to do that in a React/Redux application is closer to the reducer, usually done in redux middleware.
 

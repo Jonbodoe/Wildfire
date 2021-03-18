@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { MuiThemeProvider, createMuiTheme, makeStyles } from '@material-ui/core/styles';
 import './App.css';
 import {
-  listIncidents, fetchIncidents, select
+  listIncidents, fetchIncidents,
 } from './app/reducers/incidents/incidentSlice'
 import Navigation from './components/Navigation';
 import routes from './app/routes';
-import NotFound from './pages/NotFound';
+import NotFound from './pages/notFound';
 
 const theme = createMuiTheme({
   palette: {
@@ -39,32 +39,42 @@ const theme = createMuiTheme({
   },
 });
 
+
 function App() {
   const dispatch = useDispatch();
   const incidentsList = useSelector(listIncidents);
   useEffect(() => {
-      if (!incidentsList?.length) {
-          // (Elvis operator) from ECMAScript 2020, checks if array or array.length are falsy
-          dispatch(fetchIncidents());
-          // dispatch(select(incidentsList[0]))
-      }
-  }, [dispatch])
-  console.log(incidentsList, 'from app root')
+    if (!incidentsList?.length) {
+      // (Elvis operator) from ECMAScript 2020, checks if array or array.length are falsy
+      dispatch(fetchIncidents());
+      // dispatch(select(incidentsList[0]))
+    }
+  }, [dispatch, incidentsList])
+  // console.log(incidentsList, 'from app root')
+  // const primaryLinks = routes.filter((route) => route.menu === 'PRIMARY');
   return (
     <>
-        <MuiThemeProvider theme={theme}>
+      <MuiThemeProvider theme={theme}>
           <Router>
             <Navigation />
             <Switch>
               {
-                routes.map(route => <Route key={route.path} exact path={route.path}>{route.component}</Route>)
+                routes.map(route =>
+                  <Route
+                    key={route.path}
+                    exact={route.path === "/" ? true : false}
+                    path={route.path}
+                  >
+                    {route.component}
+                  </Route>
+                )
               }
               <Route path="*">
                 <NotFound />
               </Route>
             </Switch>
           </Router>
-        </MuiThemeProvider>
+      </MuiThemeProvider>
     </>
   );
 }

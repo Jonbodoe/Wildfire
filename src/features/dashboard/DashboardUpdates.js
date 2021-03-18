@@ -41,7 +41,7 @@ const announcementData = [
 
 const useStyles = makeStyles((theme) => ({
     container: {
-        maxHeight: '150px',
+        maxHeight: '200px',
         overflow: 'auto'
     },
     row: {
