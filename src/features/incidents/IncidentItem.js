@@ -6,7 +6,7 @@ import {
     selectIncident,
     select
 } from '../../app/reducers/incidents/incidentSlice'
-import { Link as RouterLink, useRouteMatch} from 'react-router-dom';
+import { NavLink as RouterLink, useRouteMatch} from 'react-router-dom';
 import Link from '@material-ui/core/Link';
 // import DetailsTitle from '../../components/DetailsTitle';
 
@@ -38,10 +38,16 @@ const useStyles = makeStyles((theme) => ({
         // backgroundColor: theme.palette.secondary.lighter,
         // color: theme.palette.primary.main,
         // margin: theme.spacing(1, 0),
+        // '$:focus-visible': {
+        //     border: `3px solid theme.p`
+        // }
     },
     inactive: {
         backgroundColor: theme.palette.secondary.lighter,
         margin: theme.spacing(0.7, 0),
+        '&:hover, &:focus': {
+            backgroundColor: theme.palette.secondary.darkish,
+        },
     },
     active: {
         backgroundColor: theme.palette.secondary.dark,
@@ -87,10 +93,16 @@ const IncidentItem = (props) => {
     // console.log(_.isEmpty(selectedId));
     
     return <>
-    <Link component={RouterLink} to={`${url}/${props.state._id}`}>
+    <Link 
+        key={props.state._id} 
+        component={RouterLink} 
+        to={`${url}/${props.state._id}`}
+        // activeClassName={}
+        // Needa figure out the color issue with this.
+    >
     <Button
-        key={props.state._id}
-        disableRipple
+        // disableRipple
+        // focusVisibleClassName
         data-id={props.state._id}
         className={`${classes.button} ${props.state._id === selectedId ? classes.active : classes.inactive} ${labelColorSwitch(props)}`}
         onClick={(e) => setSelectedId(e.currentTarget.dataset.id)}

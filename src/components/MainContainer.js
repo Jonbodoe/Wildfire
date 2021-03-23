@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
         marginLeft: drawerWidth,
         marginTop: theme.spacing(5),
         padding: theme.spacing(6),
+        minHeight: '100vh',
         backgroundColor: theme.palette.secondary.light
     },
 }));

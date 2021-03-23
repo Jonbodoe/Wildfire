@@ -29,6 +29,9 @@ export const loginSlice = createSlice({
             state.data.isLoggedIn = false
         }
     },
+// before the react app loads, make sure express app checks if the user login 
+// make sure the refreshes aligns with the frontend
+
     // extraReducers: {
     //     [fetchIncidents.pending]: (state) => {
     //         state.meta.status = 'loading';

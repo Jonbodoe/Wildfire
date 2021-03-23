@@ -18,7 +18,7 @@ const MapView = (props) => {
     useEffect(() => {
         if (props.state) {
             mapboxgl.accessToken = props.state.token;
-            console.log(props.state.token)
+            // console.log(props.state.token)
             const map = new mapboxgl.Map({
                 container: mapContainerRef.current,
                 // See style options here: https://docs.mapbox.com/api/maps/#styles

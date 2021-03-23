@@ -6,7 +6,7 @@ import IncidentListLabels from './IncidentListLabels';
 
 const useStyles = makeStyles((theme) => ({
     container: {
-        margin: theme.spacing(2)
+        margin: theme.spacing(1)
     },
     icon: {
         display: 'flex',

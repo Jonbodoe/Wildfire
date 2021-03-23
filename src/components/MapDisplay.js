@@ -35,10 +35,9 @@ const MapDisplay = () => {
         }).then(function(response) {
             return response;
         }).then(items => {
-            console.log('it worked!')
             setApi(items);
           }).catch(function(error) {
-            console.log('it didntttttt work!')
+            console.log('it didntttttt work from Maps API!')
             setErrorMessage({message:error});
         });
         

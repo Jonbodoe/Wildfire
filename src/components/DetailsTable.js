@@ -6,6 +6,8 @@ import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
+import { Link as RouterLink, useLocation, useRouteMatch} from 'react-router-dom';
+import Link from '@material-ui/core/Link';
 import _ from "lodash";
 
 const useStyles = makeStyles((theme) => ({
@@ -24,19 +26,39 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const DetailsTable = (props) => {
+    let { path, url } = useRouteMatch();
+    const linkUrl = props.linkAccessors;
+    console.log(path, url, 'path url')
+    // let location = useLocation();
+    // console.log(location);
+    // console.log(props, 'detailsTable')
+    // console.log(props.data, 'data');
     const classes = useStyles();
     const header = props.tableHeader
+
+    // Use location to get the base,
+    // whatever param is passed down to the props. 
 
     const rows = props.data.map((data)=> _.pick(data, props.allowedKeys));
 
     const renderColumns = row => {
         const columnAccessors = Object.keys(row);
-        console.log(row,columnAccessors, 'column render')
         // This uses the object keys to iterate through the columns per row.
-        return columnAccessors.map((column, i) => <TableCell key={i} align="left" className={classes.cellRow}>{row[column]}</TableCell>)
+        // console.log(row,columnAccessors, 'column render')
+        return columnAccessors.map((column, i) => {
+            // console.log(column, 'column', row)
+            return <TableCell key={i} align="left" className={classes.cellRow}>
+                {
+                    linkUrl? <Link component={RouterLink} to={`${url}/case/${row[linkUrl]}`}>{row[column]}</Link> : <>{row[column]}</>
+                }
+            </TableCell>
+            // Accessing the data row using the column's object property through columnAccessors.
+        })
     };
     // const rowsKeys = rows.map((data)=> Object.keys(data));
-    const tableRows = rows.map((row, i) => <TableRow key={i}>{renderColumns(row)}</TableRow>);
+    const tableRows = rows.map((row, i) => {
+        return <TableRow key={i}>{renderColumns(row)}</TableRow>
+    });
 
     return (
         <TableContainer>

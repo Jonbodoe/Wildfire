@@ -12,7 +12,7 @@ const Dashboard = () => {
     // console.log(primaryLinks);
     const links = primaryLinks()
     const [ dashboard, incidents, updates, maps ] = links;
-    console.log(incidents);
+    // console.log(incidents);
     return <>
         <MainContainer>
             <Grid item md={7}>

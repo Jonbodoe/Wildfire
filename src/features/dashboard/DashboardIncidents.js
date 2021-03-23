@@ -25,9 +25,11 @@ const useStyles = makeStyles((theme) => ({
 const DashboardIncidents = (props) => {
     const incidentList = useSelector(listIncidents);
     const openIncidentsList = incidentList.filter(incident => incident.incident.status === "Open")
+    // console.log(openIncidentsList);
     const formattedIncidents = openIncidentsList.map((data)=> {
         return {...data.incident, ...data.geographics}
     });
+    console.log(formattedIncidents);
     // console.log(openIncidentsList);
     const classes = useStyles();
     return <>
@@ -44,6 +46,7 @@ const DashboardIncidents = (props) => {
                 {/* location,cases.length,priority,volume */}
                 <DetailsTable 
                     data={formattedIncidents} 
+                    // linkAccessors={''}
 
                     // Maybe flatten the array of objects into 1 giant object to pass into
                     allowedKeys={["municipal", "volume_traffic", "status"]}

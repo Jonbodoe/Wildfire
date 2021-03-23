@@ -33,9 +33,7 @@ const DashboardMaps = (props) => {
     return <>
         <DetailsContainer>
             <Grid container>
-                {/* <Grid className={classes.maps}> */}
                 <MapDisplay />
-                {/* </Grid> */}
                 <Grid className={classes.details}>
                     <Grid container>
                         <DetailsHeader header={`Maps`} />
@@ -48,9 +46,6 @@ const DashboardMaps = (props) => {
                     <MapKey/>
                 </Grid>
             </Grid>
-            {/* <DetailsBlock> */}
-            {/* <MapDisplay/> */}
-            {/* </DetailsBlock> */}
         </DetailsContainer>
     </>
 }

@@ -26,6 +26,7 @@ const theme = createMuiTheme({
       lighter: '#FFFFFF',
       light: '#f5f5f5',
       main: '#6bf2bf',
+      darkish: '#57d9c1',
       dark: '#058F95'
     },
   },
@@ -60,6 +61,12 @@ function App() {
             <Switch>
               {
                 routes.map(route =>
+                  // Check if authetheticated based on the condition to map out the routes
+                  //  use selector if they are logged in
+                  
+                  // Error Handling
+                  // React doc: https://reactjs.org/docs/error-boundaries.html
+                  // example use (class function only no functional): https://codepen.io/gaearon/pen/wqvxGa?editors=0010
                   <Route
                     key={route.path}
                     exact={route.path === "/" ? true : false}

@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
         color: theme.palette.warning.main
     },
     dataPoints: {
-        color: theme.palette.warning.main
+        color: '#ffdd00'
     },
     topic: {
         fontWeight: '500'

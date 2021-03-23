@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles, makeStyles } from '@material-ui/core/styles';
 import DetailsContainer from '../../components/DetailsContainer';
 import DetailsBlock from '../../components/DetailsBlock';
 import DetailsHeader from '../../components/DetailsHeader';
@@ -9,8 +9,11 @@ import _ from "lodash";
 import {
     selectIncident, getDetailBlocks, select
 } from '../../app/reducers/incidents/incidentSlice'
-import { LinearProgress } from '@material-ui/core';
-import DetailsTable from '../../components/DetailsTable';
+import { Grid, IconButton, LinearProgress } from '@material-ui/core';
+import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
+import { Link as RouterLink, useHistory } from 'react-router-dom';
+import Link from '@material-ui/core/Link';
+import DetailsTitle from '../../components/DetailsTitle';
 
 const BorderLinearProgress = withStyles((theme) => ({
     root: {
@@ -24,10 +27,28 @@ const BorderLinearProgress = withStyles((theme) => ({
     },
 }))(LinearProgress);
 
-const IncidentDetails = (props) => {
+const useStyles = makeStyles((theme) => ({
+    headerContainer: {
+        display: 'flex',
+        alignItems: 'center'
+    },
+    iconContainer: {
+        height: theme.spacing(4.5),
+        width: theme.spacing(4.5),
+        margin: theme.spacing(0.75)
+    },
+    iconLink: {
+        color: theme.palette.secondary.dark
+    }
+}));
+
+const CaseDetails = (props) => {
+    const classes = useStyles();
     const { incidents } = props;
     const isLoaded = !_.isEmpty(incidents);
+    const history = useHistory();
     const [loading, setloading] = useState(isLoaded);
+    const { caseId } = useParams();
     const { incidentId } = useParams();
     const dispatch = useDispatch();
     const selectedId = useSelector(selectIncident);
@@ -55,18 +76,20 @@ const IncidentDetails = (props) => {
         {
             !loading ?
                 <>
-                    <DetailsHeader header={`Incident: ${geographics.municipal}`} />
+                    <Grid container className={classes.headerContainer}>
+                        <IconButton
+                            onClick={() => {
+                                history.goBack();
+                            }}
+                            className={classes.iconContainer} aria-label="backspace">
+                            <NavigateBeforeIcon className={classes.iconLink} fontSize='medium' />
+                        </IconButton>
+                        <div>
+                            <DetailsHeader header={`Zip Code: ${caseId}`} />
+                            <DetailsTitle title={`Incident: ${geographics.municipal}`} />
+                        </div>
+                    </Grid>
                     <DetailsBlock title={IncidentInformation.title} detailRows={IncidentInformation.rows} />
-                    <DetailsBlock title={`Incident Cases`} >
-                        <DetailsTable
-                            data={incident.cases}
-                            linkAccessors={'zip_code'}
-                            // base url to have links within the table rows.
-                            allowedKeys={["zip_code", "initial_time", "volume_traffic"]}
-                            // for filtering specific data properties
-                            tableHeader={["Zip Code", "Initial Time", "Volume Traffic"]}
-                        />
-                    </DetailsBlock>
                     <DetailsBlock title={AreasAffected.title} detailRows={AreasAffected.rows} />
                     <DetailsBlock title={AdditionalNotes.title} detailRows={AdditionalNotes.rows} />
                 </>
@@ -79,4 +102,4 @@ const IncidentDetails = (props) => {
     </DetailsContainer>
 }
 
-export default IncidentDetails;
+export default CaseDetails;

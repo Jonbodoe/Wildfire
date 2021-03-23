@@ -52,7 +52,10 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: '0px',
         color: theme.palette.primary.main,
         backgroundColor: theme.palette.secondary.main,
-        margin: theme.spacing(0, 3)
+        margin: theme.spacing(0, 3),
+        '&:hover, &:focus': {
+            backgroundColor: theme.palette.secondary.darkish,
+        },
     },
     container: {
         display: 'flex',
