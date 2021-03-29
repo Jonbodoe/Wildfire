@@ -19,11 +19,12 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: theme.palette.secondary.lighter,
     },
     cellRow: {
-        padding: theme.spacing(1,2)
+        padding: theme.spacing(1,2),
+        textDecoration: 'underline'
     },
     cellHead: {
         color: theme.palette.primary.light,
-        padding: theme.spacing(1,2)
+        padding: theme.spacing(1,2),
     },
     box: {
         width: '100px',

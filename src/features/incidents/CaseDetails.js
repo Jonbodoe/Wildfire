@@ -7,12 +7,12 @@ import DetailsHeader from '../../components/DetailsHeader';
 import { useSelector, useDispatch } from 'react-redux';
 import _ from "lodash";
 import {
-    selectIncident, getDetailBlocks, select
+    selectIncident, getCaseDetailBlocks, select, selectCase, 
 } from '../../app/reducers/incidents/incidentSlice'
 import { Grid, IconButton, LinearProgress } from '@material-ui/core';
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
-import { Link as RouterLink, useHistory } from 'react-router-dom';
-import Link from '@material-ui/core/Link';
+import { useHistory } from 'react-router-dom';
+// import Link from '@material-ui/core/Link';
 import DetailsTitle from '../../components/DetailsTitle';
 import CaseImageList from './CaseImageList';
 
@@ -53,7 +53,8 @@ const CaseDetails = (props) => {
     const { incidentId } = useParams();
     const dispatch = useDispatch();
     const selectedId = useSelector(selectIncident);
-    const detailBlocks = useSelector(getDetailBlocks);
+    const detailBlocks = useSelector(getCaseDetailBlocks);
+
 
     const selectedIncident = incidents.find((incident) => !incident._id.indexOf(selectedId));
 
@@ -62,16 +63,18 @@ const CaseDetails = (props) => {
         if (!selectedId) {
             dispatch(select(incidentId));
         }
+        dispatch(selectCase(caseId));
         // If hard refresh, dispatch a select incident id based on the URL params to keep in sync
         // Self: If want to keep the tabs in sync use local storage to store data alternative to useEffect.
-    }, [selectedIncident]);
+    }, [selectedIncident, caseId, incidentId]);
 
     if (!selectedIncident) { return null; }
     // If the incident is not selected, return early to prevent re-renders
 
     const { geographics, incident } = selectedIncident;
-    const [IncidentInformation, AreasAffected, AdditionalNotes] = detailBlocks;
-    // To deconstruct the array for easier use
+     // To deconstruct the array for easier use
+    const [ casesInfo ] = detailBlocks;
+    const [ CaseInformation, CaseImages ] = casesInfo.caseDetails;
 
     return <DetailsContainer query={!loading && isLoaded ? incident.status : ''}>
         {
@@ -83,19 +86,17 @@ const CaseDetails = (props) => {
                                 history.goBack();
                             }}
                             className={classes.iconContainer} aria-label="backspace">
-                            <NavigateBeforeIcon className={classes.iconLink} fontSize='medium' />
+                            <NavigateBeforeIcon className={classes.iconLink} fontSize='small' />
                         </IconButton>
                         <div>
                             <DetailsHeader header={`Zip Code: ${caseId}`} />
                             <DetailsTitle title={`Incident: ${geographics.municipal}`} />
                         </div>
                     </Grid>
-                    <DetailsBlock title={IncidentInformation.title} detailRows={IncidentInformation.rows} />
-                    <DetailsBlock title={'Case Images'}>
-                        <CaseImageList/>
+                    <DetailsBlock title={CaseInformation.title} detailRows={CaseInformation.rows} />
+                    <DetailsBlock title={CaseImages.title}>
+                        <CaseImageList images={CaseImages.rows}/>
                     </DetailsBlock>
-                    <DetailsBlock title={AreasAffected.title} detailRows={AreasAffected.rows} />
-                    <DetailsBlock title={AdditionalNotes.title} detailRows={AdditionalNotes.rows} />
                 </>
                 :
                 <>

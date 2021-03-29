@@ -1,0 +1,5 @@
+Features that need to be fixed:
+
+- Error handling with class component
+React doc: https://reactjs.org/docs/error-boundaries.html
+example use (no functional component exist): https://codepen.io/gaearon/pen/wqvxGa?editors=0010

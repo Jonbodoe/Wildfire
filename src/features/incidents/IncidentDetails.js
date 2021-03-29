@@ -7,7 +7,7 @@ import DetailsHeader from '../../components/DetailsHeader';
 import { useSelector, useDispatch } from 'react-redux';
 import _ from "lodash";
 import {
-    selectIncident, getDetailBlocks, select
+    selectIncident, getIncidentDetailBlocks, select
 } from '../../app/reducers/incidents/incidentSlice'
 import { Grid, LinearProgress } from '@material-ui/core';
 import DetailsTable from '../../components/DetailsTable';
@@ -52,7 +52,7 @@ const IncidentDetails = (props) => {
     const { incidentId } = useParams();
     const dispatch = useDispatch();
     const selectedId = useSelector(selectIncident);
-    const detailBlocks = useSelector(getDetailBlocks);
+    const detailBlocks = useSelector(getIncidentDetailBlocks);
 
     const selectedIncident = incidents.find((incident) => !incident._id.indexOf(selectedId));
 
@@ -69,7 +69,8 @@ const IncidentDetails = (props) => {
     // If the incident is not selected, return early to prevent re-renders
 
     const { geographics, incident } = selectedIncident;
-    const [IncidentInformation, AreasAffected, AdditionalNotes] = detailBlocks;
+    const [ incidentInfo ] = detailBlocks;
+    const [ IncidentInformation, AreasAffected ] = incidentInfo.incidentDetails;
     // To deconstruct the array for easier use
 
     return <DetailsContainer query={!loading && isLoaded ? incident.status : ''}>
@@ -90,9 +91,7 @@ const IncidentDetails = (props) => {
                         />
                     </DetailsBlock>
                     <DetailsBlock title={AreasAffected.title} detailRows={AreasAffected.rows} />
-                    {/* Details Form */}
-                    {/*  */}
-                    <DetailsBlock title={AdditionalNotes.title}>
+                    <DetailsBlock title={`Additional Notes`}>
                         <DetailsTextField rows={4} info={incident.additional_notes} label={`List any additional information`} />
                     </DetailsBlock>
                     <DetailsBlock title={`Incident Progress`}>
@@ -112,6 +111,12 @@ const IncidentDetails = (props) => {
                             </Button>
                         </Grid>
                     </DetailsBlock>
+                    {/* 
+                        Listen for all 3 values
+                        submit on button event
+                        should wrap in a form element
+                        https://formik.org/docs/examples/basic use formik
+                    */}
                 </>
                 :
                 <>

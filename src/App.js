@@ -13,6 +13,8 @@ import {
 import Navigation from './components/Navigation';
 import routes from './app/routes';
 import NotFound from './pages/notFound';
+import { checkLoginStatus } from './app/reducers/logins/loginSlice';
+import Login from './pages/login';
 
 const theme = createMuiTheme({
   palette: {
@@ -44,35 +46,35 @@ const theme = createMuiTheme({
 function App() {
   const dispatch = useDispatch();
   const incidentsList = useSelector(listIncidents);
+  const isLoggedIn = useSelector(checkLoginStatus);
+  console.log(isLoggedIn);
   useEffect(() => {
     if (!incidentsList?.length) {
       // (Elvis operator) from ECMAScript 2020, checks if array or array.length are falsy
       dispatch(fetchIncidents());
       // dispatch(select(incidentsList[0]))
     }
+
   }, [dispatch, incidentsList])
   return (
     <>
       <MuiThemeProvider theme={theme}>
           <Router>
-            <Navigation />
             <Switch>
               {
-                routes.map(route =>
-                  // Check if authetheticated based on the condition to map out the routes
-                  //  use selector if they are logged in
-                  
-                  // Error Handling
-                  // React doc: https://reactjs.org/docs/error-boundaries.html
-                  // example use (class function only no functional): https://codepen.io/gaearon/pen/wqvxGa?editors=0010
+                isLoggedIn? routes.map(route =>
                   <Route
                     key={route.path}
                     exact={route.path === "/" ? true : false}
                     path={route.path}
                   >
+                    <Navigation />
                     {route.component}
                   </Route>
-                )
+                  ) :
+                  <Route exact path="/">
+                    <Login/>
+                  </Route> 
               }
               <Route path="*">
                 <NotFound />

@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import CaseDetails from '../../../features/incidents/CaseDetails';
 
 export const fetchIncidents = createAsyncThunk('incidents/fetchIncidents', async () => {
     const response = fetch(`${process.env.PORT || 'http://localhost:8080'}/incidents/get-incidents-db`)
@@ -26,7 +27,8 @@ export const incidentSlice = createSlice({
         },
         data: {
             selectedIncidentId: '',
-            incidentList: []
+            incidentList: [],
+            selectedCaseId: '',
         }
     },
     reducers:{
@@ -34,6 +36,10 @@ export const incidentSlice = createSlice({
             state.data.selectedIncidentId = payload;
             state.meta.status = 'success';
         },
+        selectCase: (state, {payload}) => {
+            state.data.selectedCaseId = payload;
+            state.meta.status = 'success';
+        }
     },
     extraReducers: {
         [fetchIncidents.pending]: (state) => {
@@ -52,9 +58,10 @@ export const incidentSlice = createSlice({
     },
 });
 
-export const { select } = incidentSlice.actions;
+export const { select, selectCase } = incidentSlice.actions;
 
 export const selectIncident = state => state.incidents.data.selectedIncidentId;
+export const selectCaseId = state => state.incidents.data.selectedCaseId;
 export const listIncidents = state => state.incidents.data.incidentList;
 export const errorLog = state => state.incidents.meta.errorLog;
 export const refreshState = state => state.incidents.meta.refresh;
@@ -66,8 +73,21 @@ export const refreshState = state => state.incidents.meta.refresh;
 
 // export const selectedIncident = incidents.find((incident) => !incident._id.indexOf(selectedId));
 export const getSelectedIncident = (state) => state.incidents.data.incidentList.find((incident) => !incident._id.indexOf(selectIncident));
+export const getSelectedCase = (state) => {
+    const selectedId = selectIncident(state);
+    const incidentList = listIncidents(state);
+    const selectedIncident = incidentList.find((incident) => !incident._id.indexOf(selectedId));
 
-export const getDetailBlocks = (state) => {
+    if (!selectedIncident) { return {}; }
+
+    const caseList = selectedIncident.incident.cases
+    const caseId = selectCaseId(state);
+    const selectedCase = caseList.find((cases)=> !cases.zip_code.indexOf(caseId));
+
+    return selectedCase;
+}
+
+export const getIncidentDetailBlocks = (state) => {
     const selectedId = selectIncident(state); // Reusing selectors above
     const incidentList = listIncidents(state); // Reusing selectors above
     const selectedIncident = incidentList.find((incident) => !incident._id.indexOf(selectedId));
@@ -75,41 +95,105 @@ export const getDetailBlocks = (state) => {
     if (!selectedIncident) { return {}; }
 
     const { geographics, incident } = selectedIncident;
+    const cases = getSelectedCase(state);
+    // console.log(cases)
 
     // Set up the data representation of our detail blocks.
     // This keeps the data formatting responsibility separate from presentational components.
     // We can break this down further if we wanted to with each "block" having its own formatter function outputting the correct object structure, then adding it to the array.
     const blocks =  [
         {
-            title: 'Incident Information',
-            rows:  [
-                { type: 'Incident', content: geographics.municipal },
-                { type: 'State', content: geographics.state }, 
-                { type: 'Region', content: geographics.region }, 
-                { type: 'ID', content: selectedIncident._id.substr(selectedId.length - 5) }, 
-                { type: 'Initial Time', content: `${geographics.time_stamp} ${geographics.time_zone} `}, 
-                { type: 'Zipcodes Affected', content: incident.zip_codes.map(zip => `${zip}, `) }
-            ] 
+            incidentDetails: [
+                {
+                    title: 'Incident Information',
+                    rows:  [
+                        { type: 'Incident', content: geographics.municipal },
+                        { type: 'State', content: geographics.state }, 
+                        { type: 'Region', content: geographics.region }, 
+                        { type: 'ID', content: selectedIncident._id.substr(selectedId.length - 5) }, 
+                        { type: 'Initial Time', content: `${geographics.time_stamp} ${geographics.time_zone} `}, 
+                        { type: 'Zipcodes Affected', content: incident.zip_codes.map(zip => `${zip}, `) }
+                    ] 
+                },
+                {
+                    title: 'Areas Affected',
+                    rows:  [
+                        { type: 'Volume Traffic', content: incident.volume_traffic },
+                        { type: 'Api Keywords', content: incident.api_keywords.map(keyword => `${keyword},`)},
+                        { type: 'Property', content: incident.property.map(property => `${property}, `) },
+                        { type: 'Wildfire Type', content: incident.wildfire_type },
+                    ] 
+                },
+            ]
         },
-        {
-            title: 'Areas Affected',
-            rows:  [
-                { type: 'Volume Traffic', content: incident.volume_traffic },
-                { type: 'Property', content: incident.property.map(property => `${property}, `) },
-                { type: 'Wildfire Type', content: incident.wildfire_type },
-            ] 
-        },
-        {
-            title: 'Additional Notes',
-            rows:  [
-                { content: 'Lorem ipsum dolor sit amet' },
-            ] 
-        }
+        // {
+        //     caseDetails: [
+        //         {
+        //             title: 'Case Information',
+        //             rows:  [
+        //                 { type: 'Incident', content: geographics.municipal },
+        //                 { type: 'State', content: geographics.state }, 
+        //                 { type: 'Region', content: geographics.region }, 
+        //                 { type: 'ID', content: selectedIncident._id.substr(selectedId.length - 5) }, 
+        //                 { type: 'Initial Time', content: `${cases.initial_time} ${geographics.time_zone} `}, 
+        //                 { type: 'Authorities Present', content: cases.authorities_present}
+        //             ]
+        //         }
+        //     ]
+        // }
     ];
 
     return blocks || [];
 };
 
+export const getCaseDetailBlocks = (state) => {
+    const selectedId = selectIncident(state); // Reusing selectors above
+    const incidentList = listIncidents(state); // Reusing selectors above
+    const selectedIncident = incidentList.find((incident) => !incident._id.indexOf(selectedId));
+    const cases = getSelectedCase(state);
+
+    if (!selectedIncident && cases) { return {}; }
+
+    const { geographics, incident } = selectedIncident;
+    // const cases = getSelectedCase(state);
+
+    const blocks =  [
+        {
+            caseDetails: [
+                {
+                    title: 'Case Information',
+                    rows:  [
+                        { type: 'Incident', content: geographics.municipal },
+                        { type: 'State', content: geographics.state }, 
+                        { type: 'Region', content: geographics.region }, 
+                        { type: 'ID', content: selectedIncident._id.substr(selectedId.length - 5) }, 
+                        { type: 'Initial Time', content: `${cases.initial_time} ${geographics.time_zone} `}, 
+                        { type: 'Api Keywords', content: incident.api_keywords.map(keyword => `${keyword},`)},
+                        { type: 'Authorities Present', content: cases.authorities_present}
+                    ]
+                },
+                {
+                    title: 'Images',
+                    rows: cases.images
+                },
+                {
+                    title: 'Resource Assessment',
+                    rows: [
+                        {
+                            type: 'Valuable Assests Nearby',
+                            content: ''
+                        },
+                        {
+                            subTitle: 'Hazard Warnings',
+                            content: ''
+                        }
+                    ]
+                }
+            ]
+        }
+    ];
+    return blocks || [];
+}
 
 
 export default incidentSlice.reducer;

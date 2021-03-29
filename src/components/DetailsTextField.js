@@ -7,6 +7,9 @@ const useStyles = makeStyles((theme) => ({
         '& .MuiInputLabel-root': {
           margin: theme.spacing(0,1.5),
         },
+        '& .MuiInputBase-inputMultiline': {
+            margin: theme.spacing(0,1.5),
+          },
     },
     textField: {
         backgroundColor: theme.palette.secondary.lighter,

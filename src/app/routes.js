@@ -8,14 +8,11 @@ import IncidentDetails from '../pages/sub-pages/incidentDetails';
 import MapDetails from '../pages/sub-pages/mapDetails';
 import Summary from '../pages/summary';
 import UpdateDetails from '../pages/sub-pages/updateDetails';
-// import Weather from '../pages/sub-pages/weather';
 import Updates from '../pages/updates';
 import HomeIcon from '@material-ui/icons/Home';
 import AnnouncementIcon from '@material-ui/icons/Announcement';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import MapIcon from '@material-ui/icons/Map';
-// import AreaCharts from '../pages/Areacharts';
-// import AssessmentIcon from '@material-ui/icons/Assessment';
 
 const routes = [
     {

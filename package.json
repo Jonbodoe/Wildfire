@@ -15,6 +15,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-openid-connect": "^2.2.1",
+    "formik": "^2.2.6",
     "lodash.isempty": "^4.4.0",
     "lodash.pick": "^4.4.0",
     "mapbox-gl": "^2.0.1",

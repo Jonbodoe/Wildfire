@@ -49,7 +49,7 @@ const MapDisplay = () => {
         {/* <div className={classes.container}> */}
             {
                 api? <MapView 
-                    // state={api}
+                    state={api}
                     // uncomment to use API 
                     error={errorMessage}
                 /> : <Typography>loading...</Typography>
