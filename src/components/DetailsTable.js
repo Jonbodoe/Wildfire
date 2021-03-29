@@ -6,15 +6,17 @@ import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import { Link as RouterLink, useLocation, useRouteMatch} from 'react-router-dom';
+import { Link as RouterLink} from 'react-router-dom';
 import Link from '@material-ui/core/Link';
 import _ from "lodash";
+import { Box } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     table: {
-        minWidth: 450,
+        minWidth: 400,
+        maxWidth: 500,
         padding: theme.spacing(1),
-        backgroundColor: theme.palette.secondary.lighter
+        backgroundColor: theme.palette.secondary.lighter,
     },
     cellRow: {
         padding: theme.spacing(1,2)
@@ -22,40 +24,40 @@ const useStyles = makeStyles((theme) => ({
     cellHead: {
         color: theme.palette.primary.light,
         padding: theme.spacing(1,2)
+    },
+    box: {
+        width: '100px',
+        whiteSpace: 'nowrap'
+    },
+    caption: {
+        '& .MuiTable-root caption': {
+            padding: theme.spacing(0),
+        },
     }
 }));
 
 const DetailsTable = (props) => {
-    let { path, url } = useRouteMatch();
-    const linkUrl = props.linkAccessors;
-    console.log(path, url, 'path url')
-    // let location = useLocation();
-    // console.log(location);
-    // console.log(props, 'detailsTable')
-    // console.log(props.data, 'data');
+    const param = props.linkAccessors;
+    const pathUrl = props.path
     const classes = useStyles();
     const header = props.tableHeader
-
-    // Use location to get the base,
-    // whatever param is passed down to the props. 
 
     const rows = props.data.map((data)=> _.pick(data, props.allowedKeys));
 
     const renderColumns = row => {
         const columnAccessors = Object.keys(row);
         // This uses the object keys to iterate through the columns per row.
-        // console.log(row,columnAccessors, 'column render')
         return columnAccessors.map((column, i) => {
-            // console.log(column, 'column', row)
             return <TableCell key={i} align="left" className={classes.cellRow}>
                 {
-                    linkUrl? <Link component={RouterLink} to={`${url}/case/${row[linkUrl]}`}>{row[column]}</Link> : <>{row[column]}</>
+                    param && pathUrl? <Link component={RouterLink} to={`${pathUrl}/${row[param]}`}>
+                        <Box className={classes.box} component="div" overflow="hidden" textOverflow="ellipsis">{row[column]}</Box>
+                        </Link> : <>{row[column]}</>
                 }
             </TableCell>
             // Accessing the data row using the column's object property through columnAccessors.
         })
     };
-    // const rowsKeys = rows.map((data)=> Object.keys(data));
     const tableRows = rows.map((row, i) => {
         return <TableRow key={i}>{renderColumns(row)}</TableRow>
     });
@@ -63,7 +65,7 @@ const DetailsTable = (props) => {
     return (
         <TableContainer>
             <Table className={classes.table} aria-label="caption table">
-                <caption>Will get back to the table rows</caption>
+                <caption className={classes.caption}>Information regarding Incidents</caption>
                 <TableHead>
                     <TableRow>
                         {

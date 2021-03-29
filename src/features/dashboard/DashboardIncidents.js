@@ -25,12 +25,11 @@ const useStyles = makeStyles((theme) => ({
 const DashboardIncidents = (props) => {
     const incidentList = useSelector(listIncidents);
     const openIncidentsList = incidentList.filter(incident => incident.incident.status === "Open")
-    // console.log(openIncidentsList);
     const formattedIncidents = openIncidentsList.map((data)=> {
-        return {...data.incident, ...data.geographics}
+        const { _id } = data;
+        return {_id,...data.incident, ...data.geographics}
     });
-    console.log(formattedIncidents);
-    // console.log(openIncidentsList);
+    
     const classes = useStyles();
     return <>
         <DetailsContainer>
@@ -43,15 +42,12 @@ const DashboardIncidents = (props) => {
             <DetailsCaption caption={`Information regarding on-going incidents based on the current and or designated location`} />
             <Divider />
             <DetailsBlock>
-                {/* location,cases.length,priority,volume */}
                 <DetailsTable 
                     data={formattedIncidents} 
-                    // linkAccessors={''}
-
-                    // Maybe flatten the array of objects into 1 giant object to pass into
-                    allowedKeys={["municipal", "volume_traffic", "status"]}
-                    tableHeader={["Municipal", "Volume", "Status"]}
-                    // Needa figure this out for the cell rows display to make it more reuseable 
+                    linkAccessors={"_id"}
+                    path={'/incidents'}
+                    allowedKeys={["municipal", "priority", "status", "volume_traffic", "_id"]}
+                    tableHeader={["Municipal", "Priority", "Status", "Volume", "Id"]}
                 />
             </DetailsBlock>
         </DetailsContainer>

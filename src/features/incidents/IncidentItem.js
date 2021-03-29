@@ -115,7 +115,7 @@ const IncidentItem = (props) => {
                 <Typography variant="body2">{props.state.geographics.state}</Typography>
             </Grid>
             <Grid className={classes.itemContent}>
-                <Typography variant="body2">{props.state.incident.priority}</Typography>
+                <Typography variant="body2">{props.state.incident.volume_traffic}</Typography>
             </Grid>
             <Grid className={classes.itemContent}>
                 <Typography variant="body2">{props.state.incident.status}</Typography>

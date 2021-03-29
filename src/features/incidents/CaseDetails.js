@@ -14,6 +14,7 @@ import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import { Link as RouterLink, useHistory } from 'react-router-dom';
 import Link from '@material-ui/core/Link';
 import DetailsTitle from '../../components/DetailsTitle';
+import CaseImageList from './CaseImageList';
 
 const BorderLinearProgress = withStyles((theme) => ({
     root: {
@@ -90,6 +91,9 @@ const CaseDetails = (props) => {
                         </div>
                     </Grid>
                     <DetailsBlock title={IncidentInformation.title} detailRows={IncidentInformation.rows} />
+                    <DetailsBlock title={'Case Images'}>
+                        <CaseImageList/>
+                    </DetailsBlock>
                     <DetailsBlock title={AreasAffected.title} detailRows={AreasAffected.rows} />
                     <DetailsBlock title={AdditionalNotes.title} detailRows={AdditionalNotes.rows} />
                 </>

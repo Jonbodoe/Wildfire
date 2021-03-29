@@ -51,8 +51,6 @@ function App() {
       // dispatch(select(incidentsList[0]))
     }
   }, [dispatch, incidentsList])
-  // console.log(incidentsList, 'from app root')
-  // const primaryLinks = routes.filter((route) => route.menu === 'PRIMARY');
   return (
     <>
       <MuiThemeProvider theme={theme}>

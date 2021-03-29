@@ -14,7 +14,6 @@ const useStyles = makeStyles((theme) => ({
 
 const DetailsBlock = (props) => {
     const { children, title, detailRows } = props;
-    // console.log(children, 'children')
     const classes = useStyles();
     return <Grid item className={classes.ItemContainer}>
         { title ? <DetailsTitle title={title}/> : <></>}

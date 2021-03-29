@@ -1,23 +1,24 @@
 import React from 'react';
+import labels from '../../app/detailStatusLabels';
 // import { pick } from 'lodash.pick';
 // import { useSelector } from 'react-redux';
 import IncidentFilterList from './IncidentFilterList';
 import IncidentListCategories from './IncidentListCategories';
 
 const IncidentList = (props) => {
-    const incidentsListStatuses = ["Open", "Reviewing", "Must Resolve", "Resolved"];
-    // console.log(props.state,'from list')
+    const [status] = labels
+    
     return <>
         {
-            incidentsListStatuses.map(status => {
+            status.statuses.map(status => {
                 return <IncidentListCategories
-                    key={status}
-                    header={status}
+                    key={status.uid}
+                    header={status.label}
                     state={props.state}
                     error={props.error}
                 >
                     <IncidentFilterList
-                        filterQuery={status}
+                        filterQuery={status.label}
                         state={props.state}
                         error={props.error}
                     />

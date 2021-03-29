@@ -10,9 +10,6 @@ const useStyles = makeStyles((theme) => ({
         fontWeight: '600',
         display: 'flex',
         alignItems: 'center'
-        // padding: theme.spacing(0,2),
-        // paddingTop: theme.spacing(2),
-        // margin: theme.spacing(0.5,0)
     }
 }));
 
