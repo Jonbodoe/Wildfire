@@ -26,7 +26,7 @@ app.get('/', function (req, res) {
   res.send('helllooooooo world');
 });
 
-app.use('/login', logins);
+app.use('/logins', logins);
 
 app.use('/incidents', incidents);
 

@@ -1,20 +1,43 @@
 [
     {
         "credientials": {
-            "user": "janedoe",
-            "password": "root"
+            "userId": "0",
+            "email": "janedoe@nps.gov",
+            "password": "jeffersonedu"
         },
         "information":{
             "fullname": "Jane Doe",
             "position": "Logistics Section Chief",
             "organization": "National Park Service",
-            "email": "janedoe@intuitiverobotics.com",
-            "phone": "767-284-8200"
+            "email": "janedoe@nps.gov",
+            "phone": "767-284-8200",
+            "img_src": "janedoe.jpg"
         },
         "incidents_reviewing": {
             "listIds": [
                 "603c75eef0c670878ff38a86",
                 "603c75eef0c670878ff38a80"
+            ]
+        }
+    },
+    {
+        "credientials": {
+            "userId": "1",
+            "email": "dericksasha@nps.gov",
+            "password": "jeffersonedu"
+        },
+        "information":{
+            "fullname": "Derick Sasha",
+            "position": "Logistics Section Chief",
+            "organization": "National Park Service",
+            "email": "janedoe@nps.gov",
+            "phone": "767-284-8200",
+            "img_src": "dericksasha.jpg"
+        },
+        "incidents_reviewing": {
+            "listIds": [
+                "603c75eef0c670878ff38a87",
+                "603c75eef0c670878ff38a81"
             ]
         }
     }

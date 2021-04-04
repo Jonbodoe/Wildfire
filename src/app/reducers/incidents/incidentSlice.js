@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import CaseDetails from '../../../features/incidents/CaseDetails';
+// import CaseDetails from '../../../features/incidents/CaseDetails';
 
 export const fetchIncidents = createAsyncThunk('incidents/fetchIncidents', async () => {
     const response = fetch(`${process.env.PORT || 'http://localhost:8080'}/incidents/get-incidents-db`)
@@ -126,21 +126,6 @@ export const getIncidentDetailBlocks = (state) => {
                 },
             ]
         },
-        // {
-        //     caseDetails: [
-        //         {
-        //             title: 'Case Information',
-        //             rows:  [
-        //                 { type: 'Incident', content: geographics.municipal },
-        //                 { type: 'State', content: geographics.state }, 
-        //                 { type: 'Region', content: geographics.region }, 
-        //                 { type: 'ID', content: selectedIncident._id.substr(selectedId.length - 5) }, 
-        //                 { type: 'Initial Time', content: `${cases.initial_time} ${geographics.time_zone} `}, 
-        //                 { type: 'Authorities Present', content: cases.authorities_present}
-        //             ]
-        //         }
-        //     ]
-        // }
     ];
 
     return blocks || [];
@@ -153,9 +138,7 @@ export const getCaseDetailBlocks = (state) => {
     const cases = getSelectedCase(state);
 
     if (!selectedIncident && cases) { return {}; }
-
     const { geographics, incident } = selectedIncident;
-    // const cases = getSelectedCase(state);
 
     const blocks =  [
         {
@@ -194,36 +177,5 @@ export const getCaseDetailBlocks = (state) => {
     ];
     return blocks || [];
 }
-
-
 export default incidentSlice.reducer;
 
-// const setSelected = (id) => {
-//     return {
-//         type: 'incidents/selected',
-//         payload: id
-//     }
-// }
-
-// // store.dispatch(
-// //     setSelected(1)
-// // )
-
-// function selectedReducer(state = initialState, action) {
-//     // Check to see if the reducer cares about this action
-//     if (action.type === 'incidents/selected') {
-//         // If so, make a copy of `state`
-//         console.log(action.payload);
-//         return {
-//             ...state,
-//             // and update the copy with the new value
-//             value: state.value + 1
-//         }
-//     }
-//     // otherwise return the existing state unchanged
-//     return state
-// }
-// const initialState = { value: 0 }
-// // console.log(store.getState(), 'from store')
-
-// module.exports = selectedReducer

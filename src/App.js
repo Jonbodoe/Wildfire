@@ -3,6 +3,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Redirect,
 } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import { MuiThemeProvider, createMuiTheme, makeStyles } from '@material-ui/core/styles';
@@ -13,16 +14,16 @@ import {
 import Navigation from './components/Navigation';
 import routes from './app/routes';
 import NotFound from './pages/notFound';
-import { checkLoginStatus } from './app/reducers/logins/loginSlice';
+import { checkLoginStatus, fetchLogins, listLogins } from './app/reducers/logins/loginSlice';
 import Login from './pages/login';
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      lighter: '#9AA5AC',
+      lighter: '#b7c2c9',
       light: '#69717B',
-      main: '#34393d',
-      dark: '#2c2e30'
+      main: '#2a2f36',
+      dark: '#21252a'
     },
     secondary: {
       lighter: '#FFFFFF',
@@ -46,41 +47,50 @@ const theme = createMuiTheme({
 function App() {
   const dispatch = useDispatch();
   const incidentsList = useSelector(listIncidents);
+  const loginsList = useSelector(listLogins);
   const isLoggedIn = useSelector(checkLoginStatus);
-  console.log(isLoggedIn);
+  
   useEffect(() => {
     if (!incidentsList?.length) {
       // (Elvis operator) from ECMAScript 2020, checks if array or array.length are falsy
       dispatch(fetchIncidents());
       // dispatch(select(incidentsList[0]))
     }
-
-  }, [dispatch, incidentsList])
+    if (!loginsList?.length) {
+      dispatch(fetchLogins());
+    }
+  }, [loginsList, incidentsList])
   return (
     <>
       <MuiThemeProvider theme={theme}>
-          <Router>
-            <Switch>
-              {
-                isLoggedIn? routes.map(route =>
-                  <Route
+        <Router>
+          <Switch>
+            {
+              isLoggedIn ? routes.map(route => {
+                if (route.path === "/") {
+                  return <Route key={route.path} exact path="/"><Redirect to="/dashboard" /></Route>
+                } else {
+                  return <Route
                     key={route.path}
-                    exact={route.path === "/" ? true : false}
                     path={route.path}
                   >
                     <Navigation />
                     {route.component}
                   </Route>
-                  ) :
+                }
+              })
+                  :
                   <Route exact path="/">
-                    <Login/>
-                  </Route> 
+                      <Login />
+                  </Route>
               }
               <Route path="*">
-                <NotFound />
-              </Route>
-            </Switch>
-          </Router>
+                {
+                  isLoggedIn ? <NotFound /> : <Redirect to="/" />
+                }
+            </Route>
+          </Switch>
+        </Router>
       </MuiThemeProvider>
     </>
   );

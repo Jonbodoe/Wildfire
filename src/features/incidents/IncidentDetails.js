@@ -13,9 +13,10 @@ import { Grid, LinearProgress } from '@material-ui/core';
 import DetailsTable from '../../components/DetailsTable';
 import DetailsSelect from '../../components/DetailsSelect';
 import labels from '../../app/detailStatusLabels';
-import { Button } from '@material-ui/core';
+// import { Button } from '@material-ui/core';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import DetailsTextField from '../../components/DetailsTextField';
+import PrimaryButton from '../../components/PrimaryButton';
 
 const BorderLinearProgress = withStyles((theme) => ({
     root: {
@@ -73,6 +74,10 @@ const IncidentDetails = (props) => {
     const [ IncidentInformation, AreasAffected ] = incidentInfo.incidentDetails;
     // To deconstruct the array for easier use
 
+    const testButton = () =>{
+        return console.log('changes saved!');
+    }
+
     return <DetailsContainer query={!loading && isLoaded ? incident.status : ''}>
         {
             !loading ?
@@ -102,13 +107,9 @@ const IncidentDetails = (props) => {
                             <Grid item xs={6}>
                                 <DetailsSelect label={'Priority'} dataLabels={priority.priorities} selected={incident.priority} />
                             </Grid>
-                            <Button
-                                className={classes.saveButton}
-                                variant="contained"
-                                disableElevation
-                            >
-                                Save Changes<NavigateNextIcon />
-                            </Button>
+                            <PrimaryButton handler={testButton} text={'Save Changes'}>
+                                <NavigateNextIcon />
+                            </PrimaryButton>
                         </Grid>
                     </DetailsBlock>
                     {/* 

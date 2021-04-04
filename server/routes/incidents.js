@@ -12,8 +12,6 @@ router.route('/get-incidents-db')
     .get((req, res) => {
         res.send(jsonData)
         
-
-
         // var MongoClient = require('mongodb').MongoClient
         // MongoClient.connect('mongodb://localhost:27017/testing', function (err, client) {
         //     if (err) {
@@ -28,18 +26,7 @@ router.route('/get-incidents-db')
         //         res.json(result);
         //     })
         // })
-    })
+})
 
 
 module.exports = router;
-
-
-  // var MongoClient = require('mongodb').MongoClient
-  // MongoClient.connect('mongodb://localhost:27017/Test', function (err, client) {
-  //   if (err) throw err
-  //   var db = client.db('Test')
-  //   db.collection('TestingDB').find().toArray(function (err, result) {
-  //     if (err) throw err
-  //     res.json(result);
-  //   })
-  // })

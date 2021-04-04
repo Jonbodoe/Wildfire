@@ -9,12 +9,17 @@ import _ from "lodash";
 import {
     selectIncident, getCaseDetailBlocks, select, selectCase, 
 } from '../../app/reducers/incidents/incidentSlice'
-import { Grid, IconButton, LinearProgress } from '@material-ui/core';
+import { Grid, IconButton, LinearProgress, Typography } from '@material-ui/core';
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import { useHistory } from 'react-router-dom';
 // import Link from '@material-ui/core/Link';
 import DetailsTitle from '../../components/DetailsTitle';
 import CaseImageList from './CaseImageList';
+import DetailsTextField from '../../components/DetailsTextField';
+import DetailsSelect from '../../components/DetailsSelect';
+import NavigateNextIcon from '@material-ui/icons/NavigateNext';
+import PrimaryButton from '../../components/PrimaryButton';
+import labels from '../../app/detailStatusLabels';
 
 const BorderLinearProgress = withStyles((theme) => ({
     root: {
@@ -40,11 +45,17 @@ const useStyles = makeStyles((theme) => ({
     },
     iconLink: {
         color: theme.palette.secondary.dark
+    },
+    subtitle: {
+        fontWeight: '500',
+        paddingTop: theme.spacing(1.25),
+        paddingBottom: theme.spacing(0.75)
     }
 }));
 
 const CaseDetails = (props) => {
     const classes = useStyles();
+    let [status, priority] = labels;
     const { incidents } = props;
     const isLoaded = !_.isEmpty(incidents);
     const history = useHistory();
@@ -96,6 +107,28 @@ const CaseDetails = (props) => {
                     <DetailsBlock title={CaseInformation.title} detailRows={CaseInformation.rows} />
                     <DetailsBlock title={CaseImages.title}>
                         <CaseImageList images={CaseImages.rows}/>
+                    </DetailsBlock>
+                    <DetailsBlock title={`Resource Assessment`}>
+                        <Typography className={classes.subtitle} variant={'body2'}>Valuable Assets</Typography>
+                        <DetailsTextField rows={4} info={''} label={`(e.g. natural resources, critical infrastructure, landmarks, etc...)`} />
+                        <Typography className={classes.subtitle} variant={'body2'}>Hazards Warning</Typography>
+                        <DetailsTextField rows={4} info={''} label={`(e.g. hazardous chemicals, fuel types, dangerous agents, etc...)`} />
+                    </DetailsBlock>
+                    <DetailsBlock title={`Additional Notes`}>
+                        <DetailsTextField rows={4} info={''} label={`List any additional information`} />
+                    </DetailsBlock>
+                    <DetailsBlock title={`Case Progress`}>
+                        <Grid container>
+                            <Grid item xs={6}>
+                                <DetailsSelect label={'Status'} dataLabels={status.statuses} selected={incident.status} />
+                            </Grid>
+                            <Grid item xs={6}>
+                                <DetailsSelect label={'Priority'} dataLabels={priority.priorities} selected={incident.priority} />
+                            </Grid>
+                            <PrimaryButton text={'Save Changes'}>
+                                <NavigateNextIcon />
+                            </PrimaryButton>
+                        </Grid>
                     </DetailsBlock>
                 </>
                 :

@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
 
 const DetailsTitle = (props) => {
     const classes = useStyles();
-    return <Typography variant="body2" className={classes.title}>
+    return <Typography variant="body2" className={classes.title} align={props.align || 'inherit'}>
         {props.title}
     </Typography>
 }

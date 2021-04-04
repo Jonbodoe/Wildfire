@@ -32,6 +32,7 @@ const useStyles = makeStyles((theme) => ({
     brandLogo: {
         color: theme.palette.secondary.lighter,
         padding: theme.spacing(1),
+        fontSize: '0.85rem',
         fontWeight: 600,
     },
     dividerLight: {
@@ -62,7 +63,7 @@ const DrawerNav = () => {
             anchor="left"
         >
             <Typography className={classes.brandLogo}>
-                Intuitive <br />Robotics
+                Wildfire ICS
         </Typography>
             <Divider className={classes.dividerLight} />
             <List className={classes.navList}>
