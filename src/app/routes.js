@@ -4,10 +4,7 @@ import Incidents from '../pages/incidents';
 import Login from '../pages/login';
 import Maps from '../pages/maps';
 import Profile from '../pages/profile';
-import IncidentDetails from '../pages/sub-pages/incidentDetails';
-import MapDetails from '../pages/sub-pages/mapDetails';
 import Summary from '../pages/summary';
-import UpdateDetails from '../pages/sub-pages/updateDetails';
 import Updates from '../pages/updates';
 import HomeIcon from '@material-ui/icons/Home';
 import AnnouncementIcon from '@material-ui/icons/Announcement';
@@ -68,15 +65,6 @@ const routes = [
         menu: 'PRIMARY',
         private_url: true,
         component: <Incidents/>,
-        subPages: [
-            {
-                path: '/incident-details',
-                label: 'Incident Details',
-                uid: 'INCIDENT_DETAILS',
-                private_url: true,
-                component: <IncidentDetails/>,
-            }
-        ]
     },
     {
         path: '/updates',
@@ -86,15 +74,6 @@ const routes = [
         menu: 'PRIMARY',
         private_url: true,
         component: <Updates/>,
-        subPages: [
-            {
-                path: '/update-details',
-                label: 'Update Details',
-                uid: 'UPDATE_DETAILS',
-                private_url: true,
-                component: <UpdateDetails/>,
-            },
-        ]
     },
     {
         path: '/maps',
@@ -104,15 +83,6 @@ const routes = [
         menu: 'PRIMARY',
         private_url: true,
         component: <Maps/>,
-        subPages: [
-            {
-                path: '/map-details',
-                label: 'Map Details',
-                uid: 'MAP_DETAILS',
-                private_url: true,
-                component: <MapDetails/>,
-            }
-        ]
     },
 ]
 

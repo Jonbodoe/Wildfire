@@ -34,6 +34,8 @@ export const loginSlice = createSlice({
     reducers: {
         login: (state) => {
             state.data.isLoggedIn = true;
+            // https://www.youtube.com/watch?v=5zmaUSkyE1I
+            // for createntityadapter
             // state.data.selectedIncidentId = payload;
             state.meta.status = 'success';
         },
