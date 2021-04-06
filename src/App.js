@@ -16,7 +16,7 @@ import routes from './app/routes';
 // import NotFound from './pages/notFound';
 import { checkLoginStatus, fetchLogins, listLogins } from './app/reducers/logins/loginSlice';
 import Login from './pages/login';
-import NotFound from './pages/notFound';
+// import NotFound from './pages/notFound.js';
 
 const theme = createMuiTheme({
   palette: {
@@ -95,6 +95,10 @@ function App() {
       </MuiThemeProvider>
     </>
   );
+}
+
+const NotFound = () => {
+  return <p>Oh dear.... you stumbled into the wrong part of the website</p>
 }
 
 export default App;

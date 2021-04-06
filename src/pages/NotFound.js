@@ -5,7 +5,6 @@ import React from 'react';
 
 const NotFound = () => {
     return <Typography>Oh dear.... you stumbled into the wrong part of the website</Typography>
-
     // Need to find different format
 }
 
