@@ -24,7 +24,8 @@ const useStyles = makeStyles((theme) => ({
         color: theme.palette.primary.light
     },
     icon: {
-        padding: theme.spacing(1.15)
+        paddingTop: theme.spacing(1),
+        paddingRight: theme.spacing(2.5)
     },
     row: {
         padding: theme.spacing(0.5, 0)

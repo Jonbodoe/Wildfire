@@ -1,0 +1,49 @@
+[
+    {
+        "_id": "0783664",
+        "general": {
+            "timestamp": "5mins ago",
+            "userId": "0",
+            "incident": {
+                "incidentId": "603c75eef0c670878ff38a86",
+                "cases": [
+                    "93108"
+                ]
+            }
+        },
+        "updates": {
+            "incidents": [
+                {
+                    "status": "Open -> Reviewing"
+                }
+            ],
+            "cases": []
+        }
+    },
+    {
+        "_id": "254663",
+        "general": {
+            "timestamp": "10mins ago",
+            "userId": "0",
+            "incident": {
+                "incidentId": "603c75eef0c670878ff38a77",
+                "cases": [
+                    "91040"
+                ]
+            }
+        },
+        "updates": {
+            "incidents": [
+                {
+                    "status": "Open -> Reviewing"
+                }
+            ],
+            "cases": [
+                {
+                    "case": "91040",
+                    "status": "Open -> Reviewing"
+                }
+            ]
+        }
+    }
+]

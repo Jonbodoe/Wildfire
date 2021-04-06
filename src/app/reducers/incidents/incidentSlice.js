@@ -159,19 +159,6 @@ export const getCaseDetailBlocks = (state) => {
                     title: 'Images',
                     rows: cases.images
                 },
-                {
-                    title: 'Resource Assessment',
-                    rows: [
-                        {
-                            type: 'Valuable Assests Nearby',
-                            content: ''
-                        },
-                        {
-                            subTitle: 'Hazard Warnings',
-                            content: ''
-                        }
-                    ]
-                }
             ]
         }
     ];

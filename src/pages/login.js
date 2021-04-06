@@ -87,7 +87,7 @@ const validationSchema = yup.object({
 });
 
 const Login = () => {
-    const [ error, setError ] = useState(false);
+    const [error, setError] = useState(false);
     const [isLoading, setLoading] = useState(false);
     const dispatch = useDispatch();
     const classes = useStyles();
@@ -143,12 +143,12 @@ const Login = () => {
                     </Grid>
                     <Grid item md={4} className={classes.loginColumn}>
                         <div className={classes.loginContainer}>
-                            <BrandLogo darkMode={true}/>
+                            <BrandLogo darkMode={true} />
                             <form onSubmit={formik.handleSubmit}>
                                 <Typography variant={'body2'} align="center" className={classes.caption}>Member Login</Typography>
                                 <div className={classes.inputsContainer}>
                                     {
-                                        error? <Alert severity="error">Incorrect Login Information</Alert> : <></>
+                                        error ? <Alert severity="error">Incorrect Login Information</Alert> : <></>
                                     }
                                     <TextField
                                         fullWidth
@@ -196,7 +196,7 @@ const Login = () => {
                     <Grid item md={3}></Grid>
                     <Grid item md={6} className={classes.loadingContainer}>
                         <div>
-                            <LoadingSVG/>
+                            <LoadingSVG />
                         </div>
                     </Grid>
                     <Grid item md={3}></Grid>

@@ -10,4 +10,4 @@ export default configureStore({
     login: loginReducer
   }
 });
-// Possible Reducers: Geolocation
+// Next Reducers: Map, Updates

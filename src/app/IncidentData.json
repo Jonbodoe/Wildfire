@@ -474,13 +474,13 @@
                 "Private Property"
             ],
             "zip_codes": [
-                "92662"
+                "93108"
             ],
             "additional_notes": "",
             "cases": [
                 {
                     "reviewed": "Open",
-                    "zip_code": "92662",
+                    "zip_code": "93108",
                     "initial_time": "11:42",
                     "geo_location": {
                         "lat": "-117.679",

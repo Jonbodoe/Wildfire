@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useRouteMatch } from "react-router-dom";
-import { withStyles, makeStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import DetailsContainer from '../../components/DetailsContainer';
 import DetailsBlock from '../../components/DetailsBlock';
 import DetailsHeader from '../../components/DetailsHeader';
@@ -9,14 +9,11 @@ import _ from "lodash";
 import {
     selectIncident, getIncidentDetailBlocks, select
 } from '../../app/reducers/incidents/incidentSlice'
-import { Grid, LinearProgress } from '@material-ui/core';
+import { LinearProgress } from '@material-ui/core';
 import DetailsTable from '../../components/DetailsTable';
-import DetailsSelect from '../../components/DetailsSelect';
-import labels from '../../app/detailStatusLabels';
-// import { Button } from '@material-ui/core';
-import NavigateNextIcon from '@material-ui/icons/NavigateNext';
-import DetailsTextField from '../../components/DetailsTextField';
-import PrimaryButton from '../../components/PrimaryButton';
+// import DetailsSelect from '../../components/DetailsSelect';
+// import labels from '../../app/detailStatusLabels';
+import IncidentFormFields from './IncidentFormFields';
 
 const BorderLinearProgress = withStyles((theme) => ({
     root: {
@@ -30,23 +27,10 @@ const BorderLinearProgress = withStyles((theme) => ({
     },
 }))(LinearProgress);
 
-const useStyles = makeStyles((theme) => ({
-    saveButton: {
-        fontWeight: 600,
-        borderRadius: '0px',
-        color: theme.palette.primary.main,
-        backgroundColor: theme.palette.secondary.main,
-        margin: theme.spacing(2, 0),
-        '&:hover, &:focus': {
-            backgroundColor: theme.palette.secondary.darkish,
-        },
-    },
-}))
-
 const IncidentDetails = (props) => {
-    const classes = useStyles();
+    // const classes = useStyles();
     let { path, url } = useRouteMatch();
-    let [status, priority] = labels;
+    
     const { incidents } = props;
     const isLoaded = !_.isEmpty(incidents);
     const [loading, setloading] = useState(isLoaded);
@@ -70,13 +54,9 @@ const IncidentDetails = (props) => {
     // If the incident is not selected, return early to prevent re-renders
 
     const { geographics, incident } = selectedIncident;
-    const [ incidentInfo ] = detailBlocks;
-    const [ IncidentInformation, AreasAffected ] = incidentInfo.incidentDetails;
+    const [incidentInfo] = detailBlocks;
+    const [IncidentInformation, AreasAffected] = incidentInfo.incidentDetails;
     // To deconstruct the array for easier use
-
-    const testButton = () =>{
-        return console.log('changes saved!');
-    }
 
     return <DetailsContainer query={!loading && isLoaded ? incident.status : ''}>
         {
@@ -96,28 +76,9 @@ const IncidentDetails = (props) => {
                         />
                     </DetailsBlock>
                     <DetailsBlock title={AreasAffected.title} detailRows={AreasAffected.rows} />
-                    <DetailsBlock title={`Additional Notes`}>
-                        <DetailsTextField rows={4} info={incident.additional_notes} label={`List any additional information`} />
-                    </DetailsBlock>
                     <DetailsBlock title={`Incident Progress`}>
-                        <Grid container>
-                            <Grid item xs={6}>
-                                <DetailsSelect label={'Status'} dataLabels={status.statuses} selected={incident.status} />
-                            </Grid>
-                            <Grid item xs={6}>
-                                <DetailsSelect label={'Priority'} dataLabels={priority.priorities} selected={incident.priority} />
-                            </Grid>
-                            <PrimaryButton handler={testButton} text={'Save Changes'}>
-                                <NavigateNextIcon />
-                            </PrimaryButton>
-                        </Grid>
+                        <IncidentFormFields data={incident}/>
                     </DetailsBlock>
-                    {/* 
-                        Listen for all 3 values
-                        submit on button event
-                        should wrap in a form element
-                        https://formik.org/docs/examples/basic use formik
-                    */}
                 </>
                 :
                 <>
