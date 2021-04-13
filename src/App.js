@@ -16,9 +16,9 @@ import routes from './app/routes';
 // import NotFound from './pages/notFound';
 import { checkLoginStatus, fetchLogins } from './app/reducers/logins/loginSlice';
 import Login from './pages/login';
-import NotFound from './pages/notFound.js';
 import { fetchUpdates } from './app/reducers/updates/updateSlice';
 import { fetchProfiles } from './app/reducers/profiles/profilesSlice';
+import ErrorPage from './pages/errorPage.js';
 
 const theme = createMuiTheme({
   palette: {
@@ -86,7 +86,7 @@ function App() {
             }
             <Route path="*">
               {
-                isLoggedIn ? <NotFound /> : <Redirect to="/" />
+                isLoggedIn ? <ErrorPage /> : <Redirect to="/" />
               }
             </Route>
           </Switch>
