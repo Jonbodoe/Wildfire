@@ -604,7 +604,7 @@
     {
         "_id": "603c75eef0c670878ff38a81",
         "geographics": {
-            "municipal": "San Clemente",
+            "municipal": "Lake Forest",
             "area_code": "949",
             "geolocation_radius": {
                 "lat": "-117.653",
@@ -634,14 +634,14 @@
                 "Private Property"
             ],
             "zip_codes": [
-                "92662",
-                "92664"
+                "92630",
+                "92679"
             ],
             "additional_notes": "",
             "cases": [
                 {
                     "reviewed": "Reviewing",
-                    "zip_code": "92662",
+                    "zip_code": "92630",
                     "initial_time": "11:42",
                     "geo_location": {
                         "lat": "-117.679",
@@ -681,7 +681,7 @@
                 },
                 {
                     "reviewed": "Open",
-                    "zip_code": "92664",
+                    "zip_code": "92679",
                     "initial_time": "11:45",
                     "geo_location": {
                         "lat": "-117.679",

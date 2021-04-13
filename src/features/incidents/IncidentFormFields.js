@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const validationSchema = yup.object({
-    textfield: yup
+    textfieldNotes: yup
         .string('List any additional notes')
         .max(75, 'Too Long!'),
     selectStatus: yup
@@ -66,7 +66,7 @@ const IncidentFormFields = (props) => {
     const classes = useStyles();
     const formik = useFormik({
         initialValues: {
-            textfield: '',
+            textfieldNotes: '',
             selectStatus: status,
             selectPriority: priority,
         },
@@ -86,12 +86,12 @@ const IncidentFormFields = (props) => {
                 label={'Additional Notes'}
                 multiline
                 fullWidth
-                name="textfield"
+                name="textfieldNotes"
                 rows={4}
-                value={formik.values.textfield}
+                value={formik.values.textfieldNotes}
                 onChange={formik.handleChange}
-                error={formik.touched.textfield && Boolean(formik.errors.textfield)}
-                helperText={formik.touched.textfield && formik.errors.textfield}
+                error={formik.touched.textfieldNotes && Boolean(formik.errors.textfieldNotes)}
+                helperText={formik.touched.textfieldNotes && formik.errors.textfieldNotes}
             />
             </div>
             <Grid container className={classes.selectGroup}>

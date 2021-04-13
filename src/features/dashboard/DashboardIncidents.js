@@ -23,14 +23,16 @@ const useStyles = makeStyles((theme) => ({
 
 
 const DashboardIncidents = (props) => {
+    const classes = useStyles();
     const incidentList = useSelector(listIncidents);
+    if (!incidentList) return
+
     const openIncidentsList = incidentList.filter(incident => incident.incident.status === "Open")
     const formattedIncidents = openIncidentsList.map((data)=> {
         const { _id } = data;
         return {_id,...data.incident, ...data.geographics}
     });
-    
-    const classes = useStyles();
+
     return <>
         <DetailsContainer>
             <Grid container>

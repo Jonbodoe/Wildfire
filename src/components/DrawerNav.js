@@ -63,7 +63,7 @@ const DrawerNav = () => {
             anchor="left"
         >
             <Typography className={classes.brandLogo}>
-                Wildfire ICS
+                WildfireICS
         </Typography>
             <Divider className={classes.dividerLight} />
             <List className={classes.navList}>

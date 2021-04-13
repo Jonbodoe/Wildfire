@@ -87,6 +87,7 @@ const GetDateTime = () => {
 function Navigation(props) {
     // console.log(props)
     const locationInfo = props
+    // console.log(locationInfo, 'location ifno')
     const classes = useStyles();
     return (
         <div>
@@ -126,7 +127,8 @@ function Navigation(props) {
 }
 
 const LocationTitle = (props) => {
-    const title = Object.assign({}, ...routes.filter(route => route.path === props.location.location.pathname))
+    // console.log(props, 'props')
+    const title = Object.assign({}, ...routes.filter(route => route.path === props.location.match.path))
     return <PageTitle title={title.label} />
 }
 

@@ -37,7 +37,6 @@ const MapView = (props) => {
                     trackUserLocation: true
                 })
             );
-
             // clean up on unmount
             return () => map.remove();
         }

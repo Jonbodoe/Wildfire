@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Grid, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import MainContainer from '../components/MainContainer';
+// import MainContainer from '../components/MainContainer';
 // import PageTitle from '../components/PageTitle';
 import MapView from './MapView';
 // import MapDetails from '../features/maps/MapDetails';

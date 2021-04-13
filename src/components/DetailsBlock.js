@@ -9,13 +9,18 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: theme.palette.secondary.light,
         padding: theme.spacing(2,2.5),
         margin: theme.spacing(1.25,0)
+    },
+    ItemHover: {
+        '&:hover, &:focus': {
+            backgroundColor: theme.palette.secondary.lighter,
+        },
     }
 }));  
 
 const DetailsBlock = (props) => {
-    const { children, title, detailRows } = props;
+    const { children, title, detailRows, hover } = props;
     const classes = useStyles();
-    return <Grid item className={classes.ItemContainer}>
+    return <Grid item className={`${classes.ItemContainer} ${hover? classes.ItemHover : ``}`}>
         { title ? <DetailsTitle title={title}/> : <></>}
         {/* If the detailRows prop is populated, map over an array of objects. 
         Otherwise, pass children as-is. */}

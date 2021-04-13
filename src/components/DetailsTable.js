@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     },
     cellRow: {
         padding: theme.spacing(1,2),
-        textDecoration: 'underline'
+        textDecoration: 'underline',
     },
     cellHead: {
         color: theme.palette.primary.light,
@@ -33,6 +33,11 @@ const useStyles = makeStyles((theme) => ({
     caption: {
         '& .MuiTable-root caption': {
             padding: theme.spacing(0),
+        },
+    },
+    tableRow: {
+        '&:hover, &:focus': {
+            backgroundColor: theme.palette.secondary.light,
         },
     }
 }));
@@ -60,7 +65,8 @@ const DetailsTable = (props) => {
         })
     };
     const tableRows = rows.map((row, i) => {
-        return <TableRow key={i}>{renderColumns(row)}</TableRow>
+        return <TableRow className={classes.tableRow} key={i}>{renderColumns(row)}</TableRow>
+        // Entries of the table row
     });
 
     return (

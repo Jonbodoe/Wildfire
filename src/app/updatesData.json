@@ -3,47 +3,96 @@
         "_id": "0783664",
         "general": {
             "timestamp": "5mins ago",
-            "userId": "0",
-            "incident": {
-                "incidentId": "603c75eef0c670878ff38a86",
-                "cases": [
-                    "93108"
-                ]
-            }
+            "userId": "0"
         },
         "updates": {
+            "incidentId": "603c75eef0c670878ff38a86",
+            "incidentArea": "Santa Barbara",
             "incidents": [
                 {
                     "status": "Open -> Reviewing"
                 }
             ],
-            "cases": []
+            "caseId": false,
+            "caseUpdate": false
         }
     },
     {
         "_id": "254663",
         "general": {
             "timestamp": "10mins ago",
-            "userId": "0",
-            "incident": {
-                "incidentId": "603c75eef0c670878ff38a77",
-                "cases": [
-                    "91040"
-                ]
-            }
+            "userId": "1"
         },
         "updates": {
-            "incidents": [
+            "incidentId": "603c75eef0c670878ff38a77",
+            "incidentArea": "Los Angeles",
+            "incidentUpdate": [
                 {
                     "status": "Open -> Reviewing"
                 }
             ],
-            "cases": [
+            "caseId": "91040",
+            "caseUpdate": [
                 {
-                    "case": "91040",
                     "status": "Open -> Reviewing"
                 }
             ]
+        }
+    },
+    {
+        "_id": "009473",
+        "general": {
+            "timestamp": "18mins ago",
+            "userId": "2"
+        },
+        "updates": {
+            "incidentId": "603c75eef0c670878ff38a80",
+            "incidentArea": "Victorville",
+            "incidentUpdate": [
+                {
+                    "status": "Must Resolve -> Resolved"
+                }
+            ],
+            "caseId": false,
+            "caseUpdate": false
+        }
+    },
+    {
+        "_id": "347399",
+        "general": {
+            "timestamp": "21mins ago",
+            "userId": "1"
+        },
+        "updates": {
+            "incidentId": "603c75eef0c670878ff38a78",
+            "incidentArea": "San Bernardino",
+            "incidentUpdate": [
+                {
+                    "status": "Reviewing -> Must Resolve"
+                }
+            ],
+            "caseId": false,
+            "caseUpdate": false
+        }
+    },
+    {
+        "_id": "663480",
+        "general": {
+            "timestamp": "30mins ago",
+            "userId": "0"
+        },
+        "updates": {
+            "incidentId": "603c75eef0c670878ff38a81",
+            "incidentArea": "Lake Forest",
+            "incidentUpdate": [
+            ],
+            "caseId": "92630",
+            "caseUpdate": [
+                {
+                "status": "Open -> Reviewing"
+                }
+            ]
+            
         }
     }
 ]

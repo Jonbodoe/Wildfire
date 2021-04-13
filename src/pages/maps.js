@@ -19,7 +19,7 @@ const Maps = () => {
     return <>
         <MainContainer>
         <Grid item md={7} className={classes.container}>
-            <MapDisplay/>
+            {/* <MapDisplay/> */}
         </Grid>
         <Grid item md={5}>
             <MapDetails/>

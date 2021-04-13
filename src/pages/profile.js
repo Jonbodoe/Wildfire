@@ -2,12 +2,12 @@ import React from 'react';
 import MainContainer from '../components/MainContainer';
 import { makeStyles } from '@material-ui/core/styles';
 import { Avatar, Grid, Typography } from '@material-ui/core';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import DetailsContainer from '../components/DetailsContainer';
 import DetailsHeader from '../components/DetailsHeader';
 import DetailsBlock from '../components/DetailsBlock';
-import DetailsTable from '../components/DetailsTable';
-import { getSelectedIncident } from '../app/reducers/incidents/incidentSlice';
+// import DetailsTable from '../components/DetailsTable';
+// import { getSelectedIncident } from '../app/reducers/incidents/incidentSlice';
 // import ReactDOM from 'react-dom';
 const getDetailBlocks = () => {
     // get user id 

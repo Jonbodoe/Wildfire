@@ -5,18 +5,20 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
-import { useSelector, useDispatch } from 'react-redux';
-import { MuiThemeProvider, createMuiTheme, makeStyles } from '@material-ui/core/styles';
+import { useSelector, useDispatch, batch } from 'react-redux';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import './App.css';
 import {
-  listIncidents, fetchIncidents,
+  fetchIncidents,
 } from './app/reducers/incidents/incidentSlice'
 import Navigation from './components/Navigation';
 import routes from './app/routes';
 // import NotFound from './pages/notFound';
-import { checkLoginStatus, fetchLogins, listLogins } from './app/reducers/logins/loginSlice';
+import { checkLoginStatus, fetchLogins } from './app/reducers/logins/loginSlice';
 import Login from './pages/login';
-// import NotFound from './pages/notFound.js';
+import NotFound from './pages/notFound.js';
+import { fetchUpdates } from './app/reducers/updates/updateSlice';
+import { fetchProfiles } from './app/reducers/profiles/profilesSlice';
 
 const theme = createMuiTheme({
   palette: {
@@ -47,20 +49,17 @@ const theme = createMuiTheme({
 
 function App() {
   const dispatch = useDispatch();
-  const incidentsList = useSelector(listIncidents);
-  const loginsList = useSelector(listLogins);
   const isLoggedIn = useSelector(checkLoginStatus);
-  
+
   useEffect(() => {
-    if (!incidentsList?.length) {
-      // (Elvis operator) from ECMAScript 2020, checks if array or array.length are falsy
+    batch(() => {
       dispatch(fetchIncidents());
-      // dispatch(select(incidentsList[0]))
-    }
-    if (!loginsList?.length) {
       dispatch(fetchLogins());
-    }
-  }, [loginsList, incidentsList])
+      dispatch(fetchUpdates());
+      dispatch(fetchProfiles());
+    })
+  }, [])
+
   return (
     <>
       <MuiThemeProvider theme={theme}>
@@ -80,25 +79,21 @@ function App() {
                   </Route>
                 }
               })
-                  :
-                  <Route exact path="/">
-                      <Login />
-                  </Route>
+                :
+                <Route exact path="/">
+                  <Login />
+                </Route>
+            }
+            <Route path="*">
+              {
+                isLoggedIn ? <NotFound /> : <Redirect to="/" />
               }
-              <Route path="*">
-                {
-                  isLoggedIn ? <NotFound/> : <Redirect to="/" />
-                }
             </Route>
           </Switch>
         </Router>
       </MuiThemeProvider>
     </>
   );
-}
-
-const NotFound = () => {
-  return <p>Oh dear.... you stumbled into the wrong part of the website</p>
 }
 
 export default App;

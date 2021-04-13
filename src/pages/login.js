@@ -100,6 +100,10 @@ const Login = () => {
         const { email, password } = info;
         const emailCheck = logins.filter(login => login.credientials.email === email);
         const [loginInfo] = emailCheck;
+        if (!loginInfo) {
+            return false
+        }
+        // console.log(emailCheck,loginInfo, 'logininfo')
         if (loginInfo.credientials.password === password) {
             return true
         } else {
@@ -116,12 +120,13 @@ const Login = () => {
         onSubmit: (values) => {
             setLoading(true);
             const verify = verifyLoginInfo(values, loginList)
+            console.log(verify, 'verify')
             // comparing values from formik with loginList for a match, the function condition is above
             if (verify) {
-                setTimeout(() => dispatch(login()), 2000);
+                setTimeout(() => dispatch(login()), 1500);
                 // for demo'ing loading 
             } else {
-                setTimeout(() => setLoading(false), 750);
+                setTimeout(() => setLoading(false), 500);
                 // for demo'ing loading 
                 setError(true);
             }

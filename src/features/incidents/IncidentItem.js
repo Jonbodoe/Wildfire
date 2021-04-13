@@ -73,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
 
 const IncidentItem = (props) => {
     const classes = useStyles();
-    let { path, url } = useRouteMatch();
+    let { path } = useRouteMatch();
 
     const labelColorSwitch = (props) => {
         switch (props.query) {
@@ -96,13 +96,11 @@ const IncidentItem = (props) => {
     <Link 
         key={props.state._id} 
         component={RouterLink} 
-        to={`${url}/${props.state._id}`}
+        to={`${path}/${props.state._id}`}
         // activeClassName={}
         // Needa figure out the color issue with this.
     >
     <Button
-        // disableRipple
-        // focusVisibleClassName
         data-id={props.state._id}
         className={`${classes.button} ${props.state._id === selectedId ? classes.active : classes.inactive} ${labelColorSwitch(props)}`}
         onClick={(e) => setSelectedId(e.currentTarget.dataset.id)}

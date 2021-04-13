@@ -3,10 +3,11 @@ const express = require('express');
 const cors = require('cors')
 const path = require('path');
 const app = express();
-//  router = express.Router()
 const incidents = require('./routes/incidents.js');
-const apis = require('./routes/apis')
-const logins = require('./routes/logins')
+const apis = require('./routes/apis');
+const logins = require('./routes/logins');
+const updates = require('./routes/updates');
+const profiles = require('./routes/profiles');
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "http://localhost:3000");
@@ -27,8 +28,9 @@ app.get('/', function (req, res) {
 });
 
 app.use('/logins', logins);
-
 app.use('/incidents', incidents);
+app.use('/updates', updates);
+app.use('/profiles', profiles);
 
 app.use('/api', apis);
 

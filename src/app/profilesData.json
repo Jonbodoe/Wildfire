@@ -1,0 +1,53 @@
+[
+    {
+        "information":{
+            "profileId": "0",
+            "fullname": "Jane Doe",
+            "position": "Logistics Section Chief",
+            "organization": "National Park Service",
+            "email": "janedoe@nps.gov",
+            "phone": "EXT 387",
+            "img_src": "janedoe.jpg"
+        },
+        "incidents_reviewing": {
+            "listIds": [
+                "603c75eef0c670878ff38a86",
+                "603c75eef0c670878ff38a80"
+            ]
+        }
+    },
+    {
+        "information":{
+            "profileId": "1",
+            "fullname": "Derick Kabbeko",
+            "position": "Incident Commander",
+            "organization": "National Park Service",
+            "email": "janedoe@nps.gov",
+            "phone": "EXT 388",
+            "img_src": "derickkabbeko.jpg"
+        },
+        "incidents_reviewing": {
+            "listIds": [
+                "603c75eef0c670878ff38a87",
+                "603c75eef0c670878ff38a81"
+            ]
+        }
+    },
+    {
+        "information":{
+            "profileId": "2",
+            "fullname": "William Stagner",
+            "position": "Operations Section Chief",
+            "organization": "National Park Service",
+            "email": "williamstagner@nps.gov",
+            "phone": "EXT 389",
+            "img_src": "williamstagner.jpg"
+        },
+        "incidents_reviewing": {
+            "listIds": [
+            ]
+        }
+    }
+
+
+]

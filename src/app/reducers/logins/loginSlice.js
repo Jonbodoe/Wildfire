@@ -28,7 +28,7 @@ export const loginSlice = createSlice({
         data: {
             isLoggedIn: true,
             userId: '',
-            loginList: '',
+            loginList: [],
         }
     },
     reducers: {
@@ -51,12 +51,10 @@ export const loginSlice = createSlice({
         [fetchLogins.fulfilled]: (state, action) => {
             state.meta.status = 'success';
             state.data.loginList = action.payload;
-            // Need to figure out how to go about refreshing data 
         },
         [fetchLogins.rejected]: (state, action) => {
             state.meta.status = 'failed';
             state.meta.error = action.error.message
-            // state.data.incidentList = payload;
         },
     },
 })
