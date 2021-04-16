@@ -6,6 +6,7 @@ import { Avatar, Grid, Typography } from '@material-ui/core';
 import DetailsContainer from '../components/DetailsContainer';
 import DetailsHeader from '../components/DetailsHeader';
 import DetailsBlock from '../components/DetailsBlock';
+import UserBlock from '../components/UserBlock';
 // import DetailsTable from '../components/DetailsTable';
 // import { getSelectedIncident } from '../app/reducers/incidents/incidentSlice';
 // import ReactDOM from 'react-dom';
@@ -40,8 +41,8 @@ const getDetailBlocks = () => {
 
 const useStyles = makeStyles((theme) => ({
     avatar: {
-        width: theme.spacing(15),
-        height: theme.spacing(15),
+        width: theme.spacing(8),
+        height: theme.spacing(8),
         margin: theme.spacing(3,0)
     },
     profileDetails: {
@@ -75,15 +76,7 @@ const Profile = () => {
         <Grid item md={6}>
             <DetailsContainer>
                 <DetailsHeader header={`Profile Information`} />
-                <Grid container>
-                    <Avatar className={classes.avatar} src={profileImg.default} />
-                    <Grid className={classes.profileDetails}>
-                        <Grid>
-                            <Typography className={classes.position}>Position</Typography>
-                            <Typography className={classes.fullName}>Full Name</Typography>
-                        </Grid>
-                    </Grid>
-                </Grid>
+                {/* <UserBlock/> */}
                     {
                         profileDetails.map((block, i) => <DetailsBlock key={i} title={block.title} detailRows={block.rows}/>)
                     }

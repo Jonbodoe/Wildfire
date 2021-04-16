@@ -14,6 +14,7 @@ import _ from "lodash";
 import { Link as RouterLink } from 'react-router-dom';
 import Link from '@material-ui/core/Link';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import LoadingBar from '../../components/LoadingBar';
 // import { listUpdates } from '../../app/reducers/updates/updateSlice';
 // import { listProfiles } from '../../app/reducers/profiles/profilesSlice';
 
@@ -80,6 +81,7 @@ const useStyles = makeStyles((theme) => ({
 const DashboardUpdates = (props) => {
     const { path, updatesData, profilesData } = props;
     const classes = useStyles();
+
     // const updatesList = useSelector(listUpdates);
     // const profilesList = useSelector(listProfiles);
     const updatesInfo = updatesData.map((update) => {
@@ -89,6 +91,7 @@ const DashboardUpdates = (props) => {
         return {...update, profileData}
         // concating the profiles data into the updates data based on ID.
     })
+
 
     return <>
         <DetailsContainer>
@@ -124,9 +127,7 @@ const DashboardUpdates = (props) => {
                             </Link>
                         </DetailsBlock>
                         :
-                        <>
-                        <BorderLinearProgress variant="indeterminate" />
-                    </>
+                        <LoadingBar/>
                     })
                 }
             </div>

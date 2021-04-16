@@ -5,3 +5,27 @@ React doc: https://reactjs.org/docs/error-boundaries.html
 example use (no functional component exist): https://codepen.io/gaearon/pen/wqvxGa?editors=0010
 
 - Add Resource Assessment (Valuable Assets, Hazards Warning) to cases .json file
+
+Deployment:
+https://dev.to/myogeshchavan97/how-to-deploy-react-node-js-application-to-heroku-4jb4
+
+
+Refactor Issues:
+Remove Middleware combine, just pass the useselector data
+- Updates Dashboard / Updates List Items
+- If Profile Data / the combined data on dashboardupdate should be a seperate file, redux function, or just called through use selector
+
+
+Updates JSON
+- Remove case section, have its own section or remove completely and show in the cases.
+
+
+Login Page
+- dispatch to set Profile ID that is logged in.
+
+
+Profile Page
+- Send profiledata to page before entering
+
+404 Error
+- Layout / Create Illustration for

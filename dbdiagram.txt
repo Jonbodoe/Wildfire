@@ -1,0 +1,88 @@
+
+Table Incidents {
+    id int [pk, increment] // auto-increment
+    municipial varchar
+    area_code int
+    geolocation object
+    region varchar
+    state varchar
+    time_stamp timestamp
+    time_zone varchar
+    date date
+    priority varchar
+    assigned object[userId]
+    status varchar
+    volume_traffic int
+    api_keywords array[strings]
+    created_at timestamp
+    country_code int
+    wildfire_type varchar
+    property array[strings]
+    zip_codes array[strings]
+    additional_notes varchar
+    cases array[objects]
+  }
+  
+  Table Cases {
+    id int [pk]
+    reviewed varchar
+    zip_code int
+    intial_time date
+    geo_location object[strings]
+    volume_traffic int
+    authorities_present varchar
+    images array[objects]
+  }
+  
+  Table Images {
+    id int [pk]
+    img_src varchar
+    timestamp timestamp
+    caption varchar
+    source object[strings]
+  }
+  
+  Table Updates {
+    id int [pk]
+    time_stamp timestamp
+    userId int
+    incidentId varchar
+    incidentUpdate array[object]
+    caseId varchar
+    caseUpdate array[object]
+  }
+  
+  Table Profiles {
+    id int [pk]
+    fullname varchar
+    position varchar
+    organization varchar
+    email email
+    phone int
+    img_src varchar
+    incidents_reviewing array[objects]
+  }
+  
+  Table Logins {
+    id int [pk]
+    profileId int
+    email email
+    password hash
+  }
+  
+  
+  
+  
+  Ref: "Incidents"."cases" < "Cases"."id"
+  
+  
+  Ref: "Cases"."images" < "Images"."id"
+  
+  Ref: "Updates"."incidentId" < "Incidents"."id"
+  
+  Ref: "Updates"."caseId" < "Cases"."id"
+  
+  Ref: "Incidents"."assigned" < "Logins"."id"
+  
+  
+  Ref: "Logins"."profileId" < "Profiles"."id"

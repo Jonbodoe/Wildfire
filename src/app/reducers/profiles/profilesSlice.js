@@ -26,6 +26,7 @@ export const profilesSlice = createSlice({
             }
         },
         data: {
+            selectedProfileId: '',
             profilesList: [],
         }
     },

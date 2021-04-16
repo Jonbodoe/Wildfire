@@ -93,9 +93,9 @@ export const getIncidentDetailBlocks = (state) => {
     const selectedIncident = incidentList.find((incident) => !incident._id.indexOf(selectedId));
 
     if (!selectedIncident) { return {}; }
-
+    console.log(selectedIncident, 'iuncident')
     const { geographics, incident } = selectedIncident;
-    const cases = getSelectedCase(state);
+    // const cases = getSelectedCase(state);
     // console.log(cases)
 
     // Set up the data representation of our detail blocks.

@@ -2,22 +2,10 @@ import React from 'react';
 import { Avatar, Button, Grid, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { useDispatch, useSelector } from 'react-redux';
-// import { makeStyles } from '@material-ui/core/styles';
-// import { useDispatch, useSelector } from 'react-redux';
-// import {
-//     selectIncident,
-//     select
-// } from '../../app/reducers/incidents/incidentSlice'
 import { NavLink as RouterLink, useRouteMatch} from 'react-router-dom';
 import { getUpdateId, selectUpdate } from '../../app/reducers/updates/updateSlice';
 import Link from '@material-ui/core/Link';
 const useStyles = makeStyles((theme) => ({
-    ItemContainer: {
-        // backgroundColor: theme.palette.secondary.lighter,
-        // padding: theme.spacing(2, 2.5),
-        // margin: theme.spacing(1.25, 0)
-    },
-
     row: {
         flexGrow: 1,
         display: 'flex',
@@ -25,15 +13,14 @@ const useStyles = makeStyles((theme) => ({
     },
     icon: {
         backgroundColor: theme.palette.secondary.dark,
+        width: theme.spacing(6),
+        height: theme.spacing(6),
         padding: theme.spacing(0),
         margin: theme.spacing(0)
     },
     iconContainer: {
         display: 'flex',
         alignItems: 'center',
-    },
-    title: {
-        // color: theme.palette.primary.light,
     },
     name: {
         color: theme.palette.primary.dark,
@@ -45,13 +32,9 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: 'space-between'
     },
     button: {
-        // backgroundColor: theme.palette.secondary.dark,
-        // backgroundColor: theme.palette.secondary.lighter,
-        // color: theme.palette.secondary.lighter,
         textTransform: 'none',
         borderRadius: '0px',
         padding: theme.spacing(2),
-        // height: theme.spacing(10),
     },
     link: {
         color: theme.palette.secondary.dark
@@ -99,7 +82,7 @@ const UpdatesItem = (props) => {
         className={`${classes.button} ${_id === selectedId ? classes.active : classes.inactive}`}
         onClick={(e) => setSelectedId(e.currentTarget.dataset.id)}
         >
-        <Grid container className={classes.ItemContainer}>
+        <Grid container>
             <div className={classes.row}>
                 <Grid container wrap="nowrap" spacing={2}>
                     <Grid item className={classes.iconContainer}>

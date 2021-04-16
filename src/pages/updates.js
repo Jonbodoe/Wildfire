@@ -11,8 +11,10 @@ import {
 } from "react-router-dom";
 import DetailsHeader from '../components/DetailsHeader';
 import IncidentSVG from '../images/svgs/incidentSVG';
-import { selectUpdate } from '../app/reducers/updates/updateSlice';
-import { useDispatch } from 'react-redux';
+import { listUpdates, selectUpdate } from '../app/reducers/updates/updateSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { listProfiles } from '../app/reducers/profiles/profilesSlice';
+import { listIncidents } from '../app/reducers/incidents/incidentSlice';
 
 
 const Updates = () => {
@@ -20,6 +22,9 @@ const Updates = () => {
     let location = useLocation();
     let { path } = useRouteMatch();
     const dispatch = useDispatch();
+    const updatesList = useSelector(listUpdates);
+    const profilesList = useSelector(listProfiles);
+    const incidentList = useSelector(listIncidents);
 
     useEffect(() => {
         if (location.pathname === path) {
@@ -29,7 +34,7 @@ const Updates = () => {
     });
     return <MainContainer>
         <Grid item md={6}>
-            <UpdatesList/>
+            <UpdatesList updates={updatesList} profiles={profilesList}/>
         </Grid>
         <Grid item md={6}>
         <Switch>
@@ -38,7 +43,7 @@ const Updates = () => {
                     <DetailsHeader header={'Select an Update'} align={'center'}/>
                 </Route>
                 <Route path={`${path}/:updateId`} exact>
-                    <UpdateDetails />
+                    <UpdateDetails updates={updatesList} profiles={profilesList} incidents={incidentList}/>
                 </Route>
             </Switch>
         </Grid>

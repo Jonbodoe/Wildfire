@@ -12,6 +12,7 @@ import { Link as RouterLink, withRouter } from 'react-router-dom';
 import Link from '@material-ui/core/Link';
 import routes from '../app/routes';
 import PageTitle from './PageTitle';
+import getDateTime from '../app/getDateTime';
 
 const drawerWidth = 100;
 
@@ -67,21 +68,21 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-const GetDateTime = () => {
-    const classes = useStyles();
-    const date = new Date();
-    const getMonth = (d) => {
-        const monthList = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-        return monthList[d.getMonth()];
-    }
-    const getDay = (d) => {
-        return d.getDate();
-    }
-    const getYear = (d) => {
-        return d.getFullYear();
-    }
-    return <Typography className={classes.date}>{`${getMonth(date)} ${getDay(date)}, ${getYear(date)}`}</Typography>
-}
+// const GetDateTime = () => {
+//     const classes = useStyles();
+//     const date = new Date();
+//     const getMonth = (d) => {
+//         const monthList = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+//         return monthList[d.getMonth()];
+//     }
+//     const getDay = (d) => {
+//         return d.getDate();
+//     }
+//     const getYear = (d) => {
+//         return d.getFullYear();
+//     }
+//     return <Typography className={classes.date}>{`${getMonth(date)} ${getDay(date)}, ${getYear(date)}`}</Typography>
+// }
 
 
 function Navigation(props) {
@@ -115,7 +116,9 @@ function Navigation(props) {
                     </div>
                     <div className={classes.container}>
                         <Divider orientation="vertical" flexItem />
-                        <GetDateTime />
+                        {/* <GetDateTime /> */}
+                        <Typography className={classes.date}>{getDateTime()}</Typography>
+
                         <Divider orientation="vertical" flexItem />
                         <ProfileNav />
                     </div>

@@ -61,23 +61,23 @@ const DashboardWeather = () => {
                     </Grid>
                     <Grid item md={7} className={classes.weatherInfo}>
                         <Grid container>
-                            <Typography variant="body2" className={classes.textBold}>Precipitation:</Typography>
+                            <Typography variant="body2" className={classes.textBold}>Precipitation: </Typography>
                             <Typography variant="body2">{WeatherData.precipitation}</Typography>
                         </Grid>
                         <Grid container>
-                            <Typography variant="body2" className={classes.textBold}>Wind:</Typography>
+                            <Typography variant="body2" className={classes.textBold}>Wind: </Typography>
                             <Typography variant="body2">{WeatherData.windSpeed}</Typography>
                         </Grid>
                         <Grid container>
-                            <Typography variant="body2" className={classes.textBold}>Humidity:</Typography>
+                            <Typography variant="body2" className={classes.textBold}>Humidity: </Typography>
                             <Typography variant="body2">{WeatherData.humidity}</Typography>
                         </Grid>
                         <Grid container>
-                            <Typography variant="body2" className={classes.textBold}>Ground Temp:</Typography>
+                            <Typography variant="body2" className={classes.textBold}>Ground Temp: </Typography>
                             <Typography variant="body2">{WeatherData.groundTemp}</Typography>
                         </Grid>
                         <Grid container>
-                            <Typography variant="body2" className={classes.textBold}>Last Rained:</Typography>
+                            <Typography variant="body2" className={classes.textBold}>Last Rained: </Typography>
                             <Typography variant="body2">{WeatherData.lastRained}</Typography>
                         </Grid>
                     </Grid>

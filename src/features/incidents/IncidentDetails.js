@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useRouteMatch } from "react-router-dom";
-import { withStyles } from '@material-ui/core/styles';
+// import { withStyles } from '@material-ui/core/styles';
 import DetailsContainer from '../../components/DetailsContainer';
 import DetailsBlock from '../../components/DetailsBlock';
 import DetailsHeader from '../../components/DetailsHeader';
@@ -9,23 +9,11 @@ import _ from "lodash";
 import {
     selectIncident, getIncidentDetailBlocks, select
 } from '../../app/reducers/incidents/incidentSlice'
-import { LinearProgress } from '@material-ui/core';
 import DetailsTable from '../../components/DetailsTable';
 // import DetailsSelect from '../../components/DetailsSelect';
 // import labels from '../../app/detailStatusLabels';
 import IncidentFormFields from './IncidentFormFields';
-
-const BorderLinearProgress = withStyles((theme) => ({
-    root: {
-        height: theme.spacing(10),
-    },
-    colorPrimary: {
-        backgroundColor: theme.palette.grey[theme.palette.type === 'light' ? 200 : 700],
-    },
-    bar: {
-        backgroundColor: theme.palette.secondary.lighter
-    },
-}))(LinearProgress);
+import LoadingBar from '../../components/LoadingBar';
 
 const IncidentDetails = (props) => {
     // const classes = useStyles();
@@ -40,6 +28,7 @@ const IncidentDetails = (props) => {
     const detailBlocks = useSelector(getIncidentDetailBlocks);
 
     const selectedIncident = incidents.find((incident) => !incident._id.indexOf(selectedId));
+    // Remove? since in redux store.
 
     useEffect(() => {
         setloading(!isLoaded ? true : false);
@@ -81,9 +70,7 @@ const IncidentDetails = (props) => {
                     </DetailsBlock>
                 </>
                 :
-                <>
-                    <BorderLinearProgress variant="indeterminate" />
-                </>
+                <LoadingBar/>
         }
 
     </DetailsContainer>

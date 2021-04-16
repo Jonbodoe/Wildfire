@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import getDateTime from '../../getDateTime';
 
 export const fetchUpdates = createAsyncThunk('updates/fetchUpdates', async () => {
     const response = fetch(`${process.env.PORT || 'http://localhost:8080'}/updates/get-updates-db`)
@@ -52,6 +53,41 @@ export const updatesSlice = createSlice({
 export const { selectUpdate } = updatesSlice.actions;
 
 export const getUpdateId = state => state.update.data.selectedUpdateId;
-// export const { login, logout, verifyLogin } = updatesSlice.actions;
 export const listUpdates = state => state.update.data.updatesList;
+export const getSelectedUpdate = state => state.update.data.updatesList.find((update) => !update._id.indexOf(state.update.data.selectedUpdateId))
+
+export const getUpdatesDetailBlocks = (state) => {
+    const selectedId = getUpdateId(state);
+    const updatesList = listUpdates(state);
+    const selectedUpdate = updatesList.find((update) => !update._id.indexOf(selectedId));
+    // console.log(selectedUpdate);
+    if (!selectedUpdate) { return {}; }
+    const {_id,general, updates} = selectedUpdate;
+    // console.log(updates.incidentUpdate, 'array')
+    const blocks = [
+        {
+            updateDetails: [
+                {
+                    title: 'Update Information',
+                    rows: [
+                        { type: 'Update', content: general.timestamp},
+                        { type: 'Update Id', content: _id},
+                        { type: 'Timestamp', content: general.time},
+                        { type: 'Date', content: getDateTime()}
+                    ]
+                },
+                {
+                    title: 'Update Incident Details',
+                    rows: [
+                        { type: 'Incident', content: updates.incidentArea},
+                        { type: 'Incident Id', content: updates.incidentId},
+                        { type: 'Incident Update', content: updates.incidentUpdate.map(update => `${update}` || 'N/A')},
+                    ]
+                }
+            ]
+        }
+    ];
+    return blocks || [];
+}
+
 export default updatesSlice.reducer;
