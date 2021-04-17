@@ -45,6 +45,7 @@ const IncidentDetails = (props) => {
     const { geographics, incident } = selectedIncident;
     const [incidentInfo] = detailBlocks;
     const [IncidentInformation, AreasAffected] = incidentInfo.incidentDetails;
+    // console.log(IncidentInformation, AreasAffected, 'hello')
     // To deconstruct the array for easier use
 
     return <DetailsContainer query={!loading && isLoaded ? incident.status : ''}>

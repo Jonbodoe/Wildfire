@@ -10,11 +10,12 @@ import {
     useRouteMatch,
 } from "react-router-dom";
 import DetailsHeader from '../components/DetailsHeader';
-import IncidentSVG from '../images/svgs/incidentSVG';
+// import IncidentSVG from '../images/svgs/incidentSVG';
 import { listUpdates, selectUpdate } from '../app/reducers/updates/updateSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { listProfiles } from '../app/reducers/profiles/profilesSlice';
 import { listIncidents } from '../app/reducers/incidents/incidentSlice';
+import UpdateSVG from '../images/svgs/updateSVG';
 
 
 const Updates = () => {
@@ -39,7 +40,7 @@ const Updates = () => {
         <Grid item md={6}>
         <Switch>
                 <Route exact path={path}>
-                    <IncidentSVG/>
+                    <UpdateSVG/>
                     <DetailsHeader header={'Select an Update'} align={'center'}/>
                 </Route>
                 <Route path={`${path}/:updateId`} exact>

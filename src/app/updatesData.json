@@ -2,7 +2,7 @@
     {
         "_id": "0783664",
         "general": {
-            "timestamp": "5mins ago",
+            "timestamp": "5 mins ago",
             "time": "11:54am",
             "userId": "0"
         },
@@ -19,7 +19,7 @@
     {
         "_id": "254663",
         "general": {
-            "timestamp": "10mins ago",
+            "timestamp": "10 mins ago",
             "time": "11:49am",
             "userId": "1"
         },
@@ -38,7 +38,7 @@
     {
         "_id": "009473",
         "general": {
-            "timestamp": "18mins ago",
+            "timestamp": "18 mins ago",
             "time": "11:34am",
             "userId": "2"
         },
@@ -55,7 +55,7 @@
     {
         "_id": "347399",
         "general": {
-            "timestamp": "21mins ago",
+            "timestamp": "21 mins ago",
             "time": "11:30am",
             "userId": "1"
         },
@@ -72,7 +72,7 @@
     {
         "_id": "663480",
         "general": {
-            "timestamp": "30mins ago",
+            "timestamp": "30 mins ago",
             "time": "11:28am",
             "userId": "1"
         },

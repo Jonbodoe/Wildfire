@@ -1,9 +1,6 @@
 Features that need to be fixed:
 
-- Error handling with class component
-React doc: https://reactjs.org/docs/error-boundaries.html
-example use (no functional component exist): https://codepen.io/gaearon/pen/wqvxGa?editors=0010
-
+Incident / Cases JSON
 - Add Resource Assessment (Valuable Assets, Hazards Warning) to cases .json file
 
 Deployment:
@@ -26,6 +23,27 @@ Login Page
 
 Profile Page
 - Send profiledata to page before entering
+- Design and stuff
 
 404 Error
 - Layout / Create Illustration for
+
+Login / Logout Menu 
+- Set functionality
+
+
+
+Nice to have:
+
+Error handling with class component
+- React doc: https://reactjs.org/docs/error-boundaries.html
+- example use (no functional component exist): https://codepen.io/gaearon/pen/wqvxGa?editors=0010
+
+-Onboarding experience
+    -gallery view.
+
+Incident Details
+    - at the very bottom, have an icon of the user involved and name only.
+
+Responsive Drawer
+    - https://material-ui.com/components/drawers/#responsive-drawer

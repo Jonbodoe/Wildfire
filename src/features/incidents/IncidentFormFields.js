@@ -1,5 +1,5 @@
-import React from 'react';
-import { useFormik } from 'formik';
+import React, { useState, useEffect } from 'react';
+import { Formik, useFormik } from 'formik';
 import * as yup from 'yup';
 import { makeStyles } from '@material-ui/core/styles';
 import { FormControl, Grid, InputLabel, Select, TextField } from '@material-ui/core';
@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
         maxWidth: '300px'
     },
     selectGroup: {
-        padding: theme.spacing(2,0)
+        padding: theme.spacing(2, 0)
     }
 }))
 
@@ -60,14 +60,17 @@ const validationSchema = yup.object({
 const IncidentFormFields = (props) => {
     const { data } = props;
     const { status, priority } = data;
-    console.log(data, status, priority)
+    // console.log(status, priority)
 
+    const [statusForm, setStatusForm] = useState(status);
+
+    // setStatusForm(status)
     let [statusLabels, priorityLabels] = labels;
     const classes = useStyles();
     const formik = useFormik({
         initialValues: {
             textfieldNotes: '',
-            selectStatus: status,
+            selectStatus: statusForm,
             selectPriority: priority,
         },
         validationSchema: validationSchema,
@@ -76,76 +79,87 @@ const IncidentFormFields = (props) => {
             console.log(values)
         },
     });
+    console.log(formik.values.selectStatus, '23')
+
+    useEffect(()=>{
+        // console.log(status)
+        setStatusForm(status)
+    },[props,status])
 
     return <>
-        <form onSubmit={formik.handleSubmit}>
-            <div className={classes.textFieldContainer}>
-            <TextField
-                className={classes.textField}
-                id="standard-multiline-flexible"
-                label={'Additional Notes'}
-                multiline
-                fullWidth
-                name="textfieldNotes"
-                rows={4}
-                value={formik.values.textfieldNotes}
-                onChange={formik.handleChange}
-                error={formik.touched.textfieldNotes && Boolean(formik.errors.textfieldNotes)}
-                helperText={formik.touched.textfieldNotes && formik.errors.textfieldNotes}
-            />
-            </div>
-            <Grid container className={classes.selectGroup}>
-                <Grid item xs={6}>
-                    <FormControl className={classes.formControl}>
-                        <InputLabel htmlFor="age-native-simple">Status</InputLabel>
-                        <Select
-                            className={classes.select}
-                            native
-                            name="selectStatus"
-                            label="selectStatus"
-                            value={formik.values.selectStatus}
-                            onChange={formik.handleChange}
-                            error={formik.touched.selectStatus && Boolean(formik.errors.selectStatus)}
-                            inputProps={{
-                                name: 'selectStatus',
-                                id: 'status-native-simple',
-                            }}
-                        >
-                            <option aria-label={'Status'} value="" disabled>- select -</option>
-                            {
-                                statusLabels.statuses.map((status) => <option key={status.uid} value={status.label}>{status.label}</option>)
-                            }
-                        </Select>
-                    </FormControl>
+        <Formik 
+            enableReinitialize 
+            // initialValues={formik.values}
+            >
+            <form onSubmit={formik.handleSubmit}>
+                <div className={classes.textFieldContainer}>
+                    <TextField
+                        className={classes.textField}
+                        id="standard-multiline-flexible"
+                        label={'Additional Notes'}
+                        multiline
+                        fullWidth
+                        name="textfieldNotes"
+                        rows={4}
+                        value={formik.values.textfieldNotes}
+                        onChange={formik.handleChange}
+                        error={formik.touched.textfieldNotes && Boolean(formik.errors.textfieldNotes)}
+                        helperText={formik.touched.textfieldNotes && formik.errors.textfieldNotes}
+                    />
+                </div>
+                <Grid container className={classes.selectGroup}>
+                    <Grid item xs={6}>
+                        <FormControl className={classes.formControl}>
+                            <InputLabel htmlFor="age-native-simple">Status</InputLabel>
+                            <Select
+                                className={classes.select}
+                                native
+                                name="selectStatus"
+                                label="selectStatus"
+                                value={formik.values.selectStatus}
+                                onChange={formik.handleChange}
+                                error={formik.touched.selectStatus && Boolean(formik.errors.selectStatus)}
+                                inputProps={{
+                                    name: 'selectStatus',
+                                    id: 'status-native-simple',
+                                }}
+                            >
+                                <option aria-label={'Status'} value="" disabled>- select -</option>
+                                {
+                                    statusLabels.statuses.map((status) => <option key={status.uid} value={status.label}>{status.label}</option>)
+                                }
+                            </Select>
+                        </FormControl>
+                    </Grid>
+                    <Grid item xs={6}>
+                        <FormControl className={classes.formControl}>
+                            <InputLabel htmlFor="age-native-simple">Priority</InputLabel>
+                            <Select
+                                className={classes.select}
+                                native
+                                name="selectPriority"
+                                label="selectPriority"
+                                value={formik.values.selectPriority}
+                                onChange={formik.handleChange}
+                                error={formik.touched.selectPriority && Boolean(formik.errors.selectPriority)}
+                                inputProps={{
+                                    name: 'selectPriority',
+                                    id: 'status-native-simple',
+                                }}
+                            >
+                                <option aria-label={'Priority'} value="" disabled>- select -</option>
+                                {
+                                    priorityLabels.priorities.map((priority) => <option key={priority.uid} value={priority.label}>{priority.label}</option>)
+                                }
+                            </Select>
+                        </FormControl>
+                    </Grid>
                 </Grid>
-                <Grid item xs={6}>
-                    <FormControl className={classes.formControl}>
-                        <InputLabel htmlFor="age-native-simple">Priority</InputLabel>
-                        <Select
-                            className={classes.select}
-                            native
-                            name="selectPriority"
-                            label="selectPriority"
-                            value={formik.values.selectPriority}
-                            onChange={formik.handleChange}
-                            error={formik.touched.selectPriority && Boolean(formik.errors.selectPriority)}
-                            inputProps={{
-                                name: 'selectPriority',
-                                id: 'status-native-simple',
-                            }}
-                        >
-                            <option aria-label={'Priority'} value="" disabled>- select -</option>
-                            {
-                                priorityLabels.priorities.map((priority) => <option key={priority.uid} value={priority.label}>{priority.label}</option>)
-                            }
-                        </Select>
-                    </FormControl>
-                </Grid>
-            </Grid>
-            <PrimaryButton text={'Save Changes'} type="submit">
-                <NavigateNextIcon />
-            </PrimaryButton>
-        </form>
+                <PrimaryButton text={'Save Changes'} type="submit">
+                    <NavigateNextIcon />
+                </PrimaryButton>
+            </form>
+        </Formik>
     </>
 }
 
