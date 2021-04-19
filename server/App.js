@@ -24,7 +24,8 @@ app.use(cors())
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.get('/', function (req, res) {
-  res.send('helllooooooo world');
+  // res.send('helllooooooo world');
+  console.log('hello world from serverside')
 });
 
 app.use('/logins', logins);
