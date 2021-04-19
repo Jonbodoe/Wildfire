@@ -32,7 +32,7 @@
     "yup": "^0.32.9"
   },
   "scripts": {
-    "dev": "concurrently \"react-scripts start\" \"node server/App.js\"",
+    "dev": "concurrently \"react-scripts start\" \"node src/server/App.js\"",
     "start-client": "react-scripts start",
     "build": "react-scripts build && (cd server && npm install)",
     "test": "react-scripts test",
