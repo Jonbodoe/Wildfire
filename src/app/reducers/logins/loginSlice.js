@@ -26,7 +26,7 @@ export const loginSlice = createSlice({
             }
         },
         data: {
-            isLoggedIn: false,
+            isLoggedIn: true,
             userId: '',
             loginList: [],
         }
