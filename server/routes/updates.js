@@ -1,14 +1,14 @@
 "use-strict"
 
 const express = require('express');
-const jsonData = require('./../../app/profilesData.json');
+const jsonData = require('./../../src/app/updatesData.json');
 let router = express.Router();
 
 router.route('/').get((req, res) => {
-    res.send('profiles parent!')
+    res.send('updates parent!')
 })
 
-router.route('/get-profiles-db')
+router.route('/get-updates-db')
     .get((req, res) => {
         res.send(jsonData)
 })

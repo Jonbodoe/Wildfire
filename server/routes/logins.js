@@ -1,7 +1,7 @@
 "use-strict"
 
 const express = require('express');
-const jsonData = require('./../../app/loginData.json');
+const jsonData = require('./../../src/app/loginData.json');
 // const jsonData = require('./../../src/app/IncidentData.json');
 let router = express.Router();
 

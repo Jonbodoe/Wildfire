@@ -9,7 +9,7 @@ import DetailsHeader from '../../components/DetailsHeader';
 // import DetailsUser from '../../components/DetailsUser';
 // import { Divider} from '@material-ui/core';
 import { useParams } from 'react-router';
-import { getSelectedUpdate, getUpdateId, getUpdatesDetailBlocks, listUpdates, selectUpdate } from '../../app/reducers/updates/updateSlice';
+import { getSelectedUpdate, getUpdateId, getUpdatesDetailBlocks, selectUpdate } from '../../app/reducers/updates/updateSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import _ from "lodash";
 import LoadingBar from '../../components/LoadingBar';
