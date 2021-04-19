@@ -35,10 +35,11 @@ app.use('/profiles', profiles);
 app.use('/api', apis);
 
 
-app.use(express.static(path.resolve(__dirname, './build')));
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, './build', 'index.html'));
-});
+// app.use(express.static(path.resolve(__dirname, './build')));
+
+const buildPath = path.join(__dirname, '..', 'build');
+app.use(express.static(buildPath));
+
 
 // app.listen(PORT, () => {
 //   console.log(`server started on port ${PORT}`);
