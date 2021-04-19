@@ -22,9 +22,13 @@ app.use(express.json())
 app.use(cors())
 
 // app.get('/', function (req, res) {
-//   res.send('helllooooooo world');
-//   console.log('hello world from serverside')
+//   // res.send('helllooooooo world');
+//   res.send('../build/index.html');
+//   // console.log('hello world from serverside')
 // });
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname + '../build/index.html'));
+});
 
 // app.use(express.static(path.join(__dirname, './build/index.html')));
 app.use(express.static(path.join(__dirname, 'build')));
