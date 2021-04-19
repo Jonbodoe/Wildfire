@@ -6,11 +6,10 @@ import IncidentFilterList from './IncidentFilterList';
 import IncidentListCategories from './IncidentListCategories';
 
 const IncidentList = (props) => {
-    const [status] = labels
-    
+    const { statuses } = labels;
     return <>
         {
-            status.statuses.map(status => {
+            statuses.map(status => {
                 return <IncidentListCategories
                     key={status.uid}
                     header={status.label}
@@ -25,7 +24,6 @@ const IncidentList = (props) => {
                 </IncidentListCategories>
             })
         }
-        
     </>
 }
 

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import DetailsContainer from '../../components/DetailsContainer';
 // import { withStyles } from '@material-ui/core/styles';
 // import { LinearProgress } from '@material-ui/core';
@@ -13,10 +13,9 @@ import { getSelectedUpdate, getUpdateId, getUpdatesDetailBlocks, listUpdates, se
 import { useDispatch, useSelector } from 'react-redux';
 import _ from "lodash";
 import LoadingBar from '../../components/LoadingBar';
-// import { listProfiles } from '../../app/reducers/profiles/profilesSlice';
 import UserBlock from '../../components/UserBlock';
 import { Divider } from '@material-ui/core';
-// import { listIncidents } from '../../app/reducers/incidents/incidentSlice';
+import DetailsTable from '../../components/DetailsTable';
 
 const UpdateDetails = (props) => {
     const { updates, profiles, incidents } = props;
@@ -27,9 +26,8 @@ const UpdateDetails = (props) => {
     const selectedUpdate = useSelector(getSelectedUpdate);
     const updateDetailBlocks = useSelector(getUpdatesDetailBlocks);
     const dispatch = useDispatch();
-    // console.log(updateId, 'iddd')
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         setloading(!isLoaded ? true : false);
         if (!selectedId) {
             dispatch(selectUpdate(updateId));
@@ -42,31 +40,39 @@ const UpdateDetails = (props) => {
     if (!isLoaded || _.isEmpty(profiles)) { return null; }
     // Returns early if data is not found
     const [update] = updateDetailBlocks;
-    const [ updateTime, updateInformation ] = update.updateDetails;
+    const [updateTime, updateInformation] = update.updateDetails;
     const updateProfileId = selectedUpdate.general.userId;
+    const incidentId = selectedUpdate.updates.incidentId;
     const filterProfile = profiles.find((profile) => !profile.information.profileId.indexOf(updateProfileId));
 
 
-    // const openIncidentsList = incidentList.filter(incident => incident.incident.status === "Open")
-    // const formattedIncidents = openIncidentsList.map((data)=> {
-    //     const { _id } = data;
-    //     return {_id,...data.incident, ...data.geographics}
-    // });
-    // console.log(filterProfile);
+    const selectedIncident = incidents.filter(incident => incident._id === incidentId)
+    const formattedIncidents = selectedIncident.map((data) => {
+        const { _id } = data;
+        return { _id, ...data.incident, ...data.geographics }
+    });
     return <>
         <DetailsContainer>
-        {
-            !loading ?
-                <>
-                    <DetailsHeader header={`Update Incident`} />
-                    <DetailsBlock title={updateTime.title} detailRows={updateTime.rows} />
-                    <DetailsBlock title={updateInformation.title} detailRows={updateInformation.rows} />
-                    <Divider/>
-                    <UserBlock profileData={filterProfile}/>
-                </>
-            :
-                <LoadingBar/>
-        } 
+            {
+                !loading ?
+                    <>
+                        <DetailsHeader header={`Update Incident`} />
+                        <UserBlock profileData={filterProfile} />
+                        <Divider />
+                        <DetailsBlock title={updateInformation.title} detailRows={updateInformation.rows}>
+                            <DetailsTable
+                                data={formattedIncidents}
+                                linkAccessors={"_id"}
+                                path={'/incidents'}
+                                allowedKeys={["municipal", "priority", "status", "volume_traffic", "_id"]}
+                                tableHeader={["Municipal", "Priority", "Status", "Volume", "Id"]}
+                            />
+                        </DetailsBlock>
+                        <DetailsBlock title={updateTime.title} detailRows={updateTime.rows} />
+                    </>
+                    :
+                    <LoadingBar />
+            }
         </DetailsContainer>
     </>
 }

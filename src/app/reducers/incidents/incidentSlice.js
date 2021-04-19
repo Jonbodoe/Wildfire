@@ -34,12 +34,13 @@ export const incidentSlice = createSlice({
     reducers:{
         select: (state, {payload}) => {
             state.data.selectedIncidentId = payload;
-            state.meta.status = 'success';
         },
         selectCase: (state, {payload}) => {
             state.data.selectedCaseId = payload;
-            state.meta.status = 'success';
-        }
+        },
+        updateList: (state, {payload}) => {
+            state.data.incidentList = payload;
+        },
     },
     extraReducers: {
         [fetchIncidents.pending]: (state) => {
@@ -58,7 +59,7 @@ export const incidentSlice = createSlice({
     },
 });
 
-export const { select, selectCase } = incidentSlice.actions;
+export const { select, selectCase, updateList } = incidentSlice.actions;
 
 export const selectIncident = state => state.incidents.data.selectedIncidentId;
 export const selectCaseId = state => state.incidents.data.selectedCaseId;
@@ -119,9 +120,10 @@ export const getIncidentDetailBlocks = (state) => {
                     title: 'Areas Affected',
                     rows:  [
                         { type: 'Volume Traffic', content: incident.volume_traffic },
-                        { type: 'Api Keywords', content: incident.api_keywords.map(keyword => `${keyword},`)},
+                        { type: 'Api Keywords', content: incident.api_keywords.map(keyword => `${keyword}, `)},
                         { type: 'Property', content: incident.property.map(property => `${property}, `) },
                         { type: 'Wildfire Type', content: incident.wildfire_type },
+                        { type: 'Priority', content: incident.priority },
                     ] 
                 },
             ]
@@ -151,7 +153,7 @@ export const getCaseDetailBlocks = (state) => {
                         { type: 'Region', content: geographics.region }, 
                         { type: 'ID', content: selectedIncident._id.substr(selectedId.length - 5) }, 
                         { type: 'Initial Time', content: `${cases.initial_time} ${geographics.time_zone} `}, 
-                        { type: 'Api Keywords', content: incident.api_keywords.map(keyword => `${keyword},`)},
+                        { type: 'Api Keywords', content: incident.api_keywords.map(keyword => `${keyword} ,`)},
                         { type: 'Authorities Present', content: cases.authorities_present}
                     ]
                 },

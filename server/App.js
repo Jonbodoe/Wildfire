@@ -34,4 +34,10 @@ app.use('/profiles', profiles);
 
 app.use('/api', apis);
 
+
+app.use(express.static(path.resolve(__dirname, './../build')));
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, './../build', 'index.html'));
+});
+
 app.listen(process.env.PORT || 8080);

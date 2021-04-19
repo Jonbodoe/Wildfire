@@ -47,6 +47,9 @@
                     },
                     "volume_traffic": "405",
                     "authorities_present": "05%",
+                    "additional_notes": "",
+                    "valuable_assets": "",
+                    "hazard_warnings": "Reports of unidentified gas by local authorities",
                     "images": [
                         {
                             "img_src": "fireExample1.jpg",
@@ -87,6 +90,9 @@
                     },
                     "volume_traffic": "823",
                     "authorities_present": "22%",
+                    "additional_notes": "",
+                    "valuable_assets": "Municipal electrical facility is 5miles away from the incident",
+                    "hazard_warnings": "",
                     "images": [
                         {
                             "img_src": "fireExample1.jpg",
@@ -167,6 +173,9 @@
                     },
                     "volume_traffic": "405",
                     "authorities_present": "05%",
+                    "additional_notes": "",
+                    "valuable_assets": "Reports of local wireless towers are down",
+                    "hazard_warnings": "",
                     "images": [
                         {
                             "img_src": "fireExample1.jpg",
@@ -207,6 +216,9 @@
                     },
                     "volume_traffic": "405",
                     "authorities_present": "05%",
+                    "additional_notes": "Awaiting response from Chief Operations. Heavy traffic congestion near the incident",
+                    "valuable_assets": "",
+                    "hazard_warnings": "",
                     "images": [
                         {
                             "img_src": "fireExample1.jpg",
@@ -288,6 +300,9 @@
                     },
                     "volume_traffic": "732",
                     "authorities_present": "15%",
+                    "additional_notes": "",
+                    "valuable_assets": "",
+                    "hazard_warnings": "",
                     "images": [
                         {
                             "img_src": "fireExample1.jpg",
@@ -328,6 +343,9 @@
                     },
                     "volume_traffic": "902",
                     "authorities_present": "15%",
+                    "additional_notes": "",
+                    "valuable_assets": "",
+                    "hazard_warnings": "Reports of a methane gas smell nearby the wildfire",
                     "images": [
                         {
                             "img_src": "fireExample1.jpg",
@@ -408,6 +426,9 @@
                     },
                     "volume_traffic": "405",
                     "authorities_present": "34%",
+                    "additional_notes": "Private Wildfire Fighting agency is present at the site called 'WFD'",
+                    "valuable_assets": "",
+                    "hazard_warnings": "",
                     "images": [
                         {
                             "img_src": "fireExample1.jpg",
@@ -488,6 +509,9 @@
                     },
                     "volume_traffic": "794",
                     "authorities_present": "05%",
+                    "additional_notes": "Traffic congestion occuring 3 miles away from the wildfire incident",
+                    "valuable_assets": "",
+                    "hazard_warnings": "",
                     "images": [
                         {
                             "img_src": "fireExample1.jpg",
@@ -568,6 +592,9 @@
                     },
                     "volume_traffic": "2467",
                     "authorities_present": "34%",
+                    "additional_notes": "",
+                    "valuable_assets": "",
+                    "hazard_warnings": "",
                     "images": [
                         {
                             "img_src": "fireExample1.jpg",
@@ -637,7 +664,7 @@
                 "92630",
                 "92679"
             ],
-            "additional_notes": "",
+            "additional_notes": "Check with Operations Section Chief before reviewing",
             "cases": [
                 {
                     "reviewed": "Reviewing",
@@ -649,6 +676,9 @@
                     },
                     "volume_traffic": "405",
                     "authorities_present": "05%",
+                    "additional_notes": "",
+                    "valuable_assets": "",
+                    "hazard_warnings": "",
                     "images": [
                         {
                             "img_src": "fireExample1.jpg",
@@ -689,6 +719,9 @@
                     },
                     "volume_traffic": "503",
                     "authorities_present": "05%",
+                    "additional_notes": "",
+                    "valuable_assets": "",
+                    "hazard_warnings": "",
                     "images": [
                         {
                             "img_src": "fireExample1.jpg",

@@ -1,3 +1,7 @@
+
+// NOT REAL MIDDLEWARE, PLACEMENT FOR NOW UNTIL FINDING A MIDDLEWARE SOLUTION
+
+
 const mergeUpdatesData = (updatesData, profilesData) => {
     const updatesInfo = updatesData.map((update) => {
         const profileId = update.general.userId

@@ -9,6 +9,7 @@ import { checkLoginStatus, listLogins, login } from '../app/reducers/logins/logi
 import PrimaryButton from '../components/PrimaryButton';
 import BrandLogo from '../components/BrandLogo';
 import LoadingSVG from '../images/svgs/loadingSVG';
+import verifyLoginInfo from '../app/reducers/logins/middleware/verifyLoginInfo.js'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -93,24 +94,8 @@ const Login = () => {
     const classes = useStyles();
     const isLoggedIn = useSelector(checkLoginStatus);
     // Currently set to false in redux store
+
     const loginList = useSelector(listLogins)
-    // From redux store
-
-    const verifyLoginInfo = (info, logins) => {
-        const { email, password } = info;
-        const emailCheck = logins.filter(login => login.credientials.email === email);
-        const [loginInfo] = emailCheck;
-        if (!loginInfo) {
-            return false
-        }
-        // console.log(emailCheck,loginInfo, 'logininfo')
-        if (loginInfo.credientials.password === password) {
-            return true
-        } else {
-            return false
-        }
-    }
-
     const formik = useFormik({
         initialValues: {
             email: 'janedoe@nps.gov',
@@ -119,8 +104,8 @@ const Login = () => {
         validationSchema: validationSchema,
         onSubmit: (values) => {
             setLoading(true);
-            const verify = verifyLoginInfo(values, loginList)
-            console.log(verify, 'verify')
+            const verify = verifyLoginInfo(values, loginList);
+            // console.log(verify, 'verify');
             // comparing values from formik with loginList for a match, the function condition is above
             if (verify) {
                 setTimeout(() => dispatch(login()), 1500);
@@ -178,9 +163,6 @@ const Login = () => {
                                         error={formik.touched.password && Boolean(formik.errors.password)}
                                         helperText={formik.touched.password && formik.errors.password}
                                     />
-                                    {/* {
-                                        error? <Alert severity="info"></Alert> : <></>
-                                    } */}
                                     <Typography variant='caption' className={classes.caption} align='right'>Forgot Password?</Typography>
                                 </div>
                                 <div>

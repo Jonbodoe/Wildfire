@@ -24,7 +24,8 @@ const DetailsBlock = (props) => {
         { title ? <DetailsTitle title={title}/> : <></>}
         {/* If the detailRows prop is populated, map over an array of objects. 
         Otherwise, pass children as-is. */}
-        {detailRows ? detailRows.map((row, i) => <DetailsContent key={i} type={row.type} content={row.content} />) : children}
+        {detailRows ? detailRows.map((row, i) => <DetailsContent key={i} type={row.type} content={row.content} />) : <></>}
+        {children? children : <></>}
     </Grid>
 }
 

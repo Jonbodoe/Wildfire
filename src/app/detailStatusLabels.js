@@ -1,4 +1,4 @@
-const labels = [
+const labels = 
     {
         statuses: [
             {
@@ -17,9 +17,7 @@ const labels = [
                 uid: 'RESOLVED',
                 label:"Resolved"
             }
-        ]
-    },
-    {
+        ],
         priorities: [
             {
                 uid: 'LOW',
@@ -33,7 +31,21 @@ const labels = [
                 uid: 'HIGH',
                 label: "High",
             },
+        ],
+        reviews: [
+            {
+                uid: 'OPEN',
+                label: 'Open'
+            },
+            {
+                uid: 'REVIEWING',
+                label: 'Reviewing'
+            },
+            {
+                uid: 'REVIEWED',
+                label: 'Reviewed'
+            },
         ]
     }
-];
+;
 export default labels;

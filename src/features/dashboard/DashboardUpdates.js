@@ -1,6 +1,5 @@
 import { Divider } from '@material-ui/core';
 import React from 'react';
-// import { useSelector } from 'react-redux';
 import DetailsBlock from '../../components/DetailsBlock';
 import DetailsCaption from '../../components/DetailsCaption';
 import DetailsContainer from '../../components/DetailsContainer';
@@ -8,27 +7,11 @@ import DetailsHeader from '../../components/DetailsHeader';
 import Grid from '@material-ui/core/Grid';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles, withStyles} from '@material-ui/core/styles';
-import { LinearProgress } from '@material-ui/core';
-import _ from "lodash";
+import { makeStyles} from '@material-ui/core/styles';
 import { Link as RouterLink } from 'react-router-dom';
 import Link from '@material-ui/core/Link';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import LoadingBar from '../../components/LoadingBar';
-// import { listUpdates } from '../../app/reducers/updates/updateSlice';
-// import { listProfiles } from '../../app/reducers/profiles/profilesSlice';
-
-const BorderLinearProgress = withStyles((theme) => ({
-    root: {
-        height: theme.spacing(10),
-    },
-    colorPrimary: {
-        backgroundColor: theme.palette.grey[theme.palette.type === 'light' ? 200 : 700],
-    },
-    bar: {
-        backgroundColor: theme.palette.secondary.lighter
-    },
-}))(LinearProgress);
 
 const useStyles = makeStyles((theme) => ({
     container: {
@@ -81,9 +64,6 @@ const useStyles = makeStyles((theme) => ({
 const DashboardUpdates = (props) => {
     const { path, updatesData, profilesData } = props;
     const classes = useStyles();
-
-    // const updatesList = useSelector(listUpdates);
-    // const profilesList = useSelector(listProfiles);
     const updatesInfo = updatesData.map((update) => {
         const profileId = update.general.userId
         const getProfileData = profilesData.filter((profile)=> profileId === profile.information.profileId)
@@ -120,7 +100,7 @@ const DashboardUpdates = (props) => {
                                                 <Typography variant="body2" className={classes.title}>{general.timestamp}</Typography>
                                             </Grid>
                                             <Typography variant="body2" className={classes.name}>{profileData.information.fullname}</Typography>
-                                            <Typography variant="body2" className={classes.message} noWrap>{`Based on the current Incidents, ${profileData.information.fullname} updated incident ${updates.incidentId}`}</Typography>
+                                            <Typography variant="body2" className={classes.message} noWrap>{`Updated incident ${updates.incidentArea} regarding the incident's status, click to view more`}</Typography>
                                         </Grid>
                                     </Grid>
                                 </div>

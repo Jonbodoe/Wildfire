@@ -88,6 +88,7 @@ const IncidentItem = (props) => {
     const setSelectedId = (event) => {
         dispatch(select(event))
     };
+    
     const dispatch = useDispatch()
     const selectedId = useSelector(selectIncident)
     // console.log(_.isEmpty(selectedId));

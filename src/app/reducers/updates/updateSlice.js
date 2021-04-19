@@ -79,8 +79,6 @@ export const getUpdatesDetailBlocks = (state) => {
                 {
                     title: 'Update Incident Details',
                     rows: [
-                        { type: 'Incident', content: updates.incidentArea},
-                        { type: 'Incident Id', content: updates.incidentId},
                         { type: 'Incident Update', content: updates.incidentUpdate.map(update => `${update}` || 'N/A')},
                     ]
                 }

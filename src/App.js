@@ -58,7 +58,7 @@ function App() {
       dispatch(fetchUpdates());
       dispatch(fetchProfiles());
     })
-  }, [])
+  }, [dispatch])
 
   return (
     <>

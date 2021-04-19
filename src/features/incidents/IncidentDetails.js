@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { useParams, useRouteMatch } from "react-router-dom";
 // import { withStyles } from '@material-ui/core/styles';
 import DetailsContainer from '../../components/DetailsContainer';
@@ -25,12 +25,13 @@ const IncidentDetails = (props) => {
     const { incidentId } = useParams();
     const dispatch = useDispatch();
     const selectedId = useSelector(selectIncident);
+    // const selectCase = useSelector(getSelectedCase);
     const detailBlocks = useSelector(getIncidentDetailBlocks);
 
     const selectedIncident = incidents.find((incident) => !incident._id.indexOf(selectedId));
     // Remove? since in redux store.
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         setloading(!isLoaded ? true : false);
         if (!selectedId) {
             dispatch(select(incidentId));
@@ -42,10 +43,10 @@ const IncidentDetails = (props) => {
     if (!selectedIncident) { return null; }
     // If the incident is not selected, return early to prevent re-renders
 
-    const { geographics, incident } = selectedIncident;
+    const { _id, geographics, incident } = selectedIncident;
     const [incidentInfo] = detailBlocks;
     const [IncidentInformation, AreasAffected] = incidentInfo.incidentDetails;
-    // console.log(IncidentInformation, AreasAffected, 'hello')
+    // console.log(IncidentInformation, AreasAffected, )
     // To deconstruct the array for easier use
 
     return <DetailsContainer query={!loading && isLoaded ? incident.status : ''}>
@@ -67,7 +68,7 @@ const IncidentDetails = (props) => {
                     </DetailsBlock>
                     <DetailsBlock title={AreasAffected.title} detailRows={AreasAffected.rows} />
                     <DetailsBlock title={`Incident Progress`}>
-                        <IncidentFormFields data={incident}/>
+                        <IncidentFormFields data={incident} id={_id}/>
                     </DetailsBlock>
                 </>
                 :

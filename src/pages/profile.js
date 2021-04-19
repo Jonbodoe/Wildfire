@@ -1,12 +1,12 @@
 import React from 'react';
 import MainContainer from '../components/MainContainer';
 import { makeStyles } from '@material-ui/core/styles';
-import { Avatar, Grid, Typography } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 // import { useSelector } from 'react-redux';
 import DetailsContainer from '../components/DetailsContainer';
 import DetailsHeader from '../components/DetailsHeader';
 import DetailsBlock from '../components/DetailsBlock';
-import UserBlock from '../components/UserBlock';
+// import UserBlock from '../components/UserBlock';
 // import DetailsTable from '../components/DetailsTable';
 // import { getSelectedIncident } from '../app/reducers/incidents/incidentSlice';
 // import ReactDOM from 'react-dom';
@@ -63,9 +63,9 @@ const useStyles = makeStyles((theme) => ({
 const Profile = () => {
     const profileDetails = getDetailBlocks();
     // console.log(profileDetails)
-    const classes = useStyles();
-    const profileImg = require('./../images/profilePic.jpg');
-    const [ title, content ] = profileDetails;
+    // const classes = useStyles();
+    // const profileImg = require('./../images/profilePic.jpg');
+    // const [ title, content ] = profileDetails;
     // getSelectedIncident
     // const selectedIncident = incidents.find((incident) => !incident._id.indexOf(selectedId));
     // const selectedIncident = useSelector(getSelectedIncident);

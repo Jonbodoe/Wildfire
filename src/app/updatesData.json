@@ -79,7 +79,9 @@
         "updates": {
             "incidentId": "603c75eef0c670878ff38a81",
             "incidentArea": "Lake Forest",
-            "incidentUpdate": [],
+            "incidentUpdate": [
+                "Additional Notes Changed: Check with Operations Section Chief before reviewing"
+            ],
             "caseId": "92630",
             "caseUpdate": [
                 "Status Changed: Open -> Reviewing"
