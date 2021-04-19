@@ -5,7 +5,7 @@ import MainContainer from '../components/MainContainer';
 // import PageTitle from '../components/PageTitle';
 // import MapView from '../components/MapView';
 import MapDetails from '../features/maps/MapDetails';
-import MapDisplay from '../components/MapDisplay';
+// import MapDisplay from '../components/MapDisplay';
 // import MapDetails from './sub-pages/MapDetails';
 
 const useStyles = makeStyles((theme) => ({

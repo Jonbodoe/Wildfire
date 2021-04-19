@@ -19,7 +19,7 @@ import CaseImageList from './CaseImageList';
 // import DetailsSelect from '../../components/DetailsSelect';
 // import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 // import PrimaryButton from '../../components/PrimaryButton';
-import labels from '../../app/detailStatusLabels';
+// import labels from '../../app/detailStatusLabels';
 import CaseFormFields from './CaseFormFields';
 
 const BorderLinearProgress = withStyles((theme) => ({
@@ -78,7 +78,7 @@ const CaseDetails = (props) => {
         dispatch(selectCase(caseId));
         // If hard refresh, dispatch a select incident id based on the URL params to keep in sync
         // Self: If want to keep the tabs in sync use local storage to store data alternative to useEffect.
-    }, [selectedIncident, caseId, incidentId]);
+    }, [selectedId, caseId, incidentId, isLoaded, dispatch]);
 
     if (!selectedIncident) { return null; }
     // If the incident is not selected, return early to prevent re-renders

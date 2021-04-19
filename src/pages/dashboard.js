@@ -1,4 +1,4 @@
-import { Grid, Typography } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import React from 'react';
 import MainContainer from '../components/MainContainer';
 import primaryLinks from '../components/PrimaryLinks';
@@ -28,7 +28,7 @@ const Dashboard = () => {
     const classes = useStyles();
     const links = primaryLinks()
 
-    const [ dashboard, incidents, updates, maps ] = links;
+    const [ incidents, updates, maps ] = links;
     // console.log(incidents);
     const updatesData = useSelector(listUpdates)
     const profilesData = useSelector(listProfiles)

@@ -1,7 +1,7 @@
 import { Divider, Grid } from '@material-ui/core';
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import DetailsBlock from '../../components/DetailsBlock';
+// import DetailsBlock from '../../components/DetailsBlock';
 import DetailsCaption from '../../components/DetailsCaption';
 import DetailsContainer from '../../components/DetailsContainer';
 import DetailsHeader from '../../components/DetailsHeader';

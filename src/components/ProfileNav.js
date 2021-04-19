@@ -4,7 +4,7 @@ import { Avatar, MenuItem } from '@material-ui/core';
 import Menu from '@material-ui/core/Menu';
 import IconButton from '@material-ui/core/IconButton';
 import { Link as RouterLink } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Link from '@material-ui/core/Link';
 import routes from '../app/routes';
 import { checkLoginStatus } from './../app/reducers/logins/loginSlice'
@@ -22,10 +22,10 @@ const ProfileNav = () => {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
     const isLoggedIn = useSelector(checkLoginStatus)
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
 
     const classes = useStyles();
-    const [login, logout, profile, summary] = SecondaryLinks
+    const [login, logout, profile] = SecondaryLinks
 
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);

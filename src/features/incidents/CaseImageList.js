@@ -1,4 +1,4 @@
-import { Grid, GridList, GridListTile } from '@material-ui/core';
+import { GridList, GridListTile } from '@material-ui/core';
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 

@@ -10,7 +10,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import Link from '@material-ui/core/Link';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import DetailsTable from '../../components/DetailsTable';
-import _ from "lodash";
+// import _ from "lodash";/
 import {
     listIncidents
 } from '../../app/reducers/incidents/incidentSlice'

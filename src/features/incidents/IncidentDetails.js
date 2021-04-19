@@ -17,7 +17,7 @@ import LoadingBar from '../../components/LoadingBar';
 
 const IncidentDetails = (props) => {
     // const classes = useStyles();
-    let { path, url } = useRouteMatch();
+    let { url } = useRouteMatch();
     
     const { incidents } = props;
     const isLoaded = !_.isEmpty(incidents);
@@ -38,7 +38,7 @@ const IncidentDetails = (props) => {
         }
         // If hard refresh, dispatch a select incident id based on the URL params to keep in sync
         // Self: If want to keep the tabs in sync use local storage to store data alternative to useEffect.
-    }, [selectedId, selectedIncident]);
+    }, [selectedId, selectedIncident, isLoaded, incidentId, dispatch]);
 
     if (!selectedIncident) { return null; }
     // If the incident is not selected, return early to prevent re-renders

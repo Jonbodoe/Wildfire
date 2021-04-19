@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Formik } from 'formik';
 import { makeStyles } from '@material-ui/core/styles';
-import * as yup from 'yup';
+// import * as yup from 'yup';
 import { FormControl, Grid, InputLabel, Select, TextField } from '@material-ui/core';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import PrimaryButton from '../../components/PrimaryButton';
 import labels from '../../app/detailStatusLabels';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 // import { listIncidents, updateList } from '../../app/reducers/incidents/incidentSlice';
 // import updateIncident from '../../app/reducers/incidents/middleware/updateIncident';
 import DetailsBlock from '../../components/DetailsBlock';
@@ -49,24 +49,24 @@ const useStyles = makeStyles((theme) => ({
         padding: theme.spacing(2, 0)
     }
 }))
-const validationSchema = yup.object({
-    hazard_warnings: yup
-        .string('List any additional notes')
-        .max(75, 'Too Long!'),
-    additional_notes: yup
-        .string('List any additional notes')
-        .max(75, 'Too Long!'),
-    valuable_assets: yup
-        .string('List any additional notes')
-        .max(75, 'Too Long!'),
-    reviewed: yup
-        .string('Select a status level')
-        .required('Selected status is required'),
-});
+// const validationSchema = yup.object({
+//     hazard_warnings: yup
+//         .string('List any additional notes')
+//         .max(75, 'Too Long!'),
+//     additional_notes: yup
+//         .string('List any additional notes')
+//         .max(75, 'Too Long!'),
+//     valuable_assets: yup
+//         .string('List any additional notes')
+//         .max(75, 'Too Long!'),
+//     reviewed: yup
+//         .string('Select a status level')
+//         .required('Selected status is required'),
+// });
 
 const CaseFormFields = (props) => {
     const { data } = props;
-    const caseId = data.zip_code;
+    // const caseId = data.zip_code;
     const { reviewed, additional_notes, valuable_assets, hazard_warnings } = data;
     console.log(data)
     const {reviews} = labels;
@@ -94,10 +94,11 @@ const CaseFormFields = (props) => {
             hazard_warnings: hazard_warnings,
             valuable_assets: valuable_assets
         })
-    }, [reviewed, additional_notes])
+    }, [reviewed, additional_notes, hazard_warnings, valuable_assets])
 
     const submitFormData = (values) => {
         // const updateCaseList =
+        alert(JSON.stringify(values, null, 2));
         console.log(values, 'values baby')
     }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import MainContainer from '../components/MainContainer';
-import { makeStyles } from '@material-ui/core/styles';
+// import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Typography } from '@material-ui/core';
 // import { useSelector } from 'react-redux';
 import DetailsContainer from '../components/DetailsContainer';
@@ -39,24 +39,24 @@ const getDetailBlocks = () => {
     return blocks || [];
 }
 
-const useStyles = makeStyles((theme) => ({
-    avatar: {
-        width: theme.spacing(8),
-        height: theme.spacing(8),
-        margin: theme.spacing(3,0)
-    },
-    profileDetails: {
-        display: 'flex',
-        alignItems: 'center',
-        padding: theme.spacing(3)
-    },
-    position: {
-        color: theme.palette.primary.light,
-    },
-    fullName: {
-        fontWeight: '500'
-    }
-}));  
+// const useStyles = makeStyles((theme) => ({
+//     avatar: {
+//         width: theme.spacing(8),
+//         height: theme.spacing(8),
+//         margin: theme.spacing(3,0)
+//     },
+//     profileDetails: {
+//         display: 'flex',
+//         alignItems: 'center',
+//         padding: theme.spacing(3)
+//     },
+//     position: {
+//         color: theme.palette.primary.light,
+//     },
+//     fullName: {
+//         fontWeight: '500'
+//     }
+// }));  
 
 
 
