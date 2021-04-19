@@ -26,7 +26,7 @@ app.get('/', function (req, res) {
   console.log('hello world from serverside')
 });
 
-app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static(path.join(__dirname, './build')));
 
 app.use('/logins', logins);
 app.use('/incidents', incidents);
@@ -37,10 +37,6 @@ app.use('/api', apis);
 
 
 // app.use(express.static(path.resolve(__dirname, './build')));
-
-const buildPath = path.join(__dirname, '..', 'build');
-app.use(express.static(buildPath));
-
 
 // app.listen(PORT, () => {
 //   console.log(`server started on port ${PORT}`);

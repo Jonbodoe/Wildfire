@@ -10,7 +10,8 @@ router.route('/').get((req, res) => {
 
 router.route('/get-profiles-db')
     .get((req, res) => {
-        res.send(jsonData)
+        res.json(jsonData)
+        console.log('getting profiles data')
 })
 
 
