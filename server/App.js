@@ -22,11 +22,11 @@ app.use(express.json())
 app.use(cors())
 
 app.get('/', function (req, res) {
-  // res.send('helllooooooo world');
+  res.send('helllooooooo world');
   console.log('hello world from serverside')
 });
 
-app.use(express.static(path.join(__dirname, './build')));
+app.use(express.static(path.join(__dirname, './build/index.html')));
 
 app.use('/logins', logins);
 app.use('/incidents', incidents);
