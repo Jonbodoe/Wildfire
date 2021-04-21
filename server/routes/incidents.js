@@ -10,7 +10,7 @@ router.route('/').get((req, res) => {
 
 router.route('/get-incidents-db')
     .get((req, res) => {
-        res.json(jsonData)
+        res.send(jsonData)
         console.log('getting incidents data')
         
         // var MongoClient = require('mongodb').MongoClient

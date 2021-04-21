@@ -10,7 +10,7 @@ router.route('/').get((req, res) => {
 
 router.route('/get-updates-db')
     .get((req, res) => {
-        res.json(jsonData)
+        res.send(jsonData)
         console.log('getting updates data')
 })
 
