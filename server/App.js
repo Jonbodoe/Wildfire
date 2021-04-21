@@ -12,6 +12,10 @@ const profiles = require("./routes/profiles");
 // This is the client-side's /build/ directory, where all the compiled frontend files are we want to serve. Putting it in a variable for reuse is cleaner.
 const publicPath = path.resolve(__dirname, "../build");
 
+// For express.static, it's better to serve the whole directory than just index.html, because we also need the CSS, JS, images, etc to be statically served also.
+// It also needs to be established before any other calls to app.use()
+app.use(express.static(publicPath));
+
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "http://localhost:3000");
   res.header("Access-Control-Allow-Credentials", "true");
@@ -38,9 +42,6 @@ app.get("/", function (req, res) {
    */
   res.sendFile(path.resolve(publicPath, "index.html"));
 });
-
-// For express.static, it's better to serve the whole directory than just index.html, because we also need the CSS, JS, images, etc to be statically served also.
-app.use(express.static(publicPath));
 
 app.use("/logins", logins);
 app.use("/incidents", incidents);
