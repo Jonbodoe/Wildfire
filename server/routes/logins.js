@@ -11,8 +11,9 @@ router.route('/').get((req, res) => {
 
 router.route('/get-logins-db')
     .get((req, res) => {
-        res.send(jsonData)
         console.log('getting logins data')
+        res.json(jsonData)
+        // console.log('getting logins data')
         
 
         // MAKE SURE TO CHANGE OUT TO LOGIN COLLECTION DB:
