@@ -29,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 const DashboardMaps = (props) => {
+    const { path } = props;
     const classes = useStyles();
     return <>
         <DetailsContainer>
@@ -37,7 +38,7 @@ const DashboardMaps = (props) => {
                 <Grid className={classes.details}>
                     <Grid container>
                         <DetailsHeader header={`Maps`} />
-                        <Link className={classes.link} button="true" component={RouterLink} to={props.path.path}>
+                        <Link className={classes.link} button="true" component={RouterLink} to={path.path}>
                             <ChevronRightIcon />
                         </Link>
                     </Grid>

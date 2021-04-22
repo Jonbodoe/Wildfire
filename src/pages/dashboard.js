@@ -10,37 +10,17 @@ import DashboardWeather from "../features/dashboard/DashboardWeather";
 import { listUpdates } from "../app/reducers/updates/updateSlice";
 import { listProfiles } from "../app/reducers/profiles/profilesSlice";
 import { listIncidents } from "../app/reducers/incidents/incidentSlice";
-import { makeStyles } from "@material-ui/core/styles";
-import isEmpty from "lodash/isEmpty";
-import LoadingSVG from "../images/svgs/loadingSVG";
 
-// import Maps from './Maps';
-const useStyles = makeStyles((theme) => ({
-  loadingContainer: {
-    height: "100vh",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-}));
 const Dashboard = () => {
-  // console.log(primaryLinks);
-  const classes = useStyles();
   const links = primaryLinks();
 
   const [incidents, updates, maps] = links;
-  // console.log(incidents);
   const updatesData = useSelector(listUpdates);
   const profilesData = useSelector(listProfiles);
   const incidentsData = useSelector(listIncidents);
 
   return (
-    <>
       <MainContainer>
-        {!isEmpty(updatesData) ||
-        !isEmpty(profilesData) ||
-        !isEmpty(incidentsData) ? (
-          <>
             <Grid item md={7}>
               <DashboardUpdates
                 path={updates}
@@ -56,20 +36,7 @@ const Dashboard = () => {
               />
               <DashboardWeather />
             </Grid>
-          </>
-        ) : (
-          <>
-            <Grid item md={3}></Grid>
-            <Grid item md={6} className={classes.loadingContainer}>
-              <div>
-                <LoadingSVG />
-              </div>
-            </Grid>
-            <Grid item md={3}></Grid>
-          </>
-        )}
       </MainContainer>
-    </>
   );
 };
 

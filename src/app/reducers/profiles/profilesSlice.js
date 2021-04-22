@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 export const fetchProfiles = createAsyncThunk('profiles/fetchProfiles', async () => {
-    const response = fetch(`${process.env.PORT || 'http://localhost:8080'}/profiles/get-profiles-db`)
+    const response = fetch(`${process.env.PORT || 'https://wildfireics-app.herokuapp.com'}/profiles/get-profiles-db`)
     // downloaded a fetch polyfill 
     .then(function(response) {
         if (!response.ok) {

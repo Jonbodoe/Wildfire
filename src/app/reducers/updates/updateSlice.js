@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import getDateTime from '../../getDateTime';
 
 export const fetchUpdates = createAsyncThunk('updates/fetchUpdates', async () => {
-    const response = fetch(`${process.env.PORT || 'http://localhost:8080'}/updates/get-updates-db`)
+    const response = fetch(`${process.env.PORT || 'https://wildfireics-app.herokuapp.com'}/updates/get-updates-db`)
     // downloaded a fetch polyfill 
     .then(function(response) {
         if (!response.ok) {

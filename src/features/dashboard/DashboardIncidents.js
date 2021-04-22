@@ -1,6 +1,5 @@
 import { Divider, Grid } from "@material-ui/core";
 import React from "react";
-import { useSelector } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
 import DetailsBlock from "../../components/DetailsBlock";
 import DetailsCaption from "../../components/DetailsCaption";
@@ -10,7 +9,7 @@ import { Link as RouterLink } from "react-router-dom";
 import Link from "@material-ui/core/Link";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import DetailsTable from "../../components/DetailsTable";
-import { listIncidents } from "../../app/reducers/incidents/incidentSlice";
+import LoadingBar from "../../components/LoadingBar";
 
 const useStyles = makeStyles((theme) => ({
   link: {
@@ -20,12 +19,13 @@ const useStyles = makeStyles((theme) => ({
 
 const DashboardIncidents = (props) => {
   const classes = useStyles();
-  const incidentList = useSelector(listIncidents);
-  if (!incidentList) return;
+  const { incidentsData, path } = props;
+  // if (!incidentsData) return;
 
   const openIncidentsList = incidentList.filter(
     (incident) => incident.incident.status === "Open"
   );
+
   const formattedIncidents = openIncidentsList.map((data) => {
     const { _id } = data;
     return { _id, ...data.incident, ...data.geographics };
@@ -40,7 +40,7 @@ const DashboardIncidents = (props) => {
             className={classes.link}
             button="true"
             component={RouterLink}
-            to={props.path.path}
+            to={path.path}
           >
             <ChevronRightIcon />
           </Link>
@@ -50,19 +50,24 @@ const DashboardIncidents = (props) => {
         />
         <Divider />
         <DetailsBlock>
-          <DetailsTable
-            data={formattedIncidents}
-            linkAccessors={"_id"}
-            path={"/incidents"}
-            allowedKeys={[
-              "municipal",
-              "priority",
-              "status",
-              "volume_traffic",
-              "_id",
-            ]}
-            tableHeader={["Municipal", "Priority", "Status", "Volume", "Id"]}
-          />
+          {
+            !incidentsData ? 
+            <DetailsTable
+              data={formattedIncidents}
+              linkAccessors={"_id"}
+              path={"/incidents"}
+              allowedKeys={[
+                "municipal",
+                "priority",
+                "status",
+                "volume_traffic",
+                "_id",
+              ]}
+              tableHeader={["Municipal", "Priority", "Status", "Volume", "Id"]}
+            /> 
+            :
+            <LoadingBar />
+          }
         </DetailsBlock>
       </DetailsContainer>
     </>
