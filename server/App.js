@@ -30,7 +30,7 @@ app.use(function (req, res, next) {
 
 app.use(express.urlencoded());
 app.use(express.json());
-app.use(cors());
+// app.use(cors());
 
 // The Homepage
 app.get("/", function (req, res) {
