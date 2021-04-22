@@ -51,7 +51,7 @@ const DashboardIncidents = (props) => {
         <Divider />
         <DetailsBlock>
           {
-            !incidentsData ? 
+            incidentsData ? 
             <DetailsTable
               data={formattedIncidents}
               linkAccessors={"_id"}

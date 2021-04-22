@@ -25,7 +25,7 @@ const MapDisplay = () => {
     const classes = useStyles();
 
     useEffect(() => {
-        return fetch(`${process.env.PORT || 'http://localhost:8080'}/api/mapbox`)
+        return fetch(`${process.env.PORT || 'https://wildfireics-app.herokuapp.com'}/api/mapbox`)
         .then(function(response) {
             if (!response.ok) {
                 // console.log(response.statusText, "first")
