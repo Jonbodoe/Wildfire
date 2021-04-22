@@ -22,7 +22,7 @@ const DashboardIncidents = (props) => {
   const { incidentsData, path } = props;
   // if (!incidentsData) return;
 
-  const openIncidentsList = incidentList.filter(
+  const openIncidentsList = incidentsData.filter(
     (incident) => incident.incident.status === "Open"
   );
 
