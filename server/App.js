@@ -17,20 +17,24 @@ const publicPath = path.resolve(__dirname, "../build");
 app.use(express.static(publicPath));
 
 app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  // Currently using wildcard
-  // res.header("Access-Control-Allow-Credentials", "true");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin,Content-Type, Authorization, x-id, Content-Length, X-Requested-With"
-  );
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  // res.header("Access-Control-Allow-Origin", "*");
+  // // Currently using wildcard
+  // // res.header("Access-Control-Allow-Credentials", "true");
+  // res.header(
+  //   "Access-Control-Allow-Headers",
+  //   "Origin,Content-Type, Authorization, x-id, Content-Length, X-Requested-With"
+  // );
+  // res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  res.header("Access-Control-Allow-Origin", '*');
+  res.header("Access-Control-Allow-Credentials", true);
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+  res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
   next();
 });
 
 app.use(express.urlencoded());
 app.use(express.json());
-// app.use(cors());
+app.use(cors());
 
 // The Homepage
 app.get("/", function (req, res) {
