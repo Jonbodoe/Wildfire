@@ -3,6 +3,7 @@ import { Grid, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import MainContainer from '../components/MainContainer';
 import MapDetails from '../features/maps/MapDetails';
+import MapView from '../components/MapView';
 const mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
 
 // eslint-disable-next-line import/no-webpack-loader-syntax
@@ -53,7 +54,7 @@ const Maps = () => {
         <MainContainer>
             <Grid item md={7} className={classes.container}>
                 {
-                    api ? <MapContainer
+                    api ? <MapView
                         // state={api}
                         // uncomment to use API 
                         error={errorMessage}
