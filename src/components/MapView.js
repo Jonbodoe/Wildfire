@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-// import { useSelector } from 'react-redux';
-// import { getMapKey } from '../app/reducers/maps/mapsSlice';
-// import { Grid, Typography } from '@material-ui/core';
 const mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
+
+// eslint-disable-next-line import/no-webpack-loader-syntax
+mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
 
 const useStyles = makeStyles((theme) => ({
     mapContainer: {
