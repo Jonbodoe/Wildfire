@@ -26,7 +26,7 @@ const Maps = () => {
     const classes = useStyles();
 
     useEffect(() => {
-        return fetch(`${'http://localhost:8080' || 'https://wildfireics-app.herokuapp.com'}/api/mapbox`)
+        return fetch(`${'https://wildfireics-app.herokuapp.com' || 'http://localhost:8080'}/api/mapbox`)
             .then(function (response) {
                 if (!response.ok) {
                     // console.log(response.statusText, "first")
