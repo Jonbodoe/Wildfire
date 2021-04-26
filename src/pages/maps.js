@@ -11,11 +11,12 @@ mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worke
 const useStyles = makeStyles((theme) => ({
     container: {
         backgroundColor: theme.palette.secondary.light,
-        width: '100%',
+        width: theme.spacing(50),
+        height: theme.spacing(100),
         padding: theme.spacing(2)
     },
     mapContainer: {
-        width: theme.spacing(50),
+        width: '100%',
         height: theme.spacing(100),
         backgroundColor: theme.palette.secondary.light,
         // margin: theme.spacing(0),
@@ -77,7 +78,7 @@ const MapContainer = (props) => {
                 // See style options here: https://docs.mapbox.com/api/maps/#styles
                 style: 'mapbox://styles/mapbox/streets-v11',
                 center: [-118.1914, 34.2035],
-                zoom: 9.5,
+                zoom: 10,
             });
             // add navigation control (the +/- zoom buttons)
             map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
