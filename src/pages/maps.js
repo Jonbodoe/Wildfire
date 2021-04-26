@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
         padding: theme.spacing(2)
     },
     mapContainer: {
-        width: '100%',
+        width: theme.spacing(50),
         height: theme.spacing(100),
         backgroundColor: theme.palette.secondary.light,
         // margin: theme.spacing(0),
