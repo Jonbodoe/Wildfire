@@ -2,7 +2,7 @@
     {
         "credientials": {
             "userId": "0",
-            "profileid": "0",
+            "profileId": "0",
             "email": "janedoe@nps.gov",
             "password": "jeffersonedu"
         }
@@ -10,7 +10,7 @@
     {
         "credientials": {
             "userId": "1",
-            "profileid": "1",
+            "profileId": "1",
             "email": "derickkabbeko@nps.gov",
             "password": "jeffersonedu"
         }
@@ -18,7 +18,7 @@
     {
         "credientials": {
             "userId": "2",
-            "profileid": "2",
+            "profileId": "2",
             "email": "williamstagner@nps.gov",
             "password": "jeffersonedu"
         }

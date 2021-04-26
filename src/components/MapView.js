@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+// import { useSelector } from 'react-redux';
+// import { getMapKey } from '../app/reducers/maps/mapsSlice';
 // import { Grid, Typography } from '@material-ui/core';
 const mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
 
@@ -18,13 +20,12 @@ const MapView = (props) => {
     useEffect(() => {
         if (props.state) {
             mapboxgl.accessToken = props.state.token;
-            // console.log(props.state.token)
             const map = new mapboxgl.Map({
                 container: mapContainerRef.current,
                 // See style options here: https://docs.mapbox.com/api/maps/#styles
                 style: 'mapbox://styles/mapbox/streets-v11',
-                center: [-75.1689107, 39.9545261],
-                zoom: 12.5,
+                center: [-118.1914, 34.2035],
+                zoom: 10,
             });
             // add navigation control (the +/- zoom buttons)
             map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
@@ -43,17 +44,5 @@ const MapView = (props) => {
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
     return <div className={classes.mapContainer} ref={mapContainerRef} />
 }
-
-// const Results = (props) => {
-//     const classes = useStyles();
-//     if (props.state && !props.error.message) {
-//         return <div className={classes.mapContainer} ref={props.references}/>;
-//     } else if (!props.state && props.error.message) {
-//         return <Typography>{props.error.message.message}</Typography>;
-//     } else {
-//         return <Typography>Loading...</Typography>;
-
-//     }
-// }
 
 export default MapView;

@@ -1,4 +1,4 @@
-import { Grid } from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
 import React from "react";
 import MainContainer from "../components/MainContainer";
 import primaryLinks from "../components/PrimaryLinks";
@@ -14,7 +14,7 @@ import { listIncidents } from "../app/reducers/incidents/incidentSlice";
 const Dashboard = () => {
   const links = primaryLinks();
 
-  const [incidents, updates, maps] = links;
+  const [dashboard, incidents, updates, maps] = links;
   const updatesData = useSelector(listUpdates);
   const profilesData = useSelector(listProfiles);
   const incidentsData = useSelector(listIncidents);

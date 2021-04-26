@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 // import CaseDetails from '../../../features/incidents/CaseDetails';
 
 export const fetchIncidents = createAsyncThunk('incidents/fetchIncidents', async () => {
-    const response = fetch(`${process.env.PORT || 'https://wildfireics-app.herokuapp.com'}/incidents/get-incidents-db`)
+    const response = fetch(`${'http://localhost:8080' || 'https://wildfireics-app.herokuapp.com'}/incidents/get-incidents-db`)
     // downloaded a fetch polyfill 
     .then(function(response) {
         if (!response.ok) {
@@ -61,6 +61,7 @@ export const incidentSlice = createSlice({
 
 export const { select, selectCase, updateList } = incidentSlice.actions;
 
+export const errorCheck = state => state.incidents.meta.status;
 export const selectIncident = state => state.incidents.data.selectedIncidentId;
 export const selectCaseId = state => state.incidents.data.selectedCaseId;
 export const listIncidents = state => state.incidents.data.incidentList;
@@ -73,7 +74,7 @@ export const refreshState = state => state.incidents.meta.refresh;
 // Transformation and formatting of data makes more sense in reducer middleware than the React component. (seg: Smart vs Dumb components)
 
 // export const selectedIncident = incidents.find((incident) => !incident._id.indexOf(selectedId));
-export const getSelectedIncident = (state) => state.incidents.data.incidentList.find((incident) => !incident._id.indexOf(selectIncident));
+export const getSelectedIncident = (state) => state.incidents.data.incidentList.find((incident) => !incident._id.indexOf(selectIncident(state)));
 export const getSelectedCase = (state) => {
     const selectedId = selectIncident(state);
     const incidentList = listIncidents(state);
@@ -151,6 +152,7 @@ export const getCaseDetailBlocks = (state) => {
                         { type: 'Incident', content: geographics.municipal },
                         { type: 'State', content: geographics.state }, 
                         { type: 'Region', content: geographics.region }, 
+                        { type: 'Zip Code', content: cases.zip_code},
                         { type: 'ID', content: selectedIncident._id.substr(selectedId.length - 5) }, 
                         { type: 'Initial Time', content: `${cases.initial_time} ${geographics.time_zone} `}, 
                         { type: 'Api Keywords', content: incident.api_keywords.map(keyword => `${keyword} ,`)},

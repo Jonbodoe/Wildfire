@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     },
     icon: {
         paddingTop: theme.spacing(1),
-        paddingRight: theme.spacing(2.5)
+        paddingRight: theme.spacing(2)
     },
     row: {
         padding: theme.spacing(0.5, 0)
@@ -36,7 +36,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const MapKey = () => {
+const MapKey = (props) => {
+    const {colSize1, colSize2} = props;
     const classes = useStyles();
     const listData = [
         {
@@ -68,14 +69,14 @@ const MapKey = () => {
         {
             listData.map((listItem, i) => {
                 return <Grid key={i} container className={classes.row}>
-                    <Grid item xs={2}>
+                    <Grid item xs={colSize1}>
                         <div className={classes.icon}>
                         {
                             listItem.icon
                         }
                         </div>
                     </Grid>
-                    <Grid item xs={10}>
+                    <Grid item xs={colSize2}>
                         <Typography variant={'body2'} className={classes.topic}>{listItem.topic}</Typography>
                         <Typography variant={'body2'} className={classes.caption}>{listItem.caption}</Typography>
                     </Grid>

@@ -17,7 +17,7 @@
         "incident": {
             "priority": "High",
             "assigned": {
-                "userId": "5"
+                "userId": "0"
             },
             "status": "Open",
             "volume_traffic": "5030",
@@ -144,7 +144,7 @@
         "incident": {
             "priority": "Medium",
             "assigned": {
-                "userId": "3"
+                "userId": "1"
             },
             "status": "Open",
             "volume_traffic": "313",
@@ -258,8 +258,8 @@
             "municipal": "San Bernardino",
             "area_code": "909",
             "geolocation_radius": {
-                "lat": "-117.653",
-                "long": "33.439"
+                "lat": "-117.434",
+                "long": "34.148"
             },
             "region": "San Bernardino County",
             "state": "California",
@@ -285,14 +285,14 @@
                 "Private Property"
             ],
             "zip_codes": [
-                "92662",
-                "92664"
+                "92401",
+                "92403"
             ],
             "additional_notes": "",
             "cases": [
                 {
                     "reviewed": "Reviewed",
-                    "zip_code": "92662",
+                    "zip_code": "92401",
                     "initial_time": "11:42",
                     "geo_location": {
                         "lat": "-117.679",
@@ -300,8 +300,8 @@
                     },
                     "volume_traffic": "732",
                     "authorities_present": "15%",
-                    "additional_notes": "",
-                    "valuable_assets": "",
+                    "additional_notes": "Contacted the Strike Team Manager",
+                    "valuable_assets": "Municipal water facility is 3miles away from incident",
                     "hazard_warnings": "",
                     "images": [
                         {
@@ -335,14 +335,14 @@
                 },
                 {
                     "reviewed": "Open",
-                    "zip_code": "92664",
+                    "zip_code": "92403",
                     "initial_time": "11:42",
                     "geo_location": {
                         "lat": "-117.679",
                         "long": "33.445"
                     },
                     "volume_traffic": "902",
-                    "authorities_present": "15%",
+                    "authorities_present": "67%",
                     "additional_notes": "",
                     "valuable_assets": "",
                     "hazard_warnings": "Reports of a methane gas smell nearby the wildfire",
@@ -385,8 +385,8 @@
             "municipal": "Simi Valley",
             "area_code": "805",
             "geolocation_radius": {
-                "lat": "-117.653",
-                "long": "33.439"
+                "lat": "-118.800",
+                "long": "34.265"
             },
             "region": "Ventura",
             "state": "California",
@@ -397,7 +397,7 @@
         "incident": {
             "priority": "Medium",
             "assigned": {
-                "userId": "2"
+                "userId": "1"
             },
             "status": "Open",
             "volume_traffic": "402",
@@ -412,13 +412,13 @@
                 "Private Property"
             ],
             "zip_codes": [
-                "92662"
+                "93062"
             ],
             "additional_notes": "",
             "cases": [
                 {
                     "reviewed": "Reviewing",
-                    "zip_code": "92662",
+                    "zip_code": "93062",
                     "initial_time": "11:42",
                     "geo_location": {
                         "lat": "-117.679",
@@ -563,7 +563,7 @@
         "incident": {
             "priority": "High",
             "assigned": {
-                "userId": "2"
+                "userId": "0"
             },
             "status": "Resolved",
             "volume_traffic": "203",
@@ -634,8 +634,8 @@
             "municipal": "Lake Forest",
             "area_code": "949",
             "geolocation_radius": {
-                "lat": "-117.653",
-                "long": "33.439"
+                "lat": "-117.743",
+                "long": "33.656"
             },
             "region": "Orange County",
             "state": "California",
@@ -646,7 +646,7 @@
         "incident": {
             "priority": "High",
             "assigned": {
-                "userId": "5"
+                "userId": "2"
             },
             "status": "Open",
             "volume_traffic": "5030",
@@ -661,14 +661,14 @@
                 "Private Property"
             ],
             "zip_codes": [
-                "92630",
-                "92679"
+                "92609",
+                "92610"
             ],
             "additional_notes": "Check with Operations Section Chief before reviewing",
             "cases": [
                 {
                     "reviewed": "Reviewing",
-                    "zip_code": "92630",
+                    "zip_code": "92609",
                     "initial_time": "11:42",
                     "geo_location": {
                         "lat": "-117.679",
@@ -711,7 +711,7 @@
                 },
                 {
                     "reviewed": "Open",
-                    "zip_code": "92679",
+                    "zip_code": "92610",
                     "initial_time": "11:45",
                     "geo_location": {
                         "lat": "-117.679",

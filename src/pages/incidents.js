@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useRouteMatch, useLocation } from 'react-router-dom';
 import IncidentDetails from '../features/incidents/IncidentDetails';
 import {
-    listIncidents, errorLog, select
+    listIncidents, errorLog, select,
 } from './../app/reducers/incidents/incidentSlice'
 import {
     Switch,
@@ -27,6 +27,7 @@ const Incidents = () => {
         if (location.pathname === path) {
             dispatch(select(''));
         }
+
         // When switching through the tabs of navigation, resets the selected incident since it is just /incident param and not /incident/{incidentId....}
     });
     return <MainContainer>

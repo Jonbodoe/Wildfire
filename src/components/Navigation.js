@@ -105,10 +105,7 @@ function Navigation(props) {
                                     className={classes.summaryButton}
                                     variant="contained"
                                     disableElevation
-                                    // component={RouterLink}
-                                    // to={`/summary`}
                                 >
-
                                     Summary<NavigateNextIcon />
                                 </Button>
                             </Link>
@@ -116,9 +113,7 @@ function Navigation(props) {
                     </div>
                     <div className={classes.container}>
                         <Divider orientation="vertical" flexItem />
-                        {/* <GetDateTime /> */}
                         <Typography className={classes.date}>{getDateTime()}</Typography>
-
                         <Divider orientation="vertical" flexItem />
                         <ProfileNav />
                     </div>
@@ -130,9 +125,8 @@ function Navigation(props) {
 }
 
 const LocationTitle = (props) => {
-    // console.log(props, 'props')
     const title = Object.assign({}, ...routes.filter(route => route.path === props.location.match.path))
-    return <PageTitle title={title.label} />
+    return <PageTitle title={title.label}/>
 }
 
-export default withRouter(Navigation)
+export default withRouter(Navigation);

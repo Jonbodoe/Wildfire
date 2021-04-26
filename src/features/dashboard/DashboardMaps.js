@@ -44,7 +44,7 @@ const DashboardMaps = (props) => {
                     </Grid>
                     <DetailsCaption caption={`View real time cases and incidents occuring based on the location`} />
                     <Divider />
-                    <MapKey/>
+                    <MapKey colSize1={2} colSize2={10}/>
                 </Grid>
             </Grid>
         </DetailsContainer>

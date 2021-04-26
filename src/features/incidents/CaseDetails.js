@@ -127,7 +127,7 @@ const CaseDetails = (props) => {
             <CaseImageList images={CaseImages.rows} />
           </DetailsBlock>
           {/* <DetailsBlock title={`Case Progress`}> */}
-          <CaseFormFields data={selectedCase} />
+          <CaseFormFields data={selectedCase} caseId={caseId} IncidentId={selectIncident}/>
           {/* </DetailsBlock> */}
         </>
       ) : (

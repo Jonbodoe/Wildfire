@@ -17,7 +17,7 @@ import routes from './app/routes';
 import { checkLoginStatus, fetchLogins } from './app/reducers/logins/loginSlice';
 import Login from './pages/login';
 import { fetchUpdates } from './app/reducers/updates/updateSlice';
-import { fetchProfiles } from './app/reducers/profiles/profilesSlice';
+import { fetchProfiles, selectProfile } from './app/reducers/profiles/profilesSlice';
 import ErrorPage from './pages/errorPage.js';
 
 const theme = createMuiTheme({
@@ -57,6 +57,7 @@ function App() {
       dispatch(fetchLogins());
       dispatch(fetchUpdates());
       dispatch(fetchProfiles());
+      dispatch(selectProfile(0));
     })
   }, [dispatch])
 

@@ -58,7 +58,7 @@ const DetailsTable = (props) => {
       return (
         <TableCell key={i} align="left" className={classes.cellRow}>
           {param && pathUrl ? (
-            <Link component={RouterLink} to={`${pathUrl}/${row[param]}`}>
+            <Link component={RouterLink} to={`${pathUrl}/${row[param]}`} exact="true">
               <Box
                 className={classes.box}
                 component="div"

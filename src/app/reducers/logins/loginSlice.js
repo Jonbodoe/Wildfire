@@ -1,11 +1,12 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 export const fetchLogins = createAsyncThunk('logins/fetchLogins', async () => {
-    const response = fetch(`${process.env.PORT || 'https://wildfireics-app.herokuapp.com'}/logins/get-logins-db`)
+    const response = fetch(`${'http://localhost:8080'|| 'https://wildfireics-app.herokuapp.com'}/logins/get-logins-db`)
+    // 'https://wildfireics-app.herokuapp.com'
     // downloaded a fetch polyfill 
     .then(function(response) {
         if (!response.ok) {
-            console.log('ok mounted!')
+            console.log('not mounted!')
             return response.statusText
         }
         return response.json();
@@ -26,7 +27,7 @@ export const loginSlice = createSlice({
             }
         },
         data: {
-            isLoggedIn: false,
+            isLoggedIn: true,
             userId: '',
             loginList: [],
         }

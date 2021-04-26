@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 export const fetchProfiles = createAsyncThunk('profiles/fetchProfiles', async () => {
-    const response = fetch(`${process.env.PORT || 'https://wildfireics-app.herokuapp.com'}/profiles/get-profiles-db`)
+    const response = fetch(`${'http://localhost:8080' || 'https://wildfireics-app.herokuapp.com'}/profiles/get-profiles-db`)
     // downloaded a fetch polyfill 
     .then(function(response) {
         if (!response.ok) {
@@ -31,6 +31,9 @@ export const profilesSlice = createSlice({
         }
     },
     reducers: {
+        selectProfile: (state, {payload}) => {
+            state.data.selectedProfileId = payload;
+        },
     },
     extraReducers: {
         [fetchProfiles.pending]: (state) => {
@@ -48,5 +51,10 @@ export const profilesSlice = createSlice({
         },
     },
 })
+
+export const { selectProfile } = profilesSlice.actions;
 export const listProfiles = state => state.profile.data.profilesList;
+export const selectProfileId = state => state.profile.data.selectedProfileId;
+
+
 export default profilesSlice.reducer;

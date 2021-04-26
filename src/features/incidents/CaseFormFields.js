@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Formik } from 'formik';
 import { makeStyles } from '@material-ui/core/styles';
-// import * as yup from 'yup';
 import { FormControl, Grid, InputLabel, Select, TextField } from '@material-ui/core';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import PrimaryButton from '../../components/PrimaryButton';
@@ -10,6 +9,9 @@ import labels from '../../app/detailStatusLabels';
 // import { listIncidents, updateList } from '../../app/reducers/incidents/incidentSlice';
 // import updateIncident from '../../app/reducers/incidents/middleware/updateIncident';
 import DetailsBlock from '../../components/DetailsBlock';
+import { listIncidents } from '../../app/reducers/incidents/incidentSlice';
+import { useSelector } from 'react-redux';
+import updateCase from '../../app/reducers/incidents/middleware/updateCase';
 
 const useStyles = makeStyles((theme) => ({
     saveButton: {
@@ -65,10 +67,11 @@ const useStyles = makeStyles((theme) => ({
 // });
 
 const CaseFormFields = (props) => {
-    const { data } = props;
+    const { data, caseId, incidentId } = props;
     // const caseId = data.zip_code;
     const { reviewed, additional_notes, valuable_assets, hazard_warnings } = data;
-    console.log(data)
+    const incidentList = useSelector(listIncidents);
+    // console.log(data)
     const {reviews} = labels;
     const [formContent, setFormContent] = useState({
         reviewed: reviewed,
@@ -98,8 +101,12 @@ const CaseFormFields = (props) => {
 
     const submitFormData = (values) => {
         // const updateCaseList =
+        console.log(updateCase(incidentList, values, incidentId, caseId));
         alert(JSON.stringify(values, null, 2));
         console.log(values, 'values baby')
+        
+
+        // additional_notes, reviewed, hazard_warning, valuable_assets
     }
 
     return <>
@@ -111,7 +118,7 @@ const CaseFormFields = (props) => {
         >
             {props => (
                 <form onSubmit={props.handleSubmit}>
-                    <DetailsBlock title='Case Assessment'>
+                    <DetailsBlock title='Case Resource Assessment'>
                     <div className={classes.textFieldContainer}>
                         <TextField
                             className={classes.textField}

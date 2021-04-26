@@ -25,7 +25,7 @@ const MapDisplay = () => {
     const classes = useStyles();
 
     useEffect(() => {
-        return fetch(`${process.env.PORT || 'https://wildfireics-app.herokuapp.com'}/api/mapbox`)
+        return fetch(`${'http://localhost:8080' || 'https://wildfireics-app.herokuapp.com'}/api/mapbox`)
         .then(function(response) {
             if (!response.ok) {
                 // console.log(response.statusText, "first")
@@ -49,7 +49,7 @@ const MapDisplay = () => {
         {/* <div className={classes.container}> */}
             {
                 api? <MapView 
-                    // state={api}
+                    state={api}
                     // uncomment to use API 
                     error={errorMessage}
                 /> : <Typography>loading...</Typography>

@@ -10,6 +10,7 @@ import PrimaryButton from '../components/PrimaryButton';
 import BrandLogo from '../components/BrandLogo';
 import LoadingSVG from '../images/svgs/loadingSVG';
 import verifyLoginInfo from '../app/reducers/logins/middleware/verifyLoginInfo.js'
+// import { selectProfile } from '../app/reducers/profiles/profilesSlice';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -119,7 +120,7 @@ const Login = () => {
     });
     if (isLoggedIn) {
         setLoading(false);
-        setError(false)
+        setError(false);
     }
     return <>
         {
@@ -128,7 +129,7 @@ const Login = () => {
                     <Grid item md={7} className={classes.imageColumn}>
                         <div className={classes.infoContainer}>
                             <Typography className={classes.title} variant='h3'>Making Wildfires<br /> More Managable.</Typography>
-                            <Typography className={classes.subTitle} variant='h6'>Lorem ipsum dolor sit amet, consectetur adipiscing elit</Typography>
+                            <Typography className={classes.subTitle} variant='h6'>A web-based application used to manage and locate wildfires for ICS systems</Typography>
                         </div>
                     </Grid>
                     <Grid item md={4} className={classes.loginColumn}>
