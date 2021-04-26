@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const ProfileNav = () => {
-    const profileImg = require('../images/profilePic.jpg');
+    const profileImg = require('../images/janedoe.jpg');
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
 

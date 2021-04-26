@@ -11,6 +11,7 @@ mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worke
 const useStyles = makeStyles((theme) => ({
     container: {
         backgroundColor: theme.palette.secondary.light,
+        width: '100%',
         padding: theme.spacing(2)
     },
     mapContainer: {
