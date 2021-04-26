@@ -2,7 +2,8 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 // import CaseDetails from '../../../features/incidents/CaseDetails';
 
 export const fetchIncidents = createAsyncThunk('incidents/fetchIncidents', async () => {
-    const response = fetch(`${'https://wildfireics-app.herokuapp.com' || 'http://localhost:8080'}/incidents/get-incidents-db`)
+    const response = fetch(`${'http://localhost:8080' || 'https://wildfireics-app.herokuapp.com'}/incidents/get-incidents-db`)
+    // 'https://wildfireics-app.herokuapp.com' || 'http://localhost:8080'
     // downloaded a fetch polyfill 
     .then(function(response) {
         if (!response.ok) {
@@ -76,16 +77,11 @@ export const refreshState = state => state.incidents.meta.refresh;
 // export const selectedIncident = incidents.find((incident) => !incident._id.indexOf(selectedId));
 export const getSelectedIncident = (state) => state.incidents.data.incidentList.find((incident) => !incident._id.indexOf(selectIncident(state)));
 export const getSelectedCase = (state) => {
-    const selectedId = selectIncident(state);
-    const incidentList = listIncidents(state);
-    const selectedIncident = incidentList.find((incident) => !incident._id.indexOf(selectedId));
-
+    const selectedIncident = getSelectedIncident(state);
     if (!selectedIncident) { return {}; }
-
     const caseList = selectedIncident.incident.cases
     const caseId = selectCaseId(state);
     const selectedCase = caseList.find((cases)=> !cases.zip_code.indexOf(caseId));
-
     return selectedCase;
 }
 
@@ -95,10 +91,7 @@ export const getIncidentDetailBlocks = (state) => {
     const selectedIncident = incidentList.find((incident) => !incident._id.indexOf(selectedId));
 
     if (!selectedIncident) { return {}; }
-    // console.log(selectedIncident, 'iuncident')
     const { geographics, incident } = selectedIncident;
-    // const cases = getSelectedCase(state);
-    // console.log(cases)
 
     // Set up the data representation of our detail blocks.
     // This keeps the data formatting responsibility separate from presentational components.
@@ -135,12 +128,12 @@ export const getIncidentDetailBlocks = (state) => {
 };
 
 export const getCaseDetailBlocks = (state) => {
-    const selectedId = selectIncident(state); // Reusing selectors above
-    const incidentList = listIncidents(state); // Reusing selectors above
-    const selectedIncident = incidentList.find((incident) => !incident._id.indexOf(selectedId));
     const cases = getSelectedCase(state);
+    const selectedId = selectIncident(state); // Reusing selectors above
+    const selectedIncident = getSelectedIncident(state) // Reusing selectors above
 
-    if (!selectedIncident && cases) { return {}; }
+    if (!selectedIncident && !cases) { return {}; }
+
     const { geographics, incident } = selectedIncident;
 
     const blocks =  [

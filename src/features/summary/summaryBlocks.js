@@ -34,7 +34,7 @@ const SummaryBlocks = (props) => {
     const { caseDetails } = caseBlocks;
 
     useEffect(() => {
-        fetch(`${'https://wildfireics-app.herokuapp.com' || 'http://localhost:8080'}/api/mapbox`)
+        fetch(`${'http://localhost:8080' || 'https://wildfireics-app.herokuapp.com'}/api/mapbox`)
         .then(function (response) {
             if (!response.ok) {
                 console.log(response.statusText)

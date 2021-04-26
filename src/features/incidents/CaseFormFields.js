@@ -102,8 +102,8 @@ const CaseFormFields = (props) => {
     const submitFormData = (values) => {
         // const updateCaseList =
         console.log(updateCase(incidentList, values, incidentId, caseId));
-        alert(JSON.stringify(values, null, 2));
-        console.log(values, 'values baby')
+        // alert(JSON.stringify(values, null, 2));
+        // console.log(values, 'values baby')
         
 
         // additional_notes, reviewed, hazard_warning, valuable_assets

@@ -12,8 +12,6 @@ mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worke
 const useStyles = makeStyles((theme) => ({
     container: {
         backgroundColor: theme.palette.secondary.light,
-        width: theme.spacing(50),
-        height: theme.spacing(100),
         padding: theme.spacing(2)
     },
     mapContainer: {
@@ -32,7 +30,7 @@ const Maps = () => {
     const classes = useStyles();
 
     useEffect(() => {
-        return fetch(`${'https://wildfireics-app.herokuapp.com' || 'http://localhost:8080'}/api/mapbox`)
+        return fetch(`${'http://localhost:8080' || 'https://wildfireics-app.herokuapp.com'}/api/mapbox`)
             .then(function (response) {
                 if (!response.ok) {
                     // console.log(response.statusText, "first")
@@ -48,14 +46,14 @@ const Maps = () => {
                 setErrorMessage({ message: error });
             });
 
-    }, []); // eslint-disable-line react-hooks/exhaustive-deps
-
+    }, [api]); // eslint-disable-line react-hooks/exhaustive-deps
+    // console.log(api)
     return <>
         <MainContainer>
             <Grid item md={7} className={classes.container}>
                 {
-                    api ? <MapView
-                        // state={api}
+                    api ? <MapContainer
+                        state={api}
                         // uncomment to use API 
                         error={errorMessage}
                     /> : <Typography>loading...</Typography>

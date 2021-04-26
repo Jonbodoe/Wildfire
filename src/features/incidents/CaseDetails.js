@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import DetailsContainer from "../../components/DetailsContainer";
@@ -76,8 +76,9 @@ const CaseDetails = (props) => {
   const selectedIncident = incidents.find(
     (incident) => !incident._id.indexOf(selectedId)
   );
+  // console.log(selectedIncident);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     setloading(!isLoaded ? true : false);
     if (!selectedId) {
       dispatch(select(incidentId));
