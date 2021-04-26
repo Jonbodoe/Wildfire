@@ -5,6 +5,9 @@ import MainContainer from '../components/MainContainer';
 import MapDetails from '../features/maps/MapDetails';
 const mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
 
+// eslint-disable-next-line import/no-webpack-loader-syntax
+mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
+
 const useStyles = makeStyles((theme) => ({
     container: {
         backgroundColor: theme.palette.secondary.light,
