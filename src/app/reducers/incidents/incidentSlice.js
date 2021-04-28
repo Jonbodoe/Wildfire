@@ -129,6 +129,7 @@ export const getIncidentDetailBlocks = (state) => {
 
 export const getCaseDetailBlocks = (state) => {
     const cases = getSelectedCase(state);
+    console.log(cases);
     const selectedId = selectIncident(state); // Reusing selectors above
     const selectedIncident = getSelectedIncident(state) // Reusing selectors above
 
