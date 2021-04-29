@@ -11,7 +11,7 @@ router.route('/').get((req, res) => {
 router.route('/get-incidents-db')
     .get((req, res) => {
         res.send(jsonData)
-        console.log('getting incidents data')
+        // console.log('getting incidents data')
         
         // var MongoClient = require('mongodb').MongoClient
         // MongoClient.connect('mongodb://localhost:27017/testing', function (err, client) {

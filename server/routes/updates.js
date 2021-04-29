@@ -11,7 +11,7 @@ router.route('/').get((req, res) => {
 router.route('/get-updates-db')
     .get((req, res) => {
         res.send(jsonData)
-        console.log('getting updates data')
+        // console.log('getting updates data')
 })
 
 

@@ -1,8 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 export const fetchLogins = createAsyncThunk('logins/fetchLogins', async () => {
-    const response = fetch(`${'http://localhost:8080' || 'https://wildfireics-app.herokuapp.com'}/logins/get-logins-db`)
+    const response = fetch(`${'https://wildfireics-app.herokuapp.com'}/logins/get-logins-db`)
     // 'https://wildfireics-app.herokuapp.com'
+    // 'http://localhost:8080'
     // downloaded a fetch polyfill 
     .then(function(response) {
         if (!response.ok) {
@@ -27,7 +28,7 @@ export const loginSlice = createSlice({
             }
         },
         data: {
-            isLoggedIn: true,
+            isLoggedIn: false,
             userId: '',
             loginList: [],
         }

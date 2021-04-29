@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 // import CaseDetails from '../../../features/incidents/CaseDetails';
 
 export const fetchIncidents = createAsyncThunk('incidents/fetchIncidents', async () => {
-    const response = fetch(`${'http://localhost:8080' || 'https://wildfireics-app.herokuapp.com'}/incidents/get-incidents-db`)
+    const response = fetch(`${'https://wildfireics-app.herokuapp.com'}/incidents/get-incidents-db`)
     // 'https://wildfireics-app.herokuapp.com' || 'http://localhost:8080'
     // downloaded a fetch polyfill 
     .then(function(response) {
@@ -77,7 +77,9 @@ export const refreshState = state => state.incidents.meta.refresh;
 // export const selectedIncident = incidents.find((incident) => !incident._id.indexOf(selectedId));
 export const getSelectedIncident = (state) => state.incidents.data.incidentList.find((incident) => !incident._id.indexOf(selectIncident(state)));
 export const getSelectedCase = (state) => {
+    // console.log()
     const selectedIncident = getSelectedIncident(state);
+    console.log(selectedIncident, 'hello selectedIncident')
     if (!selectedIncident) { return {}; }
     const caseList = selectedIncident.incident.cases
     const caseId = selectCaseId(state);
@@ -129,7 +131,6 @@ export const getIncidentDetailBlocks = (state) => {
 
 export const getCaseDetailBlocks = (state) => {
     const cases = getSelectedCase(state);
-    console.log(cases);
     const selectedId = selectIncident(state); // Reusing selectors above
     const selectedIncident = getSelectedIncident(state) // Reusing selectors above
 
@@ -146,16 +147,44 @@ export const getCaseDetailBlocks = (state) => {
                         { type: 'Incident', content: geographics.municipal },
                         { type: 'State', content: geographics.state }, 
                         { type: 'Region', content: geographics.region }, 
-                        { type: 'Zip Code', content: cases.zip_code},
+                        // { type: 'Zip Code', content: cases.zip_code},
                         { type: 'ID', content: selectedIncident._id.substr(selectedId.length - 5) }, 
-                        { type: 'Initial Time', content: `${cases.initial_time} ${geographics.time_zone} `}, 
+                        { type: 'Initial Time', content: `${geographics.time_stamp} ${geographics.time_zone} `}, 
                         { type: 'Api Keywords', content: incident.api_keywords.map(keyword => `${keyword} ,`)},
-                        { type: 'Authorities Present', content: cases.authorities_present}
+                        { type: 'Authorities Present', content: '20%'}
                     ]
                 },
                 {
                     title: 'Images',
-                    rows: cases.images
+                    rows: [
+                        {
+                            "img_src": "fireExample1.jpg",
+                            "timestamp": "11:42",
+                            "caption": "Wishing everyone is staying safe and sound, the wildfires on the side of the highway is getting worse",
+                            "source": {
+                                "brand": "Twitter",
+                                "source_link": "twitter.com"
+                            }
+                        },
+                        {
+                            "img_src": "fireExample2.jpg",
+                            "timestamp": "11:43",
+                            "caption": "Do your part and report any fires occuring in your area! visit nps.gov/wildfire_reporting",
+                            "source": {
+                                "brand": "Twitter",
+                                "source_link": "twitter.com"
+                            }
+                        },
+                        {
+                            "img_src": "fireExample3.jpg",
+                            "timestamp": "11:43",
+                            "caption": "Please evacuate if you are near the vinicity of the wildfire trajectory!",
+                            "source": {
+                                "brand": "Intuitive Robotics",
+                                "source_link": "N/A"
+                            }
+                        }
+                    ]
                 },
             ]
         }

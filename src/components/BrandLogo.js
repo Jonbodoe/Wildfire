@@ -16,7 +16,7 @@ const BrandLogo = (props) => {
     const { darkMode } = props;
     const classes = useStyles();
     return <Typography align="center" className={classes.logoContainer}>
-        <img className={classes.logo} src={ !darkMode ? require('./../images/IRlogo.svg').default : require('./../images/IRlogowhite.svg').default} alt={'Intuitive Robotics Logo'}/>
+        <img className={classes.logo} src={ !darkMode ? require('./../images/IRlogo.svg').default : require('./../images/IRlogoWhiteICS.svg').default} alt={'Intuitive Robotics Logo'}/>
     </Typography>
 }
 
