@@ -20,13 +20,13 @@
                 "userId": "0"
             },
             "status": "Open",
-            "volume_traffic": "5030",
+            "volume_traffic": "1228",
             "api_keywords": [
                 "#wildfire",
-                "#NPSfire",
-                "#IRfire"
+                "#forestfire",
+                "#irwildfire"
             ],
-            "wildfire_type": "wildfire",
+            "wildfire_type": "Wildfire",
             "property": [
                 "National Park Service",
                 "Private Property"
@@ -147,13 +147,13 @@
                 "userId": "1"
             },
             "status": "Open",
-            "volume_traffic": "313",
+            "volume_traffic": "810",
             "api_keywords": [
                 "#wildfire",
-                "#NPSfire",
-                "#IRfire"
+                "#forestfire",
+                "#irwildfire"
             ],
-            "wildfire_type": "wildfire",
+            "wildfire_type": "Wildfire",
             "property": [
                 "Private Property"
             ],
@@ -171,7 +171,7 @@
                         "lat": "-118.691",
                         "long": "34.020"
                     },
-                    "volume_traffic": "405",
+                    "volume_traffic": "409",
                     "authorities_present": "05%",
                     "additional_notes": "",
                     "valuable_assets": "Reports of local wireless towers are down",
@@ -214,7 +214,7 @@
                         "lat": "-118.691",
                         "long": "34.020"
                     },
-                    "volume_traffic": "405",
+                    "volume_traffic": "401",
                     "authorities_present": "05%",
                     "additional_notes": "Awaiting response from Chief Operations. Heavy traffic congestion near the incident",
                     "valuable_assets": "",
@@ -276,10 +276,10 @@
             "volume_traffic": "2871",
             "api_keywords": [
                 "#wildfire",
-                "#NPSfire",
-                "#IRfire"
+                "#forestfire",
+                "#irwildfire"
             ],
-            "wildfire_type": "wildfire",
+            "wildfire_type": "Wildfire",
             "property": [
                 "National Park Service",
                 "Private Property"
@@ -305,7 +305,7 @@
                     "hazard_warnings": "",
                     "images": [
                         {
-                            "img_src": "fireExample1.jpg",
+                            "img_src": "fireExample4.jpg",
                             "timestamp": "11:42",
                             "caption": "Wishing everyone is staying safe and sound, the wildfires on the side of the highway is getting worse",
                             "source": {
@@ -341,7 +341,7 @@
                         "lat": "-117.679",
                         "long": "33.445"
                     },
-                    "volume_traffic": "902",
+                    "volume_traffic": "1902",
                     "authorities_present": "67%",
                     "additional_notes": "",
                     "valuable_assets": "",
@@ -403,10 +403,10 @@
             "volume_traffic": "402",
             "api_keywords": [
                 "#wildfire",
-                "#NPSfire",
-                "#IRfire"
+                "#forestfire",
+                "#irwildfire"
             ],
-            "wildfire_type": "wildfire",
+            "wildfire_type": "Controlled Wildfire",
             "property": [
                 "National Park Service",
                 "Private Property"
@@ -483,13 +483,13 @@
                 "userId": "2"
             },
             "status": "Reviewing",
-            "volume_traffic": "5030",
+            "volume_traffic": "6730",
             "api_keywords": [
                 "#wildfire",
-                "#NPSfire",
-                "#IRfire"
+                "#forestfire",
+                "#irwildfire"
             ],
-            "wildfire_type": "wildfire",
+            "wildfire_type": "Wildfire",
             "property": [
                 "National Park Service",
                 "Private Property"
@@ -507,7 +507,7 @@
                         "lat": "-117.679",
                         "long": "33.445"
                     },
-                    "volume_traffic": "794",
+                    "volume_traffic": "5794",
                     "authorities_present": "05%",
                     "additional_notes": "Traffic congestion occuring 3 miles away from the wildfire incident",
                     "valuable_assets": "",
@@ -566,13 +566,13 @@
                 "userId": "0"
             },
             "status": "Resolved",
-            "volume_traffic": "203",
+            "volume_traffic": "8203",
             "api_keywords": [
                 "#wildfire",
-                "#NPSfire",
-                "#IRfire"
+                "#forestfire",
+                "#irwildfire"
             ],
-            "wildfire_type": "wildfire",
+            "wildfire_type": "Controlled Wildfire",
             "property": [
                 "National Park Service",
                 "Private Property"
@@ -590,7 +590,7 @@
                         "lat": "-117.501",
                         "long": "34.540"
                     },
-                    "volume_traffic": "2467",
+                    "volume_traffic": "5467",
                     "authorities_present": "34%",
                     "additional_notes": "",
                     "valuable_assets": "",
@@ -649,13 +649,13 @@
                 "userId": "2"
             },
             "status": "Open",
-            "volume_traffic": "5030",
+            "volume_traffic": "970",
             "api_keywords": [
                 "#wildfire",
-                "#NPSfire",
-                "#IRfire"
+                "#forestfire",
+                "#irwildfire"
             ],
-            "wildfire_type": "wildfire",
+            "wildfire_type": "Wildfire",
             "property": [
                 "National Park Service",
                 "Private Property"
@@ -674,7 +674,7 @@
                         "lat": "-117.679",
                         "long": "33.445"
                     },
-                    "volume_traffic": "405",
+                    "volume_traffic": "465",
                     "authorities_present": "05%",
                     "additional_notes": "",
                     "valuable_assets": "",
@@ -717,7 +717,7 @@
                         "lat": "-117.679",
                         "long": "33.445"
                     },
-                    "volume_traffic": "503",
+                    "volume_traffic": "485",
                     "authorities_present": "05%",
                     "additional_notes": "",
                     "valuable_assets": "",
